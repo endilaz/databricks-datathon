@@ -16,9 +16,9 @@ Sarvam Translate supports all 22 scheduled Indian languages, but the provided AP
 
 ## Optional procedure filter
 
-The cleaned CSV's `procedure` column contains 163,791 nonempty entries and about 89,000 distinct exact strings. Many entries are full sentences or unrelated web-text fragments. This prototype uses a conservative catalog of 52 named procedures and groups clear wording variants (for example, `root canal`, `root canal treatment`, and `RCT`). The catalog covers 4,904 of the 7,882 loaded facility records. These counts describe extracted claims, not verified services.
+The cleaned CSV's `procedure` column contains 156,221 entries and about 89,000 distinct exact strings. Many entries are full sentences or unrelated web-text fragments. This prototype uses a conservative catalog of 52 named procedures and groups clear wording variants (for example, `root canal`, `root canal treatment`, and `RCT`). The catalog covers 4,904 of the 7,882 loaded facility records. These counts describe extracted claims, not verified services.
 
-When a procedure is selected, `rank_facilities()` excludes facilities without a matching catalog tag **before** calculating the ranking. It shows the exact extracted text used for each match. The procedure is a strict eligibility filter and does not add points to the 100-point score. If no procedure is selected, ranking works as before.
+The 52-term catalog is supplemented by specific options for cataract and dialysis. For those families, the builder screens cleaned procedure, capability, equipment, and description excerpts using the documented methodology. The app shows the matching text, the cleaned field and array position, and whether each checklist item is reported, unreported, ambiguous, or contradicted. For other procedures, a matching catalog tag is required and the app shows its matching excerpt.
 
 Procedure matching deliberately skips obvious negations and research/training text, but the source may still include claims for another facility. The list is incomplete and a missing match does not prove that a facility cannot perform a procedure. Verify the procedure, current availability, and appropriate referral directly with the facility before using this for real care decisions.
 
@@ -36,7 +36,11 @@ Only facilities with internally consistent candidate coordinates and a provision
 | Medium | 8 | 20 | 14 |
 | High | 2 | 12 | 20 |
 
-If no symptoms are selected, every facility receives 40/40 for specialty fit and 20/20 for level fit because there is no symptom or severity to compare. After any procedure filter, distance determines the order. The score and its component metrics remain visible, but the plain-language “Why” explanation contains no scores or arrow notation.
+For cataract and dialysis queries, the score is **50 points for procedure evidence, 20 for distance, 20 for specialty fit, and 10 for level fit**. A stated service earns 30 evidence points and a procedure listing earns 24. Documented equipment can add up to 12 and capabilities up to 8. Unreported equipment or capabilities leave the service points available. A broad dialysis search can use one documented modality's checklist.
+
+A city conflict elsewhere in the record caps evidence at 22 points. If the matching claim itself names another city, the cap is 10. Equipment-only leads are capped at 10. Explicitly negative or conflicting equipment or capability evidence caps the score at 20. Conflicting service claims score zero on evidence and sort after other candidates. These are ranking rules for the prototype's source evidence. Current availability and clinical readiness require independent checks.
+
+Without symptoms, specialty and level components award equal points to every candidate. Distance orders ordinary searches without symptoms. Procedure evidence and distance both influence reviewed cataract and dialysis searches.
 
 The score is a project rubric, not a clinical probability. High self-reported severity alone does not prove tertiary care is needed.
 
@@ -44,6 +48,16 @@ The score is a project rubric, not a clinical probability. High self-reported se
 
 Each result shows its score breakdown, matched extracted specialty names, matching procedure text when selected, source-text excerpt, associated source URLs, address, phone, email, and data weaknesses. Source URLs and text have not been individually verified; some source records merge different facilities. The app therefore labels claims as provisional and should not be used for live patient routing until facilities and clinical rules are validated.
 
+The **Data cleaning and verification** panel reports the source export date and checksum, 30 repairs, 11 exact duplicate removals, and 7,681 review items across 6,643 of the 9,989 cleaned records. Search results and downloads include source CSV line numbers. Results display record-specific screening flags when present.
+
+Accreditation is shown as a branch-matched certificate on file, an unverified NABH mention in the export, or unknown. The two manually matched certificates include scope, validity dates and issuing-source links. A currently dated certificate with relevant scope breaks ties between equal scores with equal procedure evidence. The app uses published dates and has no live revocation feed. Certificate scope supports the stated service category and still leaves specific technique and availability to be checked.
+
 The PIN index is a median of candidate facility coordinates, **not** an official PIN centroid. It covers 2,797 PINs in the supplied records, so it does not yet cover all of India. Add an authoritative India Post PIN reference for national coverage. The source data contains no dependable real-time opening hours, emergency readiness, or service availability.
+
+## Rebuild the app data
+
+From the full datathon workspace, run `python3.12 india_care_app/build_facilities.py`. The builder reads `cleaned/facilities_clean.csv`, `cleaned/cleaning_audit.json`, and `cleaned/review_queue.csv`. It joins the cleaned data to the saved app enrichment by facility ID, then regenerates `data/facilities.json.gz` and `data/cleaning_summary.json`. The deployment ZIP contains these generated files and runs without the raw CSV.
+
+The existing enrichment supplies postal display fields, provisional care levels, procedure tags and excerpts. The builder checks that every enriched record has a unique cleaned ID, in-bounds and internally consistent coordinates, and procedure excerpts that match the cleaned procedure entries after trimming whitespace. It reconciles the full export's review queue and the existing procedure catalog counts. It also applies `procedure_support.py` and validates each curated accreditation record against the branch name, address and PIN before packaging. The 2,107 other cleaned records are outside the current search subset.
 
 Sources: [project brief](https://docs.google.com/document/d/e/2PACX-1vQxhDNQmgZhPgjG0M6LCb_UXNV8CJryqBNQQuqWfIg_dm40ZU1AYAXzZKViC6haFoCmLNiRVfUSBMjf/pub), [Databricks Apps](https://docs.databricks.com/aws/en/dev-tools/databricks-apps/tutorial-streamlit), [Sarvam Translate](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-translate).

@@ -1,0 +1,31 @@
+{
+  "28d82e2c-33b8-4e0b-9491-15f3406ff014": {
+    "name": "Suraj Eye Institute",
+    "pin": "440001",
+    "address_fragment": "559, New Colony",
+    "certificate_address": "559, New Colony, Nagpur 440001, Maharashtra",
+    "issuer": "NABH",
+    "certificate": "ECO-2021-0241",
+    "scope": "Cataract Services",
+    "procedure_family": "Cataract surgery",
+    "valid_from": "2024-12-30",
+    "valid_until": "2027-12-29",
+    "source": "https://portal.nabh.co/Documents/AccreditedList/Eye%20Care%20Organisation/ECO-2021-0241.pdf",
+    "checked_on": "2026-11-22"
+  },
+  "e17810d5-6651-4585-91a2-068788229d6c": {
+    "name": "Priyamvada Birla Aravind Eye Hospital",
+    "pin": "700017",
+    "address_fragment": "Loudon Street, Minto Park",
+    "certificate_address": "10, Dr. U.N. Brahmachari Street, Minto Park, Kolkata 700017, West Bengal",
+    "issuer": "NABH",
+    "certificate": "ECO-2024-0516",
+    "scope": "Cataract Services",
+    "procedure_family": "Cataract surgery",
+    "valid_from": "2024-08-08",
+    "valid_until": "2027-08-07",
+    "source": "https://portal.nabh.co/Documents/AccreditedList/Eye%20Care%20Organisation/ECO-2024-0516.pdf",
+    "branch_address_source": "https://portal.nabh.co/frmViewCGHSRecommend.aspx?Type=Eye+Hospital%2F+Centre&cityID=41",
+    "checked_on": "2026-11-22"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "source_file": "facilities-2026-11-21.csv",
+  "source_sha256": "c2adef493f398e933b8570cff5384a1b0e970dcd106649a6a7af99962c2a69bd",
+  "cleaned_sha256": "e285147ec44e94da31b5f7958c5531db509426271c758418108729b7f5365ac3",
+  "enrichment_origin_sha256": "84eca38433f144c0ed218f71a5a9e4176d9a08770f8533925f566ebbf0cdf6bd",
+  "as_of": "2026-11-21",
+  "parsed_rows": 10088,
+  "facility_entries": 10000,
+  "cleaned_records": 9989,
+  "repaired_records": 30,
+  "duplicates_removed": 11,
+  "review_items": 7681,
+  "flagged_records": 6643,
+  "flag_counts": {
+    "coordinates_outside_broad_india_bounds": 6,
+    "description_continuation_recovered_review": 30,
+    "invalid_or_missing_pin": 233,
+    "invalid_page_update_date": 11,
+    "multiple_city_names_in_text_review": 1594,
+    "official_phone_shared_by_5_or_more_records": 237,
+    "page_update_in_future": 1,
+    "planned_service_language_review": 125,
+    "source_array_length_mismatch": 5444
+  },
+  "searchable_records": 7882,
+  "flagged_search_records": 5152,
+  "procedure_support_counts": {
+    "Automated peritoneal dialysis (APD)": 4,
+    "Cataract surgery": 566,
+    "Dialysis": 746,
+    "Haemodialysis (any setting)": 230,
+    "Maintenance in-centre haemodialysis": 92,
+    "Manual peritoneal dialysis (CAPD)": 22,
+    "Manual small-incision cataract surgery": 9,
+    "Peritoneal dialysis": 90,
+    "Phacoemulsification": 296
+  },
+  "accreditation_records": 2
+}
