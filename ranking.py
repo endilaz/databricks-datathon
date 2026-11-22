@@ -3,6 +3,9 @@ from datetime import date
 from math import asin, cos, radians, sin, sqrt
 
 from procedure_support import RULES, SUPPORT_MAX
+from specialty_model import load_model, specialty_flag_count
+
+SPECIALTY_MODEL = load_model()
 
 RADIUS_MILES = 100.0
 SEVERITY_WEIGHT = {'Low': 1, 'Medium': 2, 'High': 3}
@@ -30,19 +33,45 @@ def distance_miles(lat1, lon1, lat2, lon2):
     h = sin(dlat/2)**2 + cos(a)*cos(b)*sin(dlon/2)**2
     return 3958.7613 * 2 * asin(min(1, sqrt(h)))
 
-def specialty_points(facility_specialties, selected, symptom_map):
-    """Interim exact-code matching. Replace this function with teammate's model."""
-    if not selected: return 40.0, []
+def rule_fit(facility_specialties, options):
+    """Exact-code fallback: 1.0 for the first listed specialty, 0.75 for another."""
     offered = set(facility_specialties)
+    hit = next((name for name in options if name in offered), None)
+    return (1.0 if hit == options[0] else 0.75) if hit else 0.0, hit
+
+def model_fits(facilities, selected, symptom_map, model=SPECIALTY_MODEL):
+    """Per-facility {symptom key: (fit, matched code)} from the learned specialty model.
+
+    Each symptom is scored on its own, as in training (single-symptom scenarios).
+    Returns None when the model is unavailable, so callers fall back to rule_fit.
+    """
+    if model is None or not selected or any(key not in model.symptoms for key in selected):
+        return None
+    specialties = [f['specialties'] for f in facilities]
+    flags = [specialty_flag_count(f.get('quality_flags', '')) for f in facilities]
+    canonical = [{model.canonical(k) for k in s} for s in specialties]
+    table = [{} for _ in facilities]
+    for key in selected:
+        options = symptom_map[key[0]][key[1]]
+        scores = model.fit_scores(specialties, flags, key)
+        for row, offered, score in zip(table, canonical, scores):
+            hit = next((name for name in options if model.canonical(name) in offered), None)
+            row[key] = (float(score), hit)
+    return table
+
+def specialty_points(facility_specialties, selected, symptom_map, fits=None):
+    """Severity-weighted specialty fit, scaled to 40 points.
+
+    `fits` maps each selected symptom to (fit in [0, 1], matched code) from the learned
+    model; without it, the exact-code rule is used.
+    """
+    if not selected: return 40.0, []
     total_weight = sum(SEVERITY_WEIGHT[s] for s in selected.values())
     earned = 0.0; matches = []
     for (category, symptom), severity in selected.items():
-        options = symptom_map[category][symptom]
-        hit = next((name for name in options if name in offered), None)
-        if hit:
-            strength = 1.0 if hit == options[0] else 0.75
-            earned += SEVERITY_WEIGHT[severity] * strength
-            matches.append((symptom, hit))
+        fit, hit = fits[(category, symptom)] if fits else rule_fit(facility_specialties, symptom_map[category][symptom])
+        earned += SEVERITY_WEIGHT[severity] * fit
+        if hit: matches.append((symptom, hit))
     return round(40 * earned / total_weight, 2), matches
 
 def rank_facilities(facilities, lat, lon, selected, symptom_map, selected_procedure=None):
@@ -58,15 +87,20 @@ def rank_facilities(facilities, lat, lon, selected, symptom_map, selected_proced
     procedure_family = RULES[selected_procedure][0] if selected_procedure in RULES else selected_procedure
     today = date.today().isoformat()
     base_weight = (100 - SUPPORT_MAX) / 100 if use_support else 1
-    ranked = []
+    candidates = []
     for f in facilities:
         support = f.get('procedure_support', {}).get(selected_procedure) if use_support else None
         if use_support and support is None: continue
         if selected_procedure and not use_support and selected_procedure not in f.get('procedures', []): continue
         d = distance_miles(lat, lon, f['lat'], f['lon'])
         if d > RADIUS_MILES: continue
+        candidates.append((f, support, d))
+    fit_table = model_fits([f for f, _, _ in candidates], selected, symptom_map)
+    ranked = []
+    for position, (f, support, d) in enumerate(candidates):
         distance_score = round(40 * base_weight * (1 - d/RADIUS_MILES), 2)
-        spec_score, matches = specialty_points(f['specialties'], selected, symptom_map)
+        fits = fit_table[position] if fit_table else None
+        spec_score, matches = specialty_points(f['specialties'], selected, symptom_map, fits)
         spec_score = round(spec_score * base_weight, 2)
         level_score = LEVEL_POINTS[severity][f['level']] if selected else 20
         level_score *= base_weight

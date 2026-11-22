@@ -10,7 +10,7 @@ Sarvam Translate supports all 22 scheduled Indian languages, but the provided AP
 
 ## Run
 
-1. Keep `app.py`, `ranking.py`, `app.yaml`, `requirements.txt`, and `data/` together.
+1. Keep `app.py`, `ranking.py`, `procedure_support.py`, `specialty_model.py`, `app.yaml`, `requirements.txt`, and `data/` together.
 2. Install `requirements.txt`, then run `streamlit run app.py` locally, or upload/deploy the folder as a Databricks App. The included `app.yaml` uses Databricks' documented Streamlit command.
 3. Enter a six-digit PIN or coordinates. Symptoms and a named procedure are both optional; select either, both, or neither.
 
@@ -29,7 +29,10 @@ Procedure matching deliberately skips obvious negations and research/training te
 Only facilities with internally consistent candidate coordinates and a provisional primary, secondary, or tertiary label are included. The 100-mile radius is strict.
 
 - Distance, 0–40: `40 × (1 − distance_miles/100)`.
-- Specialty, 0–40: interim exact-code rule. Each selected symptom has weight 1/2/3 for Low/Medium/High; a facility gets full credit for the first mapped specialty, 75% for another mapped specialty, and zero otherwise.
+- Specialty, 0–40: the trained specialty ranker from `feat/facilities-specialty-model` (`facilities/specialty/`, checkpoint `semantic_residual_seed_44`). For each selected symptom, the model scores the facility's listed specialties as IDF-weighted coverage of that symptom's specialties plus a learned correction of at most ±0.5, clipped to 0–1. Symptoms are scored one at a time, as in training, then averaged with weights 1/2/3 for Low/Medium/High.
+  - The model was trained on AI pairwise judgments, not clinician labels, and only on single-symptom scenarios; its 98.4% validation agreement is agreement with those labels.
+  - The app runs it with numpy from `data/specialty_model.json.gz`, which `export_specialty_model.py --component <path to facilities/specialty>` regenerates (that step needs PyTorch).
+  - If the file is missing, or `SPECIALTY_MODEL=off` is set, ranking falls back to the exact-code rule: full credit for the first mapped specialty, 75% for another mapped specialty, and zero otherwise.
 - Level, 0–20: based on the maximum reported severity:
 
 | Maximum severity | Primary | Secondary | Tertiary |
