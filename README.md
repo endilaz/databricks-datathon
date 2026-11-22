@@ -46,9 +46,11 @@ The score is a project rubric, not a clinical probability. High self-reported se
 
 ## Evidence and limitations
 
-Each result shows its score breakdown, matched extracted specialty names, matching procedure text when selected, source-text excerpt, associated source URLs, address, phone, email, and data weaknesses. Source URLs and text have not been individually verified; some source records merge different facilities. The app therefore labels claims as provisional and should not be used for live patient routing until facilities and clinical rules are validated.
+Search results prioritize contact details, distance, and the reason a facility matched. A short **Before you visit** note appears when a conflicting service claim, branch ambiguity, address issue, or shared phone number could affect a visit. The leading result cards show supporting excerpts and directory links. The CSV includes the full evidence checklist, audit notes, source identifiers, and line numbers.
 
-The **Data cleaning and verification** panel reports the source export date and checksum, 30 repairs, 11 exact duplicate removals, and 7,681 review items across 6,643 of the 9,989 cleaned records. Search results and downloads include source CSV line numbers. Results display record-specific screening flags when present.
+The cleaning checks cover internal consistency and traceability. Current availability and the branch providing a service should be confirmed directly with the facility.
+
+The **Data cleaning and verification** panel reports the source export date and checksum, 30 repairs, 11 exact duplicate removals, and 7,681 review items across 6,643 of the 9,989 cleaned records. Result details and downloads include source CSV line numbers.
 
 Accreditation is shown as a branch-matched certificate on file, an unverified NABH mention in the export, or unknown. The two manually matched certificates include scope, validity dates and issuing-source links. A currently dated certificate with relevant scope breaks ties between equal scores with equal procedure evidence. The app uses published dates and has no live revocation feed. Certificate scope supports the stated service category and still leaves specific technique and availability to be checked.
 

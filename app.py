@@ -49,9 +49,8 @@ def load_data(bundle_version):
 
 def show_cleaning_methodology(cleaning):
     st.caption(t(
-        'Built from the cleaned Virtue Foundation export. '
-        '{cleaned} unique records were retained and {searchable} are searchable in this prototype.',
-        cleaned=f"{cleaning['cleaned_records']:,}",
+        'Search {searchable} facility records from the Virtue Foundation directory. '
+        'We cleaned the data and checked map coordinates and procedure excerpts against the source.',
         searchable=f"{cleaning['searchable_records']:,}",
     ))
     with st.expander(t('Data cleaning and verification'), expanded=False):
@@ -61,7 +60,7 @@ def show_cleaning_methodology(cleaning):
         metrics[0].metric(t('Cleaned export records'), f"{cleaning['cleaned_records']:,}")
         metrics[1].metric(t('Split records repaired'), f"{cleaning['repaired_records']:,}")
         metrics[2].metric(t('Exact duplicates removed'), f"{cleaning['duplicates_removed']:,}")
-        metrics[3].metric(t('Records flagged for review'), f"{cleaning['flagged_records']:,}")
+        metrics[3].metric(t('Records with review notes'), f"{cleaning['flagged_records']:,}")
 
         st.markdown(f"**{t('How we cleaned the export')}**")
         st.write(t(
@@ -95,15 +94,13 @@ def show_cleaning_methodology(cleaning):
             pins=f"{flags.get('invalid_or_missing_pin', 0):,}",
         ))
         st.caption(t(
-            '{count} searchable records carry cleaning flags. Results show the relevant cautions and source line numbers.',
-            count=f"{cleaning['flagged_search_records']:,}",
+            'The results include practical visit notes where useful. '
+            'The CSV download includes the full review notes and source line numbers.',
         ))
-        st.markdown(f"**{t('What still needs independent verification')}**")
+        st.markdown(f"**{t('Using the directory to plan a visit')}**")
         st.write(t(
-            'Physical branch identity, the accuracy of the reported location, and current service availability '
-            'still need independent checks. PIN locations are estimates from facility coordinates. '
-            'Search covers the existing subset with provisional care-level labels. '
-            'Procedure filters use extracted claims where catalog matches are available.'
+            'PIN distances are estimates based on facility locations. Source links go back to directory material '
+            'that can cover several branches. For advice on what care you need, speak with a clinician.',
         ))
         st.caption(t('Source export SHA-256'))
         st.code(cleaning['source_sha256'], language=None)
@@ -117,6 +114,27 @@ def accreditation_label(facility):
     if facility.get('nabh_mention'):
         return t('NABH mentioned in export · unverified')
     return t('Unknown')
+
+
+def visit_note(facility, procedure):
+    support = facility['procedure_support_detail'] or {}
+    status = support.get('status')
+    if status in ('Conflicting procedure claims', 'Conflicting equipment or capability evidence'):
+        return t('The directory gives mixed information about this service or its equipment. Ask what is currently available.')
+    if status == 'Procedure excerpt mentions another city':
+        return t('The procedure description names another city. Confirm availability at this branch.')
+    flags = facility.get('cleaning_flags', [])
+    if status == 'Possible branch mix' or (procedure and 'multiple_city_names_in_text_review' in flags):
+        return t('The sources mention multiple locations. Confirm which branch offers this service.')
+    if status in ('Procedure needs confirmation', 'Procedure variant needs confirmation'):
+        return t('Ask whether this branch offers {procedure}.', procedure=t(procedure))
+    if procedure and not support and 'planned_service_language_review' in flags:
+        return t('The record mentions planned services. Ask whether this procedure is available now.')
+    if 'invalid_or_missing_pin' in flags or 'coordinates_outside_broad_india_bounds' in flags:
+        return t('Confirm the street address before travelling.')
+    if 'official_phone_shared_by_5_or_more_records' in flags:
+        return t('This number may reach a central desk. Ask for the listed branch.')
+    return ''
 
 
 def evidence_text(item):
@@ -138,7 +156,6 @@ def checklist_text(items):
 
 def show_procedure_evidence(support):
     st.markdown(f"**{t('Procedure evidence')}**")
-    st.write(t(support['status']))
     if 'checklist' in support:
         st.caption(t('Checklist used for broad dialysis search: {checklist}', checklist=t(support['checklist'])))
     if support['service']:
@@ -150,9 +167,10 @@ def show_procedure_evidence(support):
         ('Equipment evidence', support['equipment']),
         ('Capability evidence', support['capabilities']),
     ):
-        if items:
+        reported_items = [item for item in items if item.get('quote')]
+        if reported_items:
             st.markdown(f"**{t(label)}**")
-            st.text(checklist_text(items))
+            st.text(checklist_text(reported_items))
 
 
 def select_procedure(name):
@@ -164,7 +182,6 @@ facilities, pins, symptoms, procedures, cleaning = load_data(bundle_version)
 title_column, language_column = st.columns([4, 1])
 with title_column:
     st.title(t('Find the right care'))
-    st.caption(t('India facility finder · prototype using extracted facility claims'))
 with language_column:
     st.selectbox(t('Language'), list(LANGUAGE_LABELS), format_func=lambda code: LANGUAGE_LABELS[code], key='language')
 
@@ -184,7 +201,7 @@ with left:
     elif pin and re.fullmatch(r'[1-9][0-9]{5}', pin) and pin in pins:
         point = pins[pin]
         location = (point[0], point[1])
-        st.caption(t('PIN location estimated from {count} facility records, not an official postal centroid.', count=point[2]))
+        st.caption(t('Distances are estimated from facility locations in this PIN.'))
     else:
         location = None
         if pin:
@@ -228,7 +245,7 @@ with right:
         key='procedure',
     )
     if support_counts:
-        st.caption(t('Try equipment and capability ranking for cataract surgery or dialysis.'))
+        st.caption(t('Compare procedure and equipment details for cataract surgery or dialysis.'))
         cataract_button, dialysis_button = st.columns(2)
         cataract_button.button(
             t('Try phacoemulsification'), on_click=select_procedure, args=('Phacoemulsification',),
@@ -241,20 +258,18 @@ with right:
     use_support = bool(support_counts and selected_procedure in RULES)
     if use_support:
         st.caption(t(
-            '{count} candidates in the export. The checklist adds up to {points} ranking points for procedure, equipment and capability evidence.',
-            count=f'{procedure_counts[selected_procedure]:,}', points=SUPPORT_MAX,
+            '{count} records in the directory have information related to this procedure.',
+            count=f'{procedure_counts[selected_procedure]:,}',
         ))
         family = RULES[selected_procedure][0]
         reference = CATARACT_REFERENCE if family == 'Cataract surgery' else DIALYSIS_REFERENCE
         st.link_button(t('Read the checklist research'), reference)
-        st.caption(t('These points describe documented support. Confirm branch, technique and current availability directly.'))
     elif selected_procedure:
         st.caption(t(
-            '{count} facilities in this dataset have a matching extracted claim. Confirm the service directly before visiting.',
+            '{count} records in the directory list this procedure.',
             count=f'{procedure_counts[selected_procedure]:,}',
         ))
 
-st.info(t('This is a prototype. Facility details come from web text and may be incomplete or wrong. Call the facility to confirm its services before visiting. This app does not provide medical advice.'))
 search = st.button(t('Find facilities'), type='primary', disabled=not location)
 if search:
     st.session_state['show_results'] = True
@@ -269,56 +284,44 @@ elif selected_procedure:
 else:
     st.subheader(t('{count} facilities within 100 miles', count=f'{len(ranked):,}'))
 if not ranked:
-    if use_support:
-        st.warning(t('No candidates with matching procedure evidence were found within 100 miles.'))
-    elif selected_procedure:
-        st.warning(t('No eligible facilities with the selected extracted procedure claim were found within 100 miles.'))
-    else:
-        st.warning(t('No eligible facilities were found within 100 miles. This does not mean care is unavailable. Seek local clinical advice if needed.'))
+    st.info(t(
+        'The directory found no matches within 100 miles. Try a nearby PIN or choose a broader procedure.',
+    ) if selected_procedure else t(
+        'The directory found no facilities within 100 miles. Try a nearby PIN or enter coordinates.',
+    ))
     st.stop()
-if use_support:
-    st.caption(t(
-        'Score = procedure evidence (0–50) + distance (0–20) + provisional specialty match (0–20) + level fit (0–10). '
-        'Conflicting procedure claims appear last. A branch-matched certificate within its dates can break a tie.'
-    ))
-    st.caption(t(
-        'A procedure claim can earn up to {service} points on its own. Documented equipment adds up to {equipment} points '
-        'and capabilities add up to {capability}. Unreported means the export did not document the item.',
-        service=SERVICE_MAX, equipment=EQUIPMENT_MAX, capability=CAPABILITY_MAX,
-    ))
-else:
-    st.caption(t('Score = distance (0–40) + provisional specialty match (0–40) + level fit (0–20). Higher is ranked first. Facility evidence and weaknesses appear below.'))
+
+st.caption(t('Before visiting, call the facility to confirm the service, branch, and appointment availability.'))
+with st.expander(t('How results are ranked')):
+    if use_support:
+        st.write(t(
+            'Up to 50 points come from procedure evidence, 20 from distance, 20 from specialty match, and 10 from estimated care level. '
+            'Conflicting procedure claims rank last. A relevant branch certificate within its published dates can break a tie.'
+        ))
+        st.write(t(
+            'A procedure claim can earn up to {service} points on its own. Documented equipment adds up to {equipment} points '
+            'and capabilities add up to {capability}. An item is unreported when the checklist finds no matching source text.',
+            service=SERVICE_MAX, equipment=EQUIPMENT_MAX, capability=CAPABILITY_MAX,
+        ))
+    else:
+        st.write(t(
+            'Up to 40 points come from distance, 40 from matching the listed specialties to your search, and 20 from estimated care level. '
+            'Without selected symptoms, the closest matches appear first.',
+        ))
 
 table = []
 for index, facility in enumerate(ranked, 1):
-    why = [t('This facility is about {distance} miles from the location you entered.', distance=facility['distance_miles'])]
-    if selected:
-        examples = facility['matched_specialties'][:3]
-        for symptom, specialty in examples:
-            why.append(t(
-                'The record lists {specialty}, which may help assess {symptom}.',
-                specialty=t(readable_specialty(specialty)),
-                symptom=t(symptom),
-            ))
-        extra = len(facility['matched_specialties']) - len(examples)
-        if extra:
-            why.append(t('The record also lists possible matches for {count} other selected symptoms.', count=extra))
-        if not examples:
-            why.append(t('Its listed specialties do not clearly match the symptoms you selected.'))
-        maximum = max(selected.values(), key=lambda value: {'Low': 1, 'Medium': 2, 'High': 3}[value])
-        favored = {'Low': 'primary', 'Medium': 'secondary', 'High': 'tertiary'}[maximum]
+    why = []
+    if facility['matched_specialties']:
+        specialties = dict.fromkeys(t(readable_specialty(name)) for _, name in facility['matched_specialties'])
         why.append(t(
-            'For symptoms marked {severity}, this app favors {favored} care. This facility is listed as {level} care.',
-            severity=t(maximum), favored=t(favored), level=t(facility['level'].lower()),
+            'Listed specialties include {specialties}.', specialties=', '.join(list(specialties)[:3]),
         ))
-    elif not use_support:
-        why.append(t('You did not choose symptoms, so the available facilities are ordered by distance.'))
     support = facility['procedure_support_detail']
-    if support:
-        why.append(t(support['status']))
-    elif selected_procedure:
-        why.append(t('The record mentions {procedure}, the procedure you selected.', procedure=t(selected_procedure)))
-    why_text = ' '.join(why)
+    if support and support['status'] == 'Procedure and supporting evidence reported':
+        why.append(t('The directory lists {procedure} and supporting details.', procedure=t(selected_procedure)))
+    elif selected_procedure and (support is None or support['status'] == 'Procedure reported'):
+        why.append(t('The directory lists {procedure}.', procedure=t(selected_procedure)))
     weaknesses_text = ' '.join(t(item) for item in facility['weaknesses'])
     table.append({
         t('Rank'): index,
@@ -331,7 +334,8 @@ for index, facility in enumerate(ranked, 1):
         } if support else {}),
         t('Accreditation'): accreditation_label(facility),
         t('Level'): t(facility['level'].lower()),
-        t('Why'): why_text,
+        t('Why'): ' '.join(why),
+        t('Before you visit'): visit_note(facility, selected_procedure),
         t('Weaknesses'): weaknesses_text,
         t('Address'): facility['address'],
         t('Phone'): facility['phone'],
@@ -351,17 +355,46 @@ for index, facility in enumerate(ranked, 1):
         t('Source record start lines'): ', '.join(map(str, facility['source_line_starts'])),
         t('ID'): facility['id'],
     })
-st.dataframe(table, hide_index=True, use_container_width=True, height=420)
+visible_columns = [t('Rank'), t('Facility'), t('Miles'), t('Phone')]
+visit_column = t('Before you visit')
+if any(row[visit_column] for row in table):
+    visible_columns.append(visit_column)
+visible_columns.append(t('Score / 100'))
+if use_support:
+    visible_columns.append(t('Procedure evidence / 50'))
+why_column = t('Why')
+if any(row[why_column] for row in table):
+    visible_columns.append(why_column)
+accreditation_column = t('Accreditation')
+if any(row[accreditation_column] != t('Unknown') for row in table):
+    visible_columns.append(accreditation_column)
+visible_columns.append(t('Address'))
+visible_rows = [{column: row[column] for column in visible_columns} for row in table]
+for row in visible_rows:
+    if row.get(accreditation_column) == t('Unknown'):
+        row[accreditation_column] = ''
+st.dataframe(visible_rows, hide_index=True, use_container_width=True, height=420)
 buffer = io.StringIO()
 writer = csv.DictWriter(buffer, fieldnames=list(table[0]))
 writer.writeheader()
 writer.writerows(table)
-st.download_button(t('Download all ranked results (CSV)'), buffer.getvalue().encode('utf-8-sig'), 'ranked_facilities.csv', 'text/csv')
+st.download_button(
+    t('Download all ranked results (CSV)'), buffer.getvalue().encode('utf-8-sig'), 'ranked_facilities.csv', 'text/csv',
+    help=t('Includes the full evidence checklist, source references, and audit notes.'),
+)
 
 st.subheader(t('Evidence for leading results'))
 for index, facility in enumerate(ranked[:10], 1):
     heading = t('{rank}. {name} · {score}/100 · {distance} miles', rank=index, name=facility['name'], score=facility['score'], distance=facility['distance_miles'])
     with st.expander(heading):
+        st.write(f"**{t('Address')}** · {facility['address'] or t('Not available')}")
+        if facility['phone']:
+            st.write(f"**{t('Phone')}** · {facility['phone']}")
+        if facility['email']:
+            st.write(f"**{t('Email')}** · {facility['email']}")
+        note = table[index-1][t('Before you visit')]
+        if note:
+            st.write(f"**{t('Before you visit')}** · {note}")
         metrics = st.columns(4 if use_support else 3)
         metrics[0].metric(t('Distance'), f"{facility['distance_score']:g}/{20 if use_support else 40}")
         metrics[1].metric(t('Specialties'), f"{facility['specialty_score']:g}/{20 if use_support else 40}")
@@ -369,16 +402,11 @@ for index, facility in enumerate(ranked[:10], 1):
         if use_support:
             metrics[3].metric(t('Procedure evidence'), f"{facility['procedure_support_score']:g}/{SUPPORT_MAX}")
             show_procedure_evidence(facility['procedure_support_detail'])
-        st.write(f"**{t('Why')}:** {table[index-1][t('Why')]}")
-        st.write(f"**{t('Weaknesses')}:**")
-        for weakness in facility['weaknesses']:
-            st.write('• ' + t(weakness))
-        st.write(f"**{t('Address')}:** {facility['address'] or t('Not available')}")
-        st.write(f"**{t('Phone')}:** {facility['phone'] or t('Not available')}  |  **{t('Email')}:** {facility['email'] or t('Not available')}")
-        if selected_procedure and not use_support:
+        if selected_procedure and not use_support and facility['matched_procedure_evidence']:
             st.write(f"**{t('Matching extracted procedure text (original English):')}** {facility['matched_procedure_evidence']}")
-        st.markdown(f"**{t('Accreditation')}**")
-        st.write(accreditation_label(facility))
+        if facility.get('accreditation') or facility.get('nabh_mention'):
+            st.markdown(f"**{t('Accreditation')}**")
+            st.write(accreditation_label(facility))
         if certificate := facility.get('accreditation'):
             st.caption(t(
                 'Scope {scope} · {address} · {start} to {end} · Certificate reviewed {checked}',
@@ -388,9 +416,10 @@ for index, facility in enumerate(ranked[:10], 1):
             st.link_button(t('Open accreditation certificate'), certificate['source'])
         elif mention := facility.get('nabh_mention'):
             st.text(evidence_text(mention))
-        st.write(f"**{t('Facility text excerpt (original English):')}** {facility['evidence_excerpt'] or t('No excerpt available')}")
+        if facility['evidence_excerpt']:
+            st.write(f"**{t('Facility text excerpt (original English):')}** {facility['evidence_excerpt']}")
         if facility['source_urls']:
-            st.write(f"**{t('Associated source URLs (not individually verified):')}**")
+            st.write(f"**{t('Directory source links')}**")
             for number, url in enumerate(facility['source_urls'][:3], 1):
                 if url.startswith(('https://', 'http://')):
                     st.link_button(t('Source {number}', number=number), url)
