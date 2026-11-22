@@ -96,6 +96,101 @@ PHACO_DEVICE_ITEM = re.compile(PHACO_SYSTEM, re.I)
 ACUTE_OR_HOME = re.compile(r'\b(?:acute|emergency|bedside|icu|home)[- ](?:only[- ])?h[ae]?emodialysis\b', re.I)
 NABH = re.compile(r'\bNABH\b', re.I)
 
+# These patterns identify directory wording associated with a procedure. They do
+# not describe required equipment or establish whether a facility can provide it.
+CATALOG_EQUIPMENT_TERMS = {
+    'Appendectomy': r'(?:appendectomy|appendicectomy) (?:kits?|instrument sets?)',
+    'Arthroscopy': r'arthroscopes?|arthroscop(?:y|ic) (?:towers?|shavers?|instruments?)',
+    'Biopsy': r'biopsy (?:needles?|guns?|forceps|devices?|punches?)',
+    'Blood transfusion': r'blood (?:bag sealers?|warmers?)|transfusion (?:warmers?|pumps?|sets?)',
+    'Cesarean section': r'(?:caesarean|cesarean|c-section) (?:kits?|instrument sets?|instruments?)',
+    'Chemotherapy': r'chemotherapy (?:infusion )?(?:pumps?|preparation hoods?)',
+    'Colonoscopy': r'colonoscopes?|colonoscopy (?:towers?|processors?)',
+    'Coronary angiography': r'coronary angiograph(?:y|ic) (?:catheters?|units?|systems?)',
+    'Coronary angioplasty': r'coronary (?:angioplasty balloons?|balloon catheters?|stents?)',
+    'Coronary bypass surgery': r'(?:coronary bypass|CABG) (?:instrument sets?|instruments?)',
+    'CT scan': r'(?:(?<!PET[- /])CT|computed tomography) scanners?',
+    'Dental bridge': r'(?:dental bridge|bridge fabrication) (?:milling machines?|milling systems?)',
+    'Dental crown': r'(?:dental crown|crown fabrication) (?:milling machines?|milling systems?)',
+    'Dental filling': r'(?:composite filling|dental composite) curing lights?',
+    'Dental implant': r'(?:dental implant|implantology) (?:drills?|motors?|surgical kits?)',
+    'Dentures': r'denture (?:flasks?|presses|processing units?)',
+    'Endoscopy': r'endoscopes?|endoscopy (?:towers?|processors?)',
+    'Gallbladder removal': r'cholecystectomy (?:kits?|instruments?|instrument sets?)',
+    'Hemorrhoid surgery': r'h[ae]morrhoid(?:ectomy)? (?:staplers?|banding devices?|instrument sets?)',
+    'Hip replacement': r'(?:total hip|hip replacement) (?:prosthes[ei]s|implants?|arthroplasty instruments?)',
+    'Hysterectomy': r'hysterectomy (?:manipulators?|instrument sets?)',
+    'Hysteroscopy': r'hysteroscopes?|hysteroscopy (?:towers?|fluid systems?)',
+    'In vitro fertilization (IVF)': r'(?:IVF|in vitro fertilization) (?:embryo )?incubators?',
+    'Intracytoplasmic sperm injection (ICSI)': r'(?:ICSI|intracytoplasmic sperm injection) (?:micromanipulators?|micropipettes?|microinjection systems?)',
+    'Intrauterine insemination (IUI)': r'(?:IUI|intrauterine insemination) catheters?',
+    'Joint replacement': r'joint (?:replacement|arthroplasty) (?:implants?|instrument sets?)',
+    'Kidney transplant': r'(?:kidney|renal) (?:transplant|perfusion) (?:instrument sets?|pumps?|machines?)',
+    'Knee replacement': r'(?:total knee|knee replacement) (?:prosthes[ei]s|implants?|arthroplasty instruments?)',
+    'LASIK eye surgery': r'LASIK (?:lasers?|platforms?|systems?)',
+    'Lithotripsy': r'lithotripters?|lithotripsy (?:lasers?|probes?)',
+    'Liver transplant': r'liver (?:transplant|perfusion) (?:instrument sets?|pumps?|machines?)',
+    'MRI scan': r'(?:MRI|magnetic resonance imaging) (?:scanners?|machines?)',
+    'Pacemaker implantation': r'pacemaker (?:implantation kits?|programmers?)',
+    'Prostate removal': r'prostatectomy (?:kits?|instruments?|instrument sets?)',
+    'Radiation therapy': r'(?:medical )?linear accelerators?|radiotherapy (?:units?|machines?)',
+    'Retinal detachment surgery': r'retinal detachment (?:repair )?(?:instrument sets?|instruments?)',
+    'Root canal treatment': r'(?:rotary endodontic|endodontic rotary|root canal) (?:files?|motors?|systems?|instruments?)|(?:electronic )?apex locators?',
+    'Spinal fusion': r'spinal fusion (?:cages?|implants?|instrument sets?)',
+    'Teeth cleaning': r'(?:ultrasonic|dental) scalers?|ultrasonic scaling (?:units?|systems?)',
+    'Teeth whitening': r'(?:tooth|teeth|dental) (?:whitening|bleaching) (?:lamps?|lights?|lasers?)',
+    'Tonsillectomy': r'tonsillectomy (?:snares?|instrument sets?)',
+    'Tooth extraction': r'(?:tooth|dental) extraction (?:forceps|elevators?)',
+    'Ultrasound scan': r'ultrasound (?:scanners?|machines?|imaging (?:systems?|equipment))',
+    'Ureteroscopy': r'ureteroscopes?|ureteroscopy (?:towers?|instruments?)',
+    'Varicose vein treatment': r'(?:varicose vein|endovenous) (?:ablation )?(?:lasers?|laser systems?|ablation catheters?)',
+    'Wisdom tooth extraction': r'(?:wisdom tooth|third molar) extraction (?:forceps|elevators?)',
+    'X-ray imaging': r'x[- ]?ray (?:imaging )?(?:machines?|systems?|equipment|units?)',
+}
+CATALOG_UNCONFIRMED_CONTEXT = re.compile(
+    r'\b(?:stock (?:image|photo)|(?:image|photo|illustration) (?:depicts?|shows?)|outsourc(?:ed|ing))\b', re.I,
+)
+CATALOG_PROCEDURE_ALIASES = {
+    'Appendectomy': r'appendicectomy',
+    'Cesarean section': r'caesarean section|c-section',
+    'Coronary bypass surgery': r'coronary artery bypass grafting|CABG',
+    'CT scan': r'(?<!PET[- /])CT scanning|computed tomography',
+    'Gallbladder removal': r'cholecystectomy',
+    'Hemorrhoid surgery': r'ha?emorrhoidectomy',
+    'In vitro fertilization (IVF)': r'IVF|in vitro fertilisation',
+    'Intracytoplasmic sperm injection (ICSI)': r'ICSI',
+    'Intrauterine insemination (IUI)': r'IUI',
+    'Joint replacement': r'joint arthroplasty',
+    'LASIK eye surgery': r'LASIK',
+    'MRI scan': r'MRI|magnetic resonance imaging',
+    'Prostate removal': r'prostatectomy',
+    'Radiation therapy': r'radiotherapy',
+    'Root canal treatment': r'root canals?|RCT',
+    'Ultrasound scan': r'ultrasonography|ultrasound',
+    'X-ray imaging': r'x[- ]?rays?|radiography',
+}
+
+
+def catalog_support_patterns(procedures):
+    devices = r'(?:equipment|machines?|devices?|systems?|kits?|instruments?|instrument sets?)'
+    capability = r'(?:teams?|specialists?|trained staff|operating theatres?|procedure suites?|laborator(?:y|ies)|labs?)'
+    patterns = {}
+    for name in procedures:
+        if name in RULES:
+            continue
+        term = re.escape(name.split(' (', 1)[0])
+        if name == 'CT scan':
+            term = r'(?<!PET[- /])' + term
+        terms = '|'.join(filter(None, (term, CATALOG_PROCEDURE_ALIASES.get(name))))
+        service = rf'\b(?:{terms})\b'
+        phrases = [rf'{service}\s+{devices}', rf'{devices}\s+for\s+{service}']
+        if alias := CATALOG_EQUIPMENT_TERMS.get(name):
+            phrases.append(alias)
+        equipment = r'\b(?:' + '|'.join(phrases) + r')\b'
+        capability_pattern = rf'(?:{service}\s+{capability}\b|\b{capability}\s+(?:for|trained in)\s+{service})'
+        patterns[name] = (service, equipment, capability_pattern)
+    return patterns
+
 
 def _entries(row):
     for field in ('procedure', 'capability', 'equipment', 'description', 'description_continuation'):
@@ -115,6 +210,8 @@ def _excerpt(entry, pattern):
         return entry or {}
     quote = entry['quote']
     match = re.search(pattern, quote, re.I)
+    if not match:
+        return {**entry, 'quote': quote[:600]}
     start = max(0, match.start() - 180)
     end = min(len(quote), max(match.end() + 180, start + 300))
     return {**entry, 'quote': quote[start:end]}
@@ -135,12 +232,16 @@ def _negative(quote, pattern):
     )
 
 
-def _requirements(entries, requirements):
+def _requirements(entries, requirements, *, uncertain_context=None):
     results = []
     for label, pattern in requirements:
         hits = _matching(entries, pattern)
         negative = next((entry for entry in hits if _negative(entry['quote'], pattern)), None)
-        support = next((entry for entry in hits if _reports_requirement(entry, pattern)), None)
+        support = next((
+            entry for entry in hits
+            if _reports_requirement(entry, pattern)
+            and not (uncertain_context and uncertain_context.search(entry['quote']))
+        ), None)
         entry = negative or support or (hits[0] if hits else {})
         status = ('Conflicting or negative text' if negative else 'Reported in export' if support
                   else 'Ambiguous or non-current text' if hits else 'Unreported')
@@ -183,9 +284,19 @@ def _evaluate(entries, name, existing_tag, mixed_branch, other_cities):
         return None
     equipment = _requirements(entries, equipment_rules)
     capabilities = _requirements(entries, capability_rules)
+    return _score_support(
+        service, negative, equipment, capabilities, pattern,
+        service_points=SERVICE_MAX if stated else 24 if listed else 0,
+        mixed_branch=mixed_branch, other_cities=other_cities,
+        variant=name != family, indirect_hits=indirect_hits,
+    )
+
+
+def _score_support(service, negative, equipment, capabilities, pattern, *, service_points,
+                   mixed_branch, other_cities, variant=False, indirect_hits=False):
     equipment_hits = sum(item['status'] == 'Reported in export' for item in equipment)
     capability_hits = sum(item['status'] == 'Reported in export' for item in capabilities)
-    points = SERVICE_MAX if stated else 24 if listed else 0
+    points = service_points
     if equipment:
         points += EQUIPMENT_MAX * equipment_hits / len(equipment)
     if capabilities:
@@ -198,7 +309,7 @@ def _evaluate(entries, name, existing_tag, mixed_branch, other_cities):
     if negative:
         status, points = 'Conflicting procedure claims', 0
     elif not service:
-        status = 'Procedure variant needs confirmation' if name != family else 'Procedure needs confirmation'
+        status = 'Procedure variant needs confirmation' if variant else 'Procedure needs confirmation'
         points = 10 if indirect_hits else min(points, 10)
     elif mixed_branch:
         other_city_in_claim = other_cities and other_cities.search(service['quote'])
@@ -214,7 +325,34 @@ def _evaluate(entries, name, existing_tag, mixed_branch, other_cities):
     }
 
 
-def extract_evidence(row, tags, flags):
+def _catalog_support(entries, quote, patterns, mixed_branch, other_cities):
+    service_pattern, equipment_pattern, capability_pattern = patterns
+    service = next(entry for entry in entries if entry['field'] == 'procedure' and entry['quote'] == quote.strip())
+    service_entries = [service]
+    service_entries.extend(
+        entry for entry in _matching((item for item in entries if item['field'] == 'procedure'), service_pattern)
+        if entry is not service and not UNRELATED_SERVICE_ITEM.search(entry['quote'])
+    )
+    negative = next((entry for entry in service_entries if _negative(entry['quote'], service_pattern)), None)
+    if _non_operational(service['quote'], service_pattern) or CATALOG_UNCONFIRMED_CONTEXT.search(service['quote']):
+        service = None
+    stated = service and _action_near(service['quote'], service_pattern)
+    equipment = _requirements(
+        [entry for entry in entries if entry['field'] == 'equipment'],
+        [('Related equipment', equipment_pattern)], uncertain_context=CATALOG_UNCONFIRMED_CONTEXT,
+    )
+    capabilities = _requirements(
+        [entry for entry in entries if entry['field'] == 'capability'],
+        [('Related facility capability', capability_pattern)], uncertain_context=CATALOG_UNCONFIRMED_CONTEXT,
+    )
+    return _score_support(
+        service, negative, equipment, capabilities, service_pattern,
+        service_points=SERVICE_MAX if stated else 24 if service else 0,
+        mixed_branch=mixed_branch, other_cities=other_cities,
+    )
+
+
+def extract_evidence(row, tags, flags, *, catalog_patterns=None, catalog_quotes=None):
     entries = list(_entries(row))
     clinical_text = ' '.join(item['quote'] for item in entries)
     mixed_branch = 'multiple_city_names_in_text_review' in flags
@@ -238,5 +376,11 @@ def extract_evidence(row, tags, flags):
         best = max(modalities, key=lambda name: support[name]['points'], default=None)
         if best and support[best]['points'] > support['Dialysis']['points']:
             support['Dialysis'] = {**support[best], 'checklist': best}
+    if catalog_patterns:
+        for name in tags:
+            if name in catalog_patterns:
+                support[name] = _catalog_support(
+                    entries, catalog_quotes[name], catalog_patterns[name], mixed_branch, other_cities,
+                )
     mention = next((item for item in entries if NABH.search(item['quote'])), {})
     return support, _excerpt(mention, NABH.pattern)

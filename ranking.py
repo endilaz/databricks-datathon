@@ -49,9 +49,13 @@ def rank_facilities(facilities, lat, lon, selected, symptom_map, selected_proced
     maximum = max((SEVERITY_WEIGHT[x] for x in selected.values()), default=1)
     severity = next(k for k,v in SEVERITY_WEIGHT.items() if v==maximum)
     use_support = False
-    if selected_procedure in RULES:
+    if selected_procedure:
         facilities = list(facilities)
-        use_support = any('procedure_support' in f for f in facilities)
+        if selected_procedure in RULES:
+            use_support = any('procedure_support' in f for f in facilities)
+        else:
+            use_support = any(selected_procedure in f.get('procedure_support', {}) for f in facilities)
+    procedure_family = RULES[selected_procedure][0] if selected_procedure in RULES else selected_procedure
     today = date.today().isoformat()
     base_weight = (100 - SUPPORT_MAX) / 100 if use_support else 1
     ranked = []
@@ -70,7 +74,7 @@ def rank_facilities(facilities, lat, lon, selected, symptom_map, selected_proced
         score = round(distance_score + spec_score + level_score + evidence_score, 2)
         certificate = f.get('accreditation')
         active_certificate = bool(certificate and certificate['valid_from'] <= today <= certificate['valid_until'])
-        relevant_certificate = active_certificate and use_support and certificate['procedure_family'] == RULES[selected_procedure][0]
+        relevant_certificate = active_certificate and use_support and certificate['procedure_family'] == procedure_family
         weaknesses = ['We have not confirmed that this facility is open or currently offers the listed services.']
         if f['level_confidence'] != 'high': weaknesses.append('Its primary, secondary, or tertiary care level is an estimate based on limited information.')
         if selected and not matches: weaknesses.append('The available record does not list a specialty that clearly matches the symptoms you selected.')

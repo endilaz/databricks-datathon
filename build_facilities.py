@@ -11,7 +11,7 @@ from datetime import date
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
-from procedure_support import extract_evidence
+from procedure_support import catalog_support_patterns, extract_evidence
 
 
 BASE = Path(__file__).resolve().parent
@@ -32,6 +32,8 @@ def build(cleaned, output):
     accreditations = json.loads((BASE / 'build_inputs/accreditation.json').read_text(encoding='utf-8'))
     if accreditations.keys() - enrichment.keys():
         raise ValueError('An accreditation record has an unknown app facility ID')
+    catalog = json.loads((BASE / 'data/procedures.json').read_text(encoding='utf-8'))['procedures']
+    catalog_patterns = catalog_support_patterns(item['name'] for item in catalog)
     records = {}
     export_ids = set()
     review_counts = Counter()
@@ -71,7 +73,9 @@ def build(cleaned, output):
             ):
                 raise ValueError(f'Procedure evidence does not match the cleaned record for {facility_id}')
             procedure_counts.update(record['procedures'])
-            support, nabh_mention = extract_evidence(row, record['procedures'], flags)
+            support, nabh_mention = extract_evidence(
+                row, record['procedures'], flags, catalog_patterns=catalog_patterns, catalog_quotes=quotes,
+            )
             support_counts.update(support.keys())
             certificate = accreditations.get(facility_id)
             if certificate:
@@ -108,7 +112,6 @@ def build(cleaned, output):
     if len(queue_items) != review_counts.total() or set(queue_items) != review_items:
         raise ValueError('Review queue entries do not match the cleaned records and their source lines')
 
-    catalog = json.loads((BASE / 'data/procedures.json').read_text(encoding='utf-8'))['procedures']
     if procedure_counts != {item['name']: item['facility_count'] for item in catalog}:
         raise ValueError('Procedure tags do not match the app catalog counts')
 

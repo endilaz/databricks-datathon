@@ -10,7 +10,7 @@ import streamlit as st
 from procedure_support import (
     CAPABILITY_MAX, CATARACT_REFERENCE, DIALYSIS_REFERENCE, EQUIPMENT_MAX, RULES, SERVICE_MAX, SUPPORT_MAX,
 )
-from ranking import rank_facilities
+from ranking import LEVEL_POINTS, SEVERITY_WEIGHT, rank_facilities
 
 
 BASE = Path(__file__).resolve().parent
@@ -154,23 +154,40 @@ def checklist_text(items):
     )
 
 
+def show_checklist_excerpts(label, items):
+    items_with_excerpts = [item for item in items if item.get('quote')]
+    if not items_with_excerpts:
+        return
+    st.markdown(f"**{t(label)}**")
+    availability_notes = {
+        'Conflicting or negative text': 'The directory suggests it may be unavailable',
+        'Ambiguous or non-current text': 'Current availability is unclear',
+    }
+    for item in items_with_excerpts:
+        item_label = t(item['label'])
+        if note := availability_notes.get(item['status']):
+            item_label = f'{item_label} · {t(note)}'
+        st.caption(item_label)
+        st.text(f'“{item["quote"]}”')
+
+
 def show_procedure_evidence(support):
-    st.markdown(f"**{t('Procedure evidence')}**")
-    if 'checklist' in support:
-        st.caption(t('Checklist used for broad dialysis search: {checklist}', checklist=t(support['checklist'])))
-    if support['service']:
-        st.text(evidence_text(support['service']))
-    if support['conflict']:
-        st.caption(t('Conflicting procedure excerpt'))
-        st.text(evidence_text(support['conflict']))
-    for label, items in (
-        ('Equipment evidence', support['equipment']),
-        ('Capability evidence', support['capabilities']),
-    ):
-        reported_items = [item for item in items if item.get('quote')]
-        if reported_items:
-            st.markdown(f"**{t(label)}**")
-            st.text(checklist_text(reported_items))
+    if checklist := support.get('checklist'):
+        st.caption(t('Checklist for {checklist}', checklist=t(checklist)))
+    service_quote = support['service'].get('quote')
+    conflict_quote = support['conflict'].get('quote')
+    if service_quote or conflict_quote:
+        st.markdown(f"**{t('Procedure evidence')}**")
+        if service_quote:
+            st.text(f'“{service_quote}”')
+        if conflict_quote:
+            st.caption(t('The directory also reports a conflict'))
+            st.text(f'“{conflict_quote}”')
+
+    show_checklist_excerpts('Equipment evidence', support['equipment'])
+    if not any(item.get('quote') for item in support['equipment']):
+        st.caption(t('The directory has no matching equipment mention for this procedure.'))
+    show_checklist_excerpts('Capability evidence', support['capabilities'])
 
 
 def select_procedure(name):
@@ -223,7 +240,9 @@ with right:
             )
             selected[(category, symptom)] = severity
     if selected:
-        maximum = max(selected.values(), key=lambda value: {'Low': 1, 'Medium': 2, 'High': 3}[value])
+        maximum = max(selected.values(), key=SEVERITY_WEIGHT.__getitem__)
+        level_points = LEVEL_POINTS[maximum]
+        favored_level = max(level_points, key=level_points.__getitem__)
         st.caption(t('Maximum reported severity: {severity}', severity=t(maximum)))
 
     st.subheader(t('Optional procedure'))
@@ -241,7 +260,7 @@ with right:
         t('Procedure you need'),
         ['No specific procedure'] + list(procedure_counts),
         format_func=t,
-        help=t('Cataract and dialysis searches score supporting evidence. Other procedure searches use catalog matches.'),
+        help=t('Results consider the procedure claim, related equipment, and supporting capabilities reported in the directory.'),
         key='procedure',
     )
     if support_counts:
@@ -255,15 +274,16 @@ with right:
         )
     if selected_procedure == 'No specific procedure':
         selected_procedure = None
-    use_support = bool(support_counts and selected_procedure in RULES)
+    use_support = selected_procedure in support_counts
     if use_support:
         st.caption(t(
             '{count} records in the directory have information related to this procedure.',
             count=f'{procedure_counts[selected_procedure]:,}',
         ))
-        family = RULES[selected_procedure][0]
-        reference = CATARACT_REFERENCE if family == 'Cataract surgery' else DIALYSIS_REFERENCE
-        st.link_button(t('Read the checklist research'), reference)
+        if selected_procedure in RULES:
+            family = RULES[selected_procedure][0]
+            reference = CATARACT_REFERENCE if family == 'Cataract surgery' else DIALYSIS_REFERENCE
+            st.link_button(t('Read the checklist research'), reference)
     elif selected_procedure:
         st.caption(t(
             '{count} records in the directory list this procedure.',
@@ -309,14 +329,29 @@ with st.expander(t('How results are ranked')):
             'Without selected symptoms, the closest matches appear first.',
         ))
 
+why_column = t('Why')
 table = []
 for index, facility in enumerate(ranked, 1):
-    why = []
-    if facility['matched_specialties']:
-        specialties = dict.fromkeys(t(readable_specialty(name)) for _, name in facility['matched_specialties'])
+    why = [t('This facility is about {distance} miles from the location you entered.', distance=facility['distance_miles'])]
+    if selected:
+        matches = facility['matched_specialties']
+        examples = matches[:3]
+        for symptom, specialty in examples:
+            why.append(t(
+                'The record lists {specialty}, which may help assess {symptom}.',
+                specialty=t(readable_specialty(specialty)), symptom=t(symptom),
+            ))
+        extra = len(matches) - len(examples)
+        if extra:
+            why.append(t('The record also lists possible matches for {count} other selected symptoms.', count=extra))
+        if not examples:
+            why.append(t('Its listed specialties do not clearly match the symptoms you selected.'))
         why.append(t(
-            'Listed specialties include {specialties}.', specialties=', '.join(list(specialties)[:3]),
+            'For symptoms marked {severity}, this app favors {favored} care. This facility is listed as {level} care.',
+            severity=t(maximum), favored=t(favored_level.lower()), level=t(facility['level'].lower()),
         ))
+    elif not use_support:
+        why.append(t('You did not choose symptoms, so the available facilities are ordered by distance.'))
     support = facility['procedure_support_detail']
     if support and support['status'] == 'Procedure and supporting evidence reported':
         why.append(t('The directory lists {procedure} and supporting details.', procedure=t(selected_procedure)))
@@ -334,7 +369,7 @@ for index, facility in enumerate(ranked, 1):
         } if support else {}),
         t('Accreditation'): accreditation_label(facility),
         t('Level'): t(facility['level'].lower()),
-        t('Why'): ' '.join(why),
+        why_column: ' '.join(why),
         t('Before you visit'): visit_note(facility, selected_procedure),
         t('Weaknesses'): weaknesses_text,
         t('Address'): facility['address'],
@@ -362,9 +397,7 @@ if any(row[visit_column] for row in table):
 visible_columns.append(t('Score / 100'))
 if use_support:
     visible_columns.append(t('Procedure evidence / 50'))
-why_column = t('Why')
-if any(row[why_column] for row in table):
-    visible_columns.append(why_column)
+visible_columns.append(why_column)
 accreditation_column = t('Accreditation')
 if any(row[accreditation_column] != t('Unknown') for row in table):
     visible_columns.append(accreditation_column)
@@ -395,6 +428,7 @@ for index, facility in enumerate(ranked[:10], 1):
         note = table[index-1][t('Before you visit')]
         if note:
             st.write(f"**{t('Before you visit')}** · {note}")
+        st.write(f"**{why_column}** · {table[index-1][why_column]}")
         metrics = st.columns(4 if use_support else 3)
         metrics[0].metric(t('Distance'), f"{facility['distance_score']:g}/{20 if use_support else 40}")
         metrics[1].metric(t('Specialties'), f"{facility['specialty_score']:g}/{20 if use_support else 40}")
@@ -415,7 +449,7 @@ for index, facility in enumerate(ranked[:10], 1):
             ))
             st.link_button(t('Open accreditation certificate'), certificate['source'])
         elif mention := facility.get('nabh_mention'):
-            st.text(evidence_text(mention))
+            st.text(f'“{mention["quote"]}”')
         if facility['evidence_excerpt']:
             st.write(f"**{t('Facility text excerpt (original English):')}** {facility['evidence_excerpt']}")
         if facility['source_urls']:

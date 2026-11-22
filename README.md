@@ -18,7 +18,9 @@ Sarvam Translate supports all 22 scheduled Indian languages, but the provided AP
 
 The cleaned CSV's `procedure` column contains 156,221 entries and about 89,000 distinct exact strings. Many entries are full sentences or unrelated web-text fragments. This prototype uses a conservative catalog of 52 named procedures and groups clear wording variants (for example, `root canal`, `root canal treatment`, and `RCT`). The catalog covers 4,904 of the 7,882 loaded facility records. These counts describe extracted claims, not verified services.
 
-The 52-term catalog is supplemented by specific options for cataract and dialysis. For those families, the builder screens cleaned procedure, capability, equipment, and description excerpts using the documented methodology. The app shows the matching text, the cleaned field and array position, and whether each checklist item is reported, unreported, ambiguous, or contradicted. For other procedures, a matching catalog tag is required and the app shows its matching excerpt.
+The 52-term catalog is supplemented by specific options for cataract and dialysis. Each procedure search checks the directory record for the procedure claim, related equipment, and supporting capabilities. Cataract and dialysis use their published procedure-specific checklists. Other procedures use the curated catalog claim and check equipment and capability entries for wording linked to that procedure. Result cards show matching excerpts and flag unclear or conflicting evidence. The CSV includes the evidence statuses and source positions.
+
+An equipment mention describes the directory record. Facility readiness requires current branch-level confirmation of working equipment and other resources such as staff and supplies. [WHO facility readiness methodology](https://www.who.int/data/data-collection-tools/harmonized-health-facility-assessment/introduction)
 
 Procedure matching deliberately skips obvious negations and research/training text, but the source may still include claims for another facility. The list is incomplete and a missing match does not prove that a facility cannot perform a procedure. Verify the procedure, current availability, and appropriate referral directly with the facility before using this for real care decisions.
 
@@ -36,17 +38,17 @@ Only facilities with internally consistent candidate coordinates and a provision
 | Medium | 8 | 20 | 14 |
 | High | 2 | 12 | 20 |
 
-For cataract and dialysis queries, the score is **50 points for procedure evidence, 20 for distance, 20 for specialty fit, and 10 for level fit**. A stated service earns 30 evidence points and a procedure listing earns 24. Documented equipment can add up to 12 and capabilities up to 8. Unreported equipment or capabilities leave the service points available. A broad dialysis search can use one documented modality's checklist.
+For all procedure queries, the score is **50 points for procedure evidence, 20 for distance, 20 for specialty fit, and 10 for level fit**. A stated service earns 30 evidence points and a procedure listing earns 24. Documented equipment can add up to 12 and capabilities up to 8. Unreported equipment or capabilities leave the service points available. A broad dialysis search can use one documented modality's checklist.
 
 A city conflict elsewhere in the record caps evidence at 22 points. If the matching claim itself names another city, the cap is 10. Equipment-only leads are capped at 10. Explicitly negative or conflicting equipment or capability evidence caps the score at 20. Conflicting service claims score zero on evidence and sort after other candidates. These are ranking rules for the prototype's source evidence. Current availability and clinical readiness require independent checks.
 
-Without symptoms, specialty and level components award equal points to every candidate. Distance orders ordinary searches without symptoms. Procedure evidence and distance both influence reviewed cataract and dialysis searches.
+Without symptoms, specialty and level components award equal points to every candidate. Distance orders searches without a selected symptom or procedure. Procedure evidence and distance both influence searches with a selected procedure.
 
 The score is a project rubric, not a clinical probability. High self-reported severity alone does not prove tertiary care is needed.
 
 ## Evidence and limitations
 
-Search results prioritize contact details, distance, and the reason a facility matched. A short **Before you visit** note appears when a conflicting service claim, branch ambiguity, address issue, or shared phone number could affect a visit. The leading result cards show supporting excerpts and directory links. The CSV includes the full evidence checklist, audit notes, source identifiers, and line numbers.
+Search results prioritize contact details and distance. The **Why** explanation gives the estimated distance, names specialties that match selected symptoms, and explains how the highest selected severity affects the care-level score. A short **Before you visit** note appears when a conflicting service claim, branch ambiguity, address issue, or shared phone number could affect a visit. The leading result cards show supporting excerpts and directory links. The CSV includes the full evidence checklist, audit notes, source identifiers, and line numbers.
 
 The cleaning checks cover internal consistency and traceability. Current availability and the branch providing a service should be confirmed directly with the facility.
 

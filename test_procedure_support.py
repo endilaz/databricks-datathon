@@ -1,7 +1,7 @@
 import json
 import unittest
 
-from procedure_support import extract_evidence
+from procedure_support import catalog_support_patterns, extract_evidence
 from ranking import rank_facilities
 
 
@@ -9,16 +9,65 @@ PHACO = 'Phacoemulsification'
 MAINTENANCE_HD = 'Maintenance in-centre haemodialysis'
 
 
-def support(procedures=(), equipment=(), capabilities=(), tags=(), cities=()):
+def support(procedures=(), equipment=(), capabilities=(), tags=(), cities=(), catalog_quotes=None):
     row = {
         'procedure': json.dumps(procedures), 'equipment': json.dumps(equipment),
         'capability': json.dumps(capabilities), 'description': '', 'description_continuation': '',
         'city_names_mentioned_in_text': json.dumps(cities), 'address_city_search': 'pune',
     }
-    return extract_evidence(row, tags, [])[0]
+    return extract_evidence(
+        row, tags, [], catalog_patterns=catalog_support_patterns(catalog_quotes or ()),
+        catalog_quotes=catalog_quotes,
+    )[0]
 
 
 class ProcedureSupportTests(unittest.TestCase):
+    def test_catalog_equipment_requires_a_relevant_entry_and_procedure_tag(self):
+        tags = ['CT scan', 'Root canal treatment', 'Hernia repair']
+        evidence = support(
+            procedures=tags, tags=tags, catalog_quotes={name: name for name in [*tags, 'MRI scan']},
+            equipment=['PET-CT scanner', 'MRI scanner', 'Dental chair', 'Digital Apex Locator',
+                       'Laparoscopic instruments for hernia repair'],
+        )
+        self.assertNotIn('MRI scan', evidence)
+        self.assertEqual(evidence['CT scan']['equipment'][0]['status'], 'Unreported')
+        self.assertEqual(evidence['Root canal treatment']['equipment'][0]['index'], 3)
+        self.assertEqual(evidence['Hernia repair']['equipment'][0]['status'], 'Reported in export')
+
+    def test_catalog_equipment_keeps_conflicting_and_unclear_evidence(self):
+        tags = ['CT scan', 'Coronary angioplasty', 'Radiation therapy']
+        evidence = support(
+            procedures=tags, tags=tags, catalog_quotes={name: name for name in tags},
+            equipment=['CT scanner', 'CT service outsourced (no in-house CT scanner)',
+                       'Coronary stent (image depicts a stent deployed in an artery)', 'Planned radiotherapy machine'],
+        )
+        self.assertEqual(evidence['CT scan']['equipment'][0]['status'], 'Conflicting or negative text')
+        self.assertEqual(evidence['CT scan']['equipment'][0]['index'], 1)
+        self.assertEqual(evidence['CT scan']['points'], 20)
+        self.assertEqual(evidence['Coronary angioplasty']['equipment'][0]['status'], 'Ambiguous or non-current text')
+        self.assertEqual(evidence['Radiation therapy']['points'], 24)
+
+    def test_catalog_procedure_uses_the_dialysis_scale(self):
+        procedure = 'Root canal treatment'
+        claim = 'Performs root canal treatment'
+        data = dict(procedures=[claim], tags=[procedure], catalog_quotes={procedure: claim})
+        weak = support(**data)[procedure]
+        equipped = support(**data, equipment=['Digital Apex Locator'])[procedure]
+        full = support(**data, equipment=['Digital Apex Locator'], capabilities=['Root canal treatment team'])[procedure]
+        dialysis = support(
+            procedures=['Offers haemodialysis'], equipment=['Haemodialysis machines', 'Dialysis reverse osmosis water system'],
+            capabilities=['Dialysis nursing team', 'Dialysis infection control protocol'],
+        )['Dialysis']
+        self.assertEqual((weak['points'], equipped['points'], full['points'], dialysis['points']), (30, 42, 50, 50))
+        base = dict(lon=73.9, level='Secondary', level_confidence='low', specialties=[], quality_flags='', source_urls=[])
+        candidates = [
+            dict(base, name='Closer', lat=18.6, procedure_support={procedure: weak}),
+            dict(base, name='Equipped', lat=19.0, procedure_support={procedure: equipped}),
+        ]
+        ranked = rank_facilities(iter(candidates), 18.6, 73.9, {}, {}, procedure)
+        self.assertEqual([record['name'] for record in ranked], ['Equipped', 'Closer'])
+        self.assertEqual(ranked[1]['score'], 80)
+
     def test_equipment_only_lead_does_not_turn_into_a_procedure_claim(self):
         evidence = support(
             procedures=['Cataract surgery'], equipment=['Phacoemulsification Unit'],
