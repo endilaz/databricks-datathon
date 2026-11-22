@@ -1,0 +1,83 @@
+[
+  {
+    "scenario_id": "scenario_060",
+    "outcomes": "BTABTTATTBTA",
+    "note": "Skin or injury-assessment specialties are specifically relevant in this sting/injury context; no allergic reaction, intervention or urgency is inferred."
+  },
+  {
+    "scenario_id": "scenario_061",
+    "outcomes": "BABTATBABTAT",
+    "note": "ENT is specifically relevant to sinus complaints. Eye, cardiac and unrelated specialties do not establish a cause or a stronger match."
+  },
+  {
+    "scenario_id": "scenario_062",
+    "outcomes": "BATBATBABATT",
+    "note": "Explicit ophthalmological scope is more specific for blurred vision than general medical assessment; cause and treatment remain unknown."
+  },
+  {
+    "scenario_id": "scenario_063",
+    "outcomes": "ABTABABATBTT",
+    "note": "ENT and gastrointestinal scope are specifically relevant to swallowing complaints; no site of dysfunction or cause is assumed."
+  },
+  {
+    "scenario_id": "scenario_064",
+    "outcomes": "BTATTBABABTA",
+    "note": "Cardiology is specifically relevant to racing heartbeat, without diagnosing an arrhythmia or deciding urgency."
+  },
+  {
+    "scenario_id": "scenario_065",
+    "outcomes": "BABTATBATBAT",
+    "note": "Psychiatric scope is specifically relevant to panic in this category. Physical causes and generalist assessment remain possible.",
+    "reversed_0_6": "AA"
+  },
+  {
+    "scenario_id": "scenario_066",
+    "outcomes": "UABTTABABTAU",
+    "note": "Skin or wound-assessment scope is specifically relevant to a boil. No drainage procedure or infection diagnosis is confirmed; duplicate identity requires abstention."
+  },
+  {
+    "scenario_id": "scenario_067",
+    "outcomes": "TTTTTTTTTTTT",
+    "note": "Every candidate has broad medical assessment. Fever alone does not establish the cause or justify preference for extra unrelated/infectious subspecialties."
+  },
+  {
+    "scenario_id": "scenario_068",
+    "outcomes": "TATBTTTTABAB",
+    "note": "Musculoskeletal orthopedic/rehabilitation scope is more specific to back pain than generalist assessment; no spinal diagnosis or need for surgery is inferred."
+  },
+  {
+    "scenario_id": "scenario_069",
+    "outcomes": "ABTABTABABAB",
+    "note": "Neurological, musculoskeletal and rehabilitation specialties directly address walking/function complaints; no mechanism, age or diagnosis is established."
+  },
+  {
+    "scenario_id": "scenario_070",
+    "outcomes": "BTABTATBABTA",
+    "note": "Urology and explicit Endourology are specifically relevant to difficulty passing urine; missing listings do not establish absent services."
+  },
+  {
+    "scenario_id": "scenario_071",
+    "outcomes": "BABATBATBATT",
+    "note": "Pulmonary assessment is specifically relevant to wheezing; general or emergency scope alone does not establish a respiratory subspecialty or an urgent condition."
+  },
+  {
+    "scenario_id": "scenario_072",
+    "outcomes": "BBATBABABTTA",
+    "note": "Pediatric skin scope, or combined general Pediatrics and Dermatology, supports the most specific child-context matches. Unrelated pediatric listings and adult-only generalist scope are broader."
+  },
+  {
+    "scenario_id": "scenario_073",
+    "outcomes": "ATBTATBTABTT",
+    "note": "Gynecological/general-surgical scope is relevant to breast complaints; a cancer-specific listing alone does not establish a cancer diagnosis or treatment need."
+  },
+  {
+    "scenario_id": "scenario_074",
+    "outcomes": "TABATTTTBTTT",
+    "note": "Skin and wound/injury-assessment scope is relevant to wound changes, without confirming infection, procedure availability or urgency."
+  },
+  {
+    "scenario_id": "scenario_075",
+    "outcomes": "TATBTABATTTB",
+    "note": "ENT provides specifically relevant ear-assessment scope; other listings do not establish an auditory diagnosis or a stronger specialty match."
+  }
+]

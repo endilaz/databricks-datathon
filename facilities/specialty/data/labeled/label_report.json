@@ -1,0 +1,31 @@
+{
+  "teacher_id": "gpt-6.1-sol/interactive-Codex",
+  "scenarios_labeled": 28,
+  "scenarios_pending": 0,
+  "judgments": 224,
+  "abstentions": 2,
+  "preference_pairs": 296,
+  "pairs_by_split": {
+    "train": 230,
+    "validation": 28,
+    "test": 38
+  },
+  "grades": {
+    "3": 131,
+    "2": 87,
+    "1": 4,
+    "None": 2
+  },
+  "informative_training_scenarios": 18,
+  "all_tied_scenarios": [
+    "scenario_006",
+    "scenario_011",
+    "scenario_020",
+    "scenario_025"
+  ],
+  "label_scope": "conditional_listed_specialty_fit",
+  "independently_reviewed": false,
+  "model_training": "not_run",
+  "usefulness_evaluation": "not_run",
+  "status": "Schema/provenance checks only; no clinical validity assessment"
+}

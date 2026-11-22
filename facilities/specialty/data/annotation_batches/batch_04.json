@@ -1,0 +1,32 @@
+[
+  {"scenario_id":"scenario_022","notes":{
+    "v":"Vascular Surgery specifically covers peripheral circulation, relevant to cold or pale extremities. This does not establish vascular disease or an indication for surgery.",
+    "g":"Internal Medicine supports broad assessment of cold/pale extremities; the cause is unspecified and peripheral vascular expertise is not listed.",
+    "c":"Cardiology is a broadly relevant circulatory specialty, but the record does not establish peripheral vascular assessment or the cause of the extremity changes."},
+   "decisions":[[3,["Vascular Surgery"],"v"],[2,["Internal Medicine"],"g"],[2,["Internal Medicine"],"g"],[2,["Internal Medicine"],"g"],[2,["Cardiology"],"c"],[2,["Internal Medicine"],"g"],[2,["Internal Medicine"],"g"],[2,["Cardiology"],"c"]]},
+  {"scenario_id":"scenario_023","notes":{
+    "p":"Psychiatry is specifically relevant to persistent stress in the mental-health category. A psychiatric disorder or need for specialist treatment is not established.",
+    "f":"Family Medicine provides relevant broad assessment of persistent stress; a mental-health specialty is not listed.",
+    "g":"Internal Medicine provides broad assessment of stress-related complaints; a mental-health specialty is not listed."},
+   "decisions":[[2,["Family Medicine"],"f"],[2,["Internal Medicine"],"g"],[2,["Family Medicine"],"f"],[2,["Internal Medicine"],"g"],[3,["Psychiatry"],"p"],[3,["Psychiatry"],"p"],[3,["Psychiatry"],"p"],[2,["Internal Medicine"],"g"]]},
+  {"scenario_id":"scenario_024","notes":{
+    "d":"Dermatology is specifically relevant to a lump in the skin-and-hair category. The location and nature of the lump are not specified, and malignancy is not assumed.",
+    "s":"General Surgery offers broadly relevant assessment of a lump. Cosmetic Dermatology alone does not verify general skin-lesion assessment, and an oncology referral is not inferred.",
+    "g":"Internal Medicine supports general assessment of an unspecified lump; skin-specialty assessment is not listed. No musculoskeletal location is assumed."},
+   "decisions":[[2,["General Surgery"],"s"],[2,["Internal Medicine"],"g"],[2,["Internal Medicine"],"g"],[3,["Dermatology"],"d"],[3,["Dermatology"],"d"],[3,["Dermatology"],"d"],[3,["Dermatology"],"d"],[2,["Internal Medicine"],"g"]]},
+  {"scenario_id":"scenario_025","notes":{
+    "g":"Internal Medicine is relevant for broad assessment of excessive sleepiness. No sleep-specific specialty or cause is established; extra neurological/respiratory listings alone do not justify a higher grade.",
+    "f":"Family Medicine is relevant for broad assessment of excessive sleepiness. No sleep-specific specialty or underlying cause is established."},
+   "decisions":[[2,["Internal Medicine"],"g"],[2,["Internal Medicine"],"g"],[2,["Internal Medicine"],"g"],[2,["Family Medicine"],"f"],[2,["Internal Medicine"],"g"],[2,["Internal Medicine"],"g"],[2,["Family Medicine"],"f"],[2,["Internal Medicine"],"g"]]},
+  {"scenario_id":"scenario_026","notes":{
+    "p":"Physical Medicine and Rehabilitation specifically covers musculoskeletal symptoms and function, relevant to muscle pain. A specific muscle disorder or treatment is not established.",
+    "o":"Orthopedic Surgery is a specifically relevant musculoskeletal specialty for muscle pain. This does not imply an injury diagnosis or that surgery is needed.",
+    "g":"Internal Medicine supports broad assessment of muscle pain; a musculoskeletal specialty is not listed."},
+   "decisions":[[3,["Physical Medicine and Rehabilitation"],"p"],[3,["Physical Medicine and Rehabilitation"],"p"],[3,["Orthopedic Surgery"],"o"],[3,["Physical Medicine and Rehabilitation"],"p"],[3,["Physical Medicine and Rehabilitation"],"p"],[3,["Physical Medicine and Rehabilitation"],"p"],[3,["Orthopedic Surgery"],"o"],[2,["Internal Medicine"],"g"]]},
+  {"scenario_id":"scenario_027","notes":{
+    "n":"Neurology is specifically relevant to balance symptoms. Onset and cause are unspecified; this is a specialty-scope match, not an urgency assessment.",
+    "ent":"Otolaryngology is specifically relevant to vestibular/balance complaints. An inner-ear cause or dedicated balance-testing capability is not confirmed.",
+    "x":"The record has a duplicate_id flag, leaving facility identity attribution unresolved. Its specialty claims need identity review before a hospital-specific judgment.",
+    "g":"Internal Medicine supports broad assessment of loss of balance. Eye-specialty listings alone do not establish a visual cause or general balance expertise."},
+   "decisions":[[3,["Neurology"],"n"],[3,["Otolaryngology"],"ent"],[3,["Neurology"],"n"],[3,["Otolaryngology"],"ent"],[3,["Otolaryngology"],"ent"],[null,[],"x"],[3,["Neurology"],"n"],[2,["Internal Medicine"],"g"]]}
+]

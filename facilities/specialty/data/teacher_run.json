@@ -1,0 +1,20 @@
+{
+  "teacher_id": "gpt-6.1-sol",
+  "generation_method": "interactive_annotation_by_Codex_assistant",
+  "external_api_calls": 0,
+  "date": "2026-11-22",
+  "task": "conditional_listed_specialty_fit",
+  "input_sha256": "603c550354be1f27a94600e1810df587673a1c1d4907778517f2e6e4efaa5efb",
+  "rubric_sha256": "f5a400c3a5bacd2d32709eb8b4fa8c5816c85fcfe560697d4772e15281b44efb",
+  "batch_sha256": {
+    "batch_01.json": "8b0a7fae4db73304b6e959d79330e9a09c8379ec06d8a8ad3671b8b6007a1466",
+    "batch_02.json": "bc02b6d78542cae3b078116bf13ef27912837578d1a0a7abff27f69cfc42a0f6",
+    "batch_03.json": "f3e124a1ef8d730dc08cc5522ff19a9c1c98ebfb9831eb54f76c6dee5c1b792a",
+    "batch_04.json": "4665a62bb075546aa2a462e549c133bfe3721347d98e6e326f770ef5510707fa"
+  },
+  "scenarios": 28,
+  "judgments": 224,
+  "independently_reviewed": false,
+  "facility_claims_verified": false,
+  "note": "Explicit AI judgments, not dictionary-generated labels. Fixed captured outputs; rerunning assembly does not rerun an AI teacher."
+}

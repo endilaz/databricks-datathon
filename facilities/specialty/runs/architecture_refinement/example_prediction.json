@@ -1,0 +1,217 @@
+{
+  "scenario_id": "scenario_002",
+  "meaning": "Provisional record-based fit, not a probability or validated clinical referral.",
+  "reason_note": "Categories describe dictionary overlap, not a causal explanation of MLP scores.",
+  "results": [
+    {
+      "facility_id": "d356b7ca-0d3b-4586-b8b2-369157c1fec2",
+      "name": "Meditrina Hospital",
+      "score": 6.982388973236084,
+      "care_level": null,
+      "claim_status": "unverified",
+      "listed_specialty_matches": [
+        "Emergency Medicine",
+        "Pediatrics"
+      ],
+      "reason_categories": [
+        "LISTED_SPECIALTY_MATCH"
+      ],
+      "score_components": {
+        "weighted_coverage": 1.0,
+        "learned_correction": -0.11794572323560715,
+        "positive_scale": 7.916053771972656
+      }
+    },
+    {
+      "facility_id": "64b04955-1b6c-47d7-b22d-1c9a20af1c6b",
+      "name": "Elite Medcity Hospital",
+      "score": 6.819126605987549,
+      "care_level": null,
+      "claim_status": "unverified",
+      "listed_specialty_matches": [
+        "Emergency Medicine",
+        "Pediatrics"
+      ],
+      "reason_categories": [
+        "LISTED_SPECIALTY_MATCH"
+      ],
+      "score_components": {
+        "weighted_coverage": 1.0,
+        "learned_correction": -0.1385699212551117,
+        "positive_scale": 7.916053771972656
+      }
+    },
+    {
+      "facility_id": "661f0fef-ec69-4b5d-bf0a-3778f29a55f4",
+      "name": "Rourkela Lifeline",
+      "score": 6.628721237182617,
+      "care_level": null,
+      "claim_status": "unverified",
+      "listed_specialty_matches": [
+        "Emergency Medicine",
+        "Pediatrics"
+      ],
+      "reason_categories": [
+        "LISTED_SPECIALTY_MATCH"
+      ],
+      "score_components": {
+        "weighted_coverage": 1.0,
+        "learned_correction": -0.16262297332286835,
+        "positive_scale": 7.916053771972656
+      }
+    },
+    {
+      "facility_id": "c7185521-d12b-410d-a93f-73e5039bd110",
+      "name": "Acharya Shri Chander College of Medical Sciences and Hospital",
+      "score": 6.5597734451293945,
+      "care_level": null,
+      "claim_status": "unverified",
+      "listed_specialty_matches": [
+        "Emergency Medicine",
+        "Pediatrics"
+      ],
+      "reason_categories": [
+        "LISTED_SPECIALTY_MATCH"
+      ],
+      "score_components": {
+        "weighted_coverage": 1.0,
+        "learned_correction": -0.17133288085460663,
+        "positive_scale": 7.916053771972656
+      }
+    },
+    {
+      "facility_id": "7b01154a-6580-40ba-8ea6-11071b81dfc8",
+      "name": "Tahiria Hospital",
+      "score": 6.443115711212158,
+      "care_level": null,
+      "claim_status": "unverified",
+      "listed_specialty_matches": [
+        "Emergency Medicine",
+        "Pediatrics"
+      ],
+      "reason_categories": [
+        "LISTED_SPECIALTY_MATCH"
+      ],
+      "score_components": {
+        "weighted_coverage": 1.0,
+        "learned_correction": -0.18606969714164734,
+        "positive_scale": 7.916053771972656
+      }
+    },
+    {
+      "facility_id": "681e2982-5737-4d55-8140-17919d58a335",
+      "name": "Samal Care Multispecialty Hospital",
+      "score": 6.32307767868042,
+      "care_level": null,
+      "claim_status": "unverified",
+      "listed_specialty_matches": [
+        "Emergency Medicine",
+        "Pediatrics"
+      ],
+      "reason_categories": [
+        "LISTED_SPECIALTY_MATCH"
+      ],
+      "score_components": {
+        "weighted_coverage": 1.0,
+        "learned_correction": -0.2012336105108261,
+        "positive_scale": 7.916053771972656
+      }
+    },
+    {
+      "facility_id": "0c134455-d20d-44c0-a068-d7b110f8d06c",
+      "name": "Medilife Superspeciality Hospital",
+      "score": 1.2687063217163086,
+      "care_level": null,
+      "claim_status": "unverified",
+      "listed_specialty_matches": [],
+      "reason_categories": [
+        "NO_LISTED_MATCH"
+      ],
+      "score_components": {
+        "weighted_coverage": 0.0,
+        "learned_correction": 0.16027005016803741,
+        "positive_scale": 7.916053771972656
+      }
+    },
+    {
+      "facility_id": "94b9416a-9c17-4b86-87d9-44509bee5b36",
+      "name": "Tender Palm Super Specialty Hospital",
+      "score": 1.2500388622283936,
+      "care_level": null,
+      "claim_status": "unverified",
+      "listed_specialty_matches": [],
+      "reason_categories": [
+        "NO_LISTED_MATCH"
+      ],
+      "score_components": {
+        "weighted_coverage": 0.0,
+        "learned_correction": 0.15791186690330505,
+        "positive_scale": 7.916053771972656
+      }
+    },
+    {
+      "facility_id": "6f0178dc-7dce-41ed-96eb-681f0d660bc1",
+      "name": "Orthomax Hospital",
+      "score": 0.7088701128959656,
+      "care_level": null,
+      "claim_status": "unverified",
+      "listed_specialty_matches": [],
+      "reason_categories": [
+        "NO_LISTED_MATCH"
+      ],
+      "score_components": {
+        "weighted_coverage": 0.0,
+        "learned_correction": 0.08954842388629913,
+        "positive_scale": 7.916053771972656
+      }
+    },
+    {
+      "facility_id": "2980d076-9d8a-443a-9712-1e7d9dbba45e",
+      "name": "Sacred Heart Hospital",
+      "score": 0.5803936719894409,
+      "care_level": null,
+      "claim_status": "unverified",
+      "listed_specialty_matches": [],
+      "reason_categories": [
+        "NO_LISTED_MATCH"
+      ],
+      "score_components": {
+        "weighted_coverage": 0.0,
+        "learned_correction": 0.07331856340169907,
+        "positive_scale": 7.916053771972656
+      }
+    },
+    {
+      "facility_id": "ff85534d-b44e-4f09-8444-e2a2aaa2c381",
+      "name": "National Institute Of Arthritis, Bali Nagar, Delhi",
+      "score": 0.5619801878929138,
+      "care_level": null,
+      "claim_status": "unverified",
+      "listed_specialty_matches": [],
+      "reason_categories": [
+        "NO_LISTED_MATCH"
+      ],
+      "score_components": {
+        "weighted_coverage": 0.0,
+        "learned_correction": 0.07099246978759766,
+        "positive_scale": 7.916053771972656
+      }
+    },
+    {
+      "facility_id": "73817413-78e2-4663-940b-c328f3594923",
+      "name": "Sai Surya Netra Seva, Vardhaman Manik Chowk, Ahmednagar",
+      "score": 0.47088947892189026,
+      "care_level": null,
+      "claim_status": "unverified",
+      "listed_specialty_matches": [],
+      "reason_categories": [
+        "NO_LISTED_MATCH"
+      ],
+      "score_components": {
+        "weighted_coverage": 0.0,
+        "learned_correction": 0.059485383331775665,
+        "positive_scale": 7.916053771972656
+      }
+    }
+  ]
+}

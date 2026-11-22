@@ -1,0 +1,124 @@
+[
+  {
+    "scenario_id": "scenario_124",
+    "outcomes": "TTTTTTTABABT",
+    "note": "General Pediatrics/Family Medicine supports age-appropriate assessment of child fever. Do not infer infection or prefer unrelated pediatric subspecialties."
+  },
+  {
+    "scenario_id": "scenario_125",
+    "outcomes": "TTTTTATTTBAB",
+    "note": "Wound-relevant emergency/general-surgical/plastic scope is compared with broad assessment. The cut site, closure need and procedural availability are unspecified."
+  },
+  {
+    "scenario_id": "scenario_126",
+    "outcomes": "TATTBATBABTT",
+    "note": "ENT is specifically relevant to nosebleed assessment; no cause, urgency or intervention is inferred."
+  },
+  {
+    "scenario_id": "scenario_127",
+    "outcomes": "TATBATBTTTAB",
+    "note": "Ophthalmology specifically covers itchy-eye assessment. An allergic cause or particular treatment is not assumed."
+  },
+  {
+    "scenario_id": "scenario_128",
+    "outcomes": "BATBABTTABTA",
+    "note": "Gastrointestinal or emergency assessment scope is specifically relevant to this digestive bleeding complaint. No actual bleeding diagnosis, acuity or procedure is established."
+  },
+  {
+    "scenario_id": "scenario_129",
+    "outcomes": "ATBTATTTTTTB",
+    "note": "Dermatology is specifically relevant to skin redness. Broad medical assessment remains relevant without diagnosing infection or inflammation."
+  },
+  {
+    "scenario_id": "scenario_130",
+    "outcomes": "TBATTBABABAT",
+    "note": "Endocrine/metabolic assessment is specifically relevant to unexplained weight change, without establishing an endocrine disease or excluding other causes.",
+    "reversed_0_6": "TB"
+  },
+  {
+    "scenario_id": "scenario_131",
+    "outcomes": "TABABTTATBAB",
+    "note": "Musculoskeletal and rehabilitation scope is specifically relevant to limb pain in this category. No injury, anatomical lesion or procedure is inferred."
+  },
+  {
+    "scenario_id": "scenario_132",
+    "outcomes": "TABABATTBTAB",
+    "note": "Neurology is specifically relevant to sensory symptoms; broad musculoskeletal or generalist listings alone do not establish a cause of tingling."
+  },
+  {
+    "scenario_id": "scenario_133",
+    "outcomes": "TABABATBATBT",
+    "note": "ENT is specifically relevant to hearing assessment. Missing listings do not establish absent services and no cause of hearing loss is inferred."
+  },
+  {
+    "scenario_id": "scenario_134",
+    "outcomes": "TTBTUUABTABA",
+    "note": "Gastrointestinal/hepatic scope directly matches jaundice assessment. Do not infer obstruction or liver disease; abstain on unresolved duplicate identity."
+  },
+  {
+    "scenario_id": "scenario_135",
+    "outcomes": "TBABATTBTATT",
+    "note": "Dermatology specifically matches blister assessment. No cause, infection or procedural need is inferred."
+  },
+  {
+    "scenario_id": "scenario_136",
+    "outcomes": "TBTTABATTBAT",
+    "note": "Endocrine/metabolic assessment is specifically relevant to excessive thirst, without diagnosing diabetes or another metabolic cause."
+  },
+  {
+    "scenario_id": "scenario_137",
+    "outcomes": "TBTABABATTBA",
+    "note": "Musculoskeletal, neurological and rehabilitation scope is relevant to limb movement/function. No lesion, injury or urgency is inferred."
+  },
+  {
+    "scenario_id": "scenario_138",
+    "outcomes": "BABABABABTAT",
+    "note": "Neurology specifically covers focal weakness assessment. No stroke diagnosis, timing or urgency decision is inferred from this specialty-only comparison."
+  },
+  {
+    "scenario_id": "scenario_139",
+    "outcomes": "TBTTABABTABA",
+    "note": "Dental/oral scope specifically matches tooth complaints; generalist or unrelated head-and-neck assessment is broader."
+  },
+  {
+    "scenario_id": "scenario_140",
+    "outcomes": "BTTATBTATTTT",
+    "note": "Gastrointestinal scope specifically matches bloating in this category; no underlying condition is established."
+  },
+  {
+    "scenario_id": "scenario_141",
+    "outcomes": "ABTATTBATBTT",
+    "note": "Dermatology specifically matches nail complaints. An infectious, nutritional or systemic cause is not inferred."
+  },
+  {
+    "scenario_id": "scenario_142",
+    "outcomes": "TTTTTTTTTTTT",
+    "note": "Poor appetite is nonspecific. All candidates list broad medical assessment; extra specialties do not establish a cause or justify breaking these ties."
+  },
+  {
+    "scenario_id": "scenario_143",
+    "outcomes": "TABTABATBABT",
+    "note": "Neurological and ENT scope is relevant to speech-related assessment; no neurological, voice or structural cause is inferred.",
+    "reversed_0_6": "TB"
+  },
+  {
+    "scenario_id": "scenario_144",
+    "outcomes": "ABTTATTBTTAB",
+    "note": "Gastrointestinal scope specifically matches vomiting in the digestive category. Pediatric-only subspecialty listings do not establish the patient's age or a cause."
+  },
+  {
+    "scenario_id": "scenario_145",
+    "outcomes": "TBATBTATBATT",
+    "note": "Dermatology specifically covers skin discoloration. No cause, site or treatment requirement is inferred."
+  },
+  {
+    "scenario_id": "scenario_146",
+    "outcomes": "BTTATTTBTTAT",
+    "note": "Neurological/vestibular ENT assessment is relevant in this head-and-nerves context. The exact form and cause of dizziness are not diagnosed."
+  },
+  {
+    "scenario_id": "scenario_147",
+    "outcomes": "ABABATBABTAB",
+    "note": "Gastrointestinal scope specifically matches indigestion; the symptom does not establish an underlying diagnosis or treatment need."
+  }
+]

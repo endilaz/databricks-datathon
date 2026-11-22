@@ -1,0 +1,148 @@
+{
+  "architecture": "original",
+  "seed": 43,
+  "parameters": 101921,
+  "best_epoch": 2,
+  "epochs_run": 10,
+  "selection": "minimum validation logistic loss",
+  "train": {
+    "loss": 0.28376175452453584,
+    "strict_agreement": 0.9856230031948882,
+    "macro_agreement": 0.9772280092592592,
+    "tie_preference_deviation": 0.1679365854175975,
+    "strict_pairs": 626,
+    "groups": 104
+  },
+  "validation": {
+    "loss": 0.32150036025614964,
+    "strict_agreement": 0.952755905511811,
+    "macro_agreement": 0.9241666666666667,
+    "tie_preference_deviation": 0.18463031685918815,
+    "strict_pairs": 127,
+    "groups": 21
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "training_loss": 0.47549030070121473,
+      "validation": {
+        "loss": 0.35067336687019895,
+        "strict_agreement": 0.937007874015748,
+        "macro_agreement": 0.9083333333333332,
+        "tie_preference_deviation": 0.18468519124733515,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    },
+    {
+      "epoch": 2,
+      "training_loss": 0.3124466852213328,
+      "validation": {
+        "loss": 0.32150036025614964,
+        "strict_agreement": 0.952755905511811,
+        "macro_agreement": 0.9241666666666667,
+        "tie_preference_deviation": 0.18463031685918815,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    },
+    {
+      "epoch": 3,
+      "training_loss": 0.28510509965081626,
+      "validation": {
+        "loss": 0.3394501131205332,
+        "strict_agreement": 0.952755905511811,
+        "macro_agreement": 0.9241666666666667,
+        "tie_preference_deviation": 0.16077961938932908,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    },
+    {
+      "epoch": 4,
+      "training_loss": 0.26760370689086044,
+      "validation": {
+        "loss": 0.34739219716617037,
+        "strict_agreement": 0.9448818897637795,
+        "macro_agreement": 0.9191666666666667,
+        "tie_preference_deviation": 0.22921602275561204,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    },
+    {
+      "epoch": 5,
+      "training_loss": 0.2530617851119202,
+      "validation": {
+        "loss": 0.3452643890466009,
+        "strict_agreement": 0.937007874015748,
+        "macro_agreement": 0.915,
+        "tie_preference_deviation": 0.1959372097087547,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    },
+    {
+      "epoch": 6,
+      "training_loss": 0.23505112417758658,
+      "validation": {
+        "loss": 0.34571144942726406,
+        "strict_agreement": 0.9448818897637795,
+        "macro_agreement": 0.9400000000000001,
+        "tie_preference_deviation": 0.2020236971549505,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    },
+    {
+      "epoch": 7,
+      "training_loss": 0.22407238171077692,
+      "validation": {
+        "loss": 0.35798286575646626,
+        "strict_agreement": 0.9448818897637795,
+        "macro_agreement": 0.9400000000000001,
+        "tie_preference_deviation": 0.22410293115487645,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    },
+    {
+      "epoch": 8,
+      "training_loss": 0.21269914987855232,
+      "validation": {
+        "loss": 0.37286342006354106,
+        "strict_agreement": 0.937007874015748,
+        "macro_agreement": 0.9337500000000001,
+        "tie_preference_deviation": 0.217939038025908,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    },
+    {
+      "epoch": 9,
+      "training_loss": 0.2066290733547738,
+      "validation": {
+        "loss": 0.37319007693302064,
+        "strict_agreement": 0.952755905511811,
+        "macro_agreement": 0.945,
+        "tie_preference_deviation": 0.2163796788851215,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    },
+    {
+      "epoch": 10,
+      "training_loss": 0.20178725907149223,
+      "validation": {
+        "loss": 0.3725560165586926,
+        "strict_agreement": 0.937007874015748,
+        "macro_agreement": 0.9324999999999999,
+        "tie_preference_deviation": 0.20366430501569033,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    }
+  ],
+  "test_evaluated": false,
+  "tie_weight": 0.25
+}

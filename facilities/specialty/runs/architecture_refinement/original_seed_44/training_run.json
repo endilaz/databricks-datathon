@@ -1,0 +1,148 @@
+{
+  "architecture": "original",
+  "seed": 44,
+  "parameters": 101921,
+  "best_epoch": 3,
+  "epochs_run": 10,
+  "selection": "minimum validation logistic loss",
+  "train": {
+    "loss": 0.2617508892972882,
+    "strict_agreement": 0.9920127795527156,
+    "macro_agreement": 0.9845196759259259,
+    "tie_preference_deviation": 0.17076233265707727,
+    "strict_pairs": 626,
+    "groups": 104
+  },
+  "validation": {
+    "loss": 0.3271715162055833,
+    "strict_agreement": 0.9448818897637795,
+    "macro_agreement": 0.9191666666666667,
+    "tie_preference_deviation": 0.20099307047126214,
+    "strict_pairs": 127,
+    "groups": 21
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "training_loss": 0.4454715373710944,
+      "validation": {
+        "loss": 0.37450745914663586,
+        "strict_agreement": 0.9448818897637795,
+        "macro_agreement": 0.9179166666666667,
+        "tie_preference_deviation": 0.12209612266583876,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    },
+    {
+      "epoch": 2,
+      "training_loss": 0.2992762735543343,
+      "validation": {
+        "loss": 0.33218316095215933,
+        "strict_agreement": 0.952755905511811,
+        "macro_agreement": 0.9241666666666667,
+        "tie_preference_deviation": 0.21695984550559325,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    },
+    {
+      "epoch": 3,
+      "training_loss": 0.28960761714440125,
+      "validation": {
+        "loss": 0.3271715162055833,
+        "strict_agreement": 0.9448818897637795,
+        "macro_agreement": 0.9191666666666667,
+        "tie_preference_deviation": 0.20099307047126214,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    },
+    {
+      "epoch": 4,
+      "training_loss": 0.2688733829686848,
+      "validation": {
+        "loss": 0.329896051968847,
+        "strict_agreement": 0.9448818897637795,
+        "macro_agreement": 0.92125,
+        "tie_preference_deviation": 0.18707667217274343,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    },
+    {
+      "epoch": 5,
+      "training_loss": 0.24749302839000636,
+      "validation": {
+        "loss": 0.3471673361602284,
+        "strict_agreement": 0.952755905511811,
+        "macro_agreement": 0.9241666666666667,
+        "tie_preference_deviation": 0.22641995172824494,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    },
+    {
+      "epoch": 6,
+      "training_loss": 0.23462733938000524,
+      "validation": {
+        "loss": 0.3377798054189909,
+        "strict_agreement": 0.9606299212598425,
+        "macro_agreement": 0.9712500000000001,
+        "tie_preference_deviation": 0.2238447901615796,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    },
+    {
+      "epoch": 7,
+      "training_loss": 0.22232950948035488,
+      "validation": {
+        "loss": 0.3477489174831481,
+        "strict_agreement": 0.952755905511811,
+        "macro_agreement": 0.945,
+        "tie_preference_deviation": 0.22813132780888848,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    },
+    {
+      "epoch": 8,
+      "training_loss": 0.21457110868337062,
+      "validation": {
+        "loss": 0.36785996776251567,
+        "strict_agreement": 0.937007874015748,
+        "macro_agreement": 0.93,
+        "tie_preference_deviation": 0.24144684060376662,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    },
+    {
+      "epoch": 9,
+      "training_loss": 0.21019145348467505,
+      "validation": {
+        "loss": 0.34972682488816126,
+        "strict_agreement": 0.9606299212598425,
+        "macro_agreement": 0.9712500000000001,
+        "tie_preference_deviation": 0.22595723693774752,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    },
+    {
+      "epoch": 10,
+      "training_loss": 0.202193495280181,
+      "validation": {
+        "loss": 0.3522136917426473,
+        "strict_agreement": 0.968503937007874,
+        "macro_agreement": 0.97625,
+        "tie_preference_deviation": 0.2218716496386188,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    }
+  ],
+  "test_evaluated": false,
+  "tie_weight": 0.25
+}

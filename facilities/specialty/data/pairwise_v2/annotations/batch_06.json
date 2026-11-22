@@ -1,0 +1,84 @@
+[
+  {
+    "scenario_id": "scenario_076",
+    "outcomes": "TBTTTTATBTAT",
+    "note": "Ophthalmology is specifically relevant to light sensitivity in the eye category; no ocular, neurological or other cause is established."
+  },
+  {
+    "scenario_id": "scenario_077",
+    "outcomes": "TBATBTABTABA",
+    "note": "Gastrointestinal/colorectal scope directly matches blood-in-stool assessment; no diagnosis, urgency or intervention is inferred."
+  },
+  {
+    "scenario_id": "scenario_078",
+    "outcomes": "TTTTTTTTTTTT",
+    "note": "Unspecified lightheadedness supports broad assessment. Additional cardiac or other specialty claims do not by themselves establish the cause or a justified preference.",
+    "reversed_0_6": "TT"
+  },
+  {
+    "scenario_id": "scenario_079",
+    "outcomes": "ATBTABATTTTB",
+    "note": "Psychiatric assessment is specifically relevant to anxiety in the mental-health category; no disorder or treatment necessity is established."
+  },
+  {
+    "scenario_id": "scenario_080",
+    "outcomes": "ATBABATTBABT",
+    "note": "Dermatology directly covers hair complaints. No endocrine, nutritional or medication-related cause is assumed."
+  },
+  {
+    "scenario_id": "scenario_081",
+    "outcomes": "TTTTTTTTTTTT",
+    "note": "The gland location and cause are unspecified. All candidates offer general assessment; do not assume head-and-neck disease, infection or malignancy to break ties."
+  },
+  {
+    "scenario_id": "scenario_082",
+    "outcomes": "TBATBTABABAT",
+    "note": "Musculoskeletal orthopedic/rehabilitation scope specifically covers joint complaints; no cause or procedure is inferred."
+  },
+  {
+    "scenario_id": "scenario_083",
+    "outcomes": "ABATBABATTBT",
+    "note": "Neurology is specifically relevant to cognitive symptoms. Onset, medical cause and urgency remain unspecified; broader assessment is still relevant."
+  },
+  {
+    "scenario_id": "scenario_084",
+    "outcomes": "TBABATBTABAT",
+    "note": "Urology specifically matches urinary frequency/urgency assessment; no infection, prostate disorder or other cause is inferred."
+  },
+  {
+    "scenario_id": "scenario_085",
+    "outcomes": "BATTTBATBTAT",
+    "note": "Pulmonary specialty scope is specifically relevant to chest congestion, while generalist assessment is broader. No cardiac or infectious cause is diagnosed."
+  },
+  {
+    "scenario_id": "scenario_086",
+    "outcomes": "TBTABTTATBTA",
+    "note": "Pediatric/family assessment is preferred over adult-only generalist scope in this child-context comparison. Extra unrelated subspecialties do not establish a cause of diarrhea."
+  },
+  {
+    "scenario_id": "scenario_087",
+    "outcomes": "BTABABTAABAB",
+    "note": "Obstetric/gynecological scope is specifically relevant to the explicitly pregnancy-related concern; family assessment is broader. No pregnancy outcome or urgency is inferred."
+  },
+  {
+    "scenario_id": "scenario_088",
+    "outcomes": "TTTTTTTTTTTT",
+    "note": "For unspecified bruising, the records do not establish a need for a particular injury, skin or blood subspecialty over broad general assessment."
+  },
+  {
+    "scenario_id": "scenario_089",
+    "outcomes": "TBTABATTBTTA",
+    "note": "Dental/oral and ENT scope specifically covers oral lesions. No cause or need for a procedure is inferred."
+  },
+  {
+    "scenario_id": "scenario_090",
+    "outcomes": "TBTABATTBABA",
+    "note": "Eye assessment is specifically relevant to eyelid swelling; no infectious, allergic or other cause is inferred."
+  },
+  {
+    "scenario_id": "scenario_091",
+    "outcomes": "BABATBATBATT",
+    "note": "Gastrointestinal assessment is specifically relevant to constipation; broader generalist care remains relevant and no cause is diagnosed.",
+    "reversed_0_6": "AB"
+  }
+]

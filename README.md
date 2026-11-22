@@ -10,6 +10,12 @@ Sarvam Translate supports all 22 scheduled Indian languages, but the provided AP
 
 ## Run
 
+The separately trained specialty-ranking component is in
+[`facilities/specialty/`](facilities/specialty/README.md). It includes PyTorch
+training code, prepared AI-labeled data, saved model checkpoints, architecture
+diagrams and verification instructions. The app below still uses its existing
+specialty scoring rule; this component has not yet been connected to the app.
+
 1. Keep `app.py`, `ranking.py`, `app.yaml`, `requirements.txt`, and `data/` together.
 2. Install `requirements.txt`, then run `streamlit run app.py` locally, or upload/deploy the folder as a Databricks App. The included `app.yaml` uses Databricks' documented Streamlit command.
 3. Enter a six-digit PIN or coordinates. Symptoms and a named procedure are both optional; select either, both, or neither.

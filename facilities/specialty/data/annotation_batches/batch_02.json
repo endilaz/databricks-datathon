@@ -1,0 +1,36 @@
+[
+  {"scenario_id":"scenario_008","notes":{
+    "c":"Cardiology specifically covers heart rhythm complaints such as palpitations; an arrhythmia or other diagnosis is not confirmed.",
+    "g":"Internal Medicine is relevant for broad assessment of palpitations; a cardiology service is not listed."},
+   "decisions":[[3,["Cardiology"],"c"],[3,["Cardiology"],"c"],[2,["Internal Medicine"],"g"],[3,["Cardiology"],"c"],[2,["Internal Medicine"],"g"],[3,["Cardiology"],"c"],[2,["Internal Medicine"],"g"],[3,["Cardiology"],"c"]]},
+  {"scenario_id":"scenario_009","notes":{
+    "p":"Psychiatry is specifically relevant to assessment of hallucinations in the mental-health category. A psychiatric cause is not established and medical causes remain possible.",
+    "n":"Neurology is a broad relevant specialty for possible neurological contributors to hallucinations, but a neurological cause and psychiatric assessment are not established.",
+    "g":"Internal Medicine supports broad assessment for medical causes of hallucinations; psychiatric specialty assessment is not listed."},
+   "decisions":[[2,["Neurology"],"n"],[2,["Neurology"],"n"],[3,["Psychiatry"],"p"],[2,["Internal Medicine"],"g"],[2,["Internal Medicine"],"g"],[3,["Psychiatry"],"p"],[3,["Psychiatry"],"p"],[2,["Internal Medicine"],"g"]]},
+  {"scenario_id":"scenario_010","notes":{
+    "d":"Dermatology specifically covers itching in the skin-and-hair category. A dermatological cause is not assumed to exclude systemic causes.",
+    "g":"Internal Medicine is a relevant generalist assessment specialty for unexplained itching; Dermatology is not listed."},
+   "decisions":[[3,["Dermatology"],"d"],[2,["Internal Medicine"],"g"],[3,["Dermatology"],"d"],[2,["Internal Medicine"],"g"],[3,["Dermatology"],"d"],[3,["Dermatology"],"d"],[2,["Internal Medicine"],"g"],[2,["Internal Medicine"],"g"]]},
+  {"scenario_id":"scenario_011","notes":{
+    "g":"Internal Medicine supports broad assessment of nonspecific chills. Chills alone do not establish infection or justify a higher grade for an unrelated subspecialty.",
+    "f":"Family Medicine supports broad assessment of nonspecific chills. Other specialty listings do not establish the cause or justify a higher grade."},
+   "decisions":[[2,["Internal Medicine"],"g"],[2,["Family Medicine"],"f"],[2,["Family Medicine"],"f"],[2,["Internal Medicine"],"g"],[2,["Internal Medicine"],"g"],[2,["Internal Medicine"],"g"],[2,["Family Medicine"],"f"],[2,["Internal Medicine"],"g"]]},
+  {"scenario_id":"scenario_012","notes":{
+    "o":"Orthopedic Surgery is specifically relevant to neck complaints in the musculoskeletal category. This does not establish an indication for surgery or a spinal diagnosis.",
+    "g":"Internal Medicine supports general assessment of neck pain, but a specifically musculoskeletal specialty is not listed."},
+   "decisions":[[2,["Internal Medicine"],"g"],[3,["Orthopedic Surgery"],"o"],[3,["Orthopedic Surgery"],"o"],[3,["Orthopedic Surgery"],"o"],[3,["Orthopedic Surgery"],"o"],[3,["Orthopedic Surgery"],"o"],[2,["Internal Medicine"],"g"],[2,["Internal Medicine"],"g"]]},
+  {"scenario_id":"scenario_013","notes":{
+    "n":"Neurology specifically covers sensory symptoms such as numbness. Location, onset and cause are unspecified; no urgency or surgical need is inferred.",
+    "g":"Internal Medicine supports general assessment of numbness. Neuro Ophthalmology is eye-specific and is not a substitute for general Neurology for unspecified numbness.",
+    "f":"Family Medicine supports general assessment of numbness; a neurological specialist is not listed."},
+   "decisions":[[3,["Neurology"],"n"],[3,["Neurology"],"n"],[3,["Neurology"],"n"],[3,["Neurology"],"n"],[3,["Neurology"],"n"],[2,["Internal Medicine"],"g"],[3,["Neurology"],"n"],[2,["Family Medicine"],"f"]]},
+  {"scenario_id":"scenario_014","notes":{
+    "u":"Urology is specifically relevant to painful/burning urination. Infection or a particular urinary diagnosis is not confirmed.",
+    "g":"Internal Medicine supports general assessment of burning urination; Urology is not listed and the cause remains unspecified."},
+   "decisions":[[2,["Internal Medicine"],"g"],[2,["Internal Medicine"],"g"],[3,["Urology"],"u"],[3,["Urology"],"u"],[3,["Urology"],"u"],[2,["Internal Medicine"],"g"],[3,["Urology"],"u"],[3,["Urology"],"u"]]},
+  {"scenario_id":"scenario_015","notes":{
+    "p":"Pulmonology specifically covers productive cough and respiratory complaints. Infection or another cause is not assumed.",
+    "g":"Internal Medicine provides relevant broad assessment of productive cough; a respiratory specialty is not listed."},
+   "decisions":[[2,["Internal Medicine"],"g"],[2,["Internal Medicine"],"g"],[3,["Pulmonology"],"p"],[3,["Pulmonology"],"p"],[2,["Internal Medicine"],"g"],[2,["Internal Medicine"],"g"],[3,["Pulmonology"],"p"],[3,["Pulmonology"],"p"]]}
+]

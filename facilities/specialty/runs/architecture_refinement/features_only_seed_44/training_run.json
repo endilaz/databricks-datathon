@@ -1,0 +1,160 @@
+{
+  "architecture": "features_only",
+  "seed": 44,
+  "parameters": 113,
+  "best_epoch": 7,
+  "epochs_run": 11,
+  "selection": "minimum validation logistic loss",
+  "train": {
+    "loss": 0.3259953125738181,
+    "strict_agreement": 0.9480830670926518,
+    "macro_agreement": 0.9366195436507937,
+    "tie_preference_deviation": 0.1299129290017681,
+    "strict_pairs": 626,
+    "groups": 104
+  },
+  "validation": {
+    "loss": 0.3351265639066696,
+    "strict_agreement": 0.9330708661417323,
+    "macro_agreement": 0.9106249999999999,
+    "tie_preference_deviation": 0.1538931264365015,
+    "strict_pairs": 127,
+    "groups": 21
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "training_loss": 0.6320409708871291,
+      "validation": {
+        "loss": 0.5598047574361166,
+        "strict_agreement": 0.9330708661417323,
+        "macro_agreement": 0.9106249999999999,
+        "tie_preference_deviation": 0.033219821935842844,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    },
+    {
+      "epoch": 2,
+      "training_loss": 0.48938283352897716,
+      "validation": {
+        "loss": 0.4277900145167396,
+        "strict_agreement": 0.9330708661417323,
+        "macro_agreement": 0.9106249999999999,
+        "tie_preference_deviation": 0.08937462560894076,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    },
+    {
+      "epoch": 3,
+      "training_loss": 0.38738791458308697,
+      "validation": {
+        "loss": 0.36323517915748416,
+        "strict_agreement": 0.9330708661417323,
+        "macro_agreement": 0.9106249999999999,
+        "tie_preference_deviation": 0.12609769373146956,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    },
+    {
+      "epoch": 4,
+      "training_loss": 0.3485412709414959,
+      "validation": {
+        "loss": 0.3432297855615616,
+        "strict_agreement": 0.9330708661417323,
+        "macro_agreement": 0.9106249999999999,
+        "tie_preference_deviation": 0.14183344596550485,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    },
+    {
+      "epoch": 5,
+      "training_loss": 0.33611901548619455,
+      "validation": {
+        "loss": 0.336985483056023,
+        "strict_agreement": 0.9330708661417323,
+        "macro_agreement": 0.9106249999999999,
+        "tie_preference_deviation": 0.14907260323789986,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    },
+    {
+      "epoch": 6,
+      "training_loss": 0.3305108981350294,
+      "validation": {
+        "loss": 0.33566232912597205,
+        "strict_agreement": 0.9330708661417323,
+        "macro_agreement": 0.9106249999999999,
+        "tie_preference_deviation": 0.15178064966558918,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    },
+    {
+      "epoch": 7,
+      "training_loss": 0.32763170243169254,
+      "validation": {
+        "loss": 0.3351265639066696,
+        "strict_agreement": 0.9330708661417323,
+        "macro_agreement": 0.9106249999999999,
+        "tie_preference_deviation": 0.1538931264365015,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    },
+    {
+      "epoch": 8,
+      "training_loss": 0.3255419140824905,
+      "validation": {
+        "loss": 0.3353039806797391,
+        "strict_agreement": 0.9330708661417323,
+        "macro_agreement": 0.9106249999999999,
+        "tie_preference_deviation": 0.1542261942974792,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    },
+    {
+      "epoch": 9,
+      "training_loss": 0.3244175990470327,
+      "validation": {
+        "loss": 0.3355508585061346,
+        "strict_agreement": 0.9330708661417323,
+        "macro_agreement": 0.9106249999999999,
+        "tie_preference_deviation": 0.15372348336641453,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    },
+    {
+      "epoch": 10,
+      "training_loss": 0.322707598670744,
+      "validation": {
+        "loss": 0.33575717075949624,
+        "strict_agreement": 0.9330708661417323,
+        "macro_agreement": 0.9106249999999999,
+        "tie_preference_deviation": 0.15390328228596814,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    },
+    {
+      "epoch": 11,
+      "training_loss": 0.3214362824622255,
+      "validation": {
+        "loss": 0.33603041902894065,
+        "strict_agreement": 0.9330708661417323,
+        "macro_agreement": 0.9106249999999999,
+        "tie_preference_deviation": 0.1542755946486203,
+        "strict_pairs": 127,
+        "groups": 21
+      }
+    }
+  ],
+  "test_evaluated": false,
+  "tie_weight": 0.25
+}

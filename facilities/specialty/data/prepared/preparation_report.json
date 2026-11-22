@@ -1,0 +1,46 @@
+{
+  "seed": 42,
+  "source_csv": "facilities_cleaned_full_specialties_standardized.csv",
+  "source_csv_sha256": "9491d4d3c388b3148936d2ed76c3d470c8aab4884e26013ae62d79d5db9db638",
+  "dictionary_source": "data/source/facility_specialty_symptom_dictionary_merged.json",
+  "dictionary_sha256": "6281dad9e3561d2c833b719f179e939cc6033a07c454c64d2de21563690f902d",
+  "dropped_structurally_invalid_specialty_tokens": [
+    "",
+    "{\"Dentistry\":\"Dentistry\"}"
+  ],
+  "excluded": {
+    "not_hospital": 4363,
+    "duplicate_or_missing_identity": 11,
+    "invalid_or_empty_specialties": 16
+  },
+  "eligible_hospitals": 5610,
+  "subset_hospitals": 120,
+  "scenario_families": 28,
+  "scenarios": 28,
+  "judgments_requested": 224,
+  "specialty_dimensions": 2487,
+  "symptom_dimensions": 148,
+  "scenario_split_counts": {
+    "train": 20,
+    "validation": 4,
+    "test": 4
+  },
+  "subset_priority_counts": {
+    "high": 28,
+    "medium": 50,
+    "low": 42
+  },
+  "status": "AI labels imported separately; no model training or usefulness evaluation performed",
+  "limits": [
+    "All service claims remain unverified.",
+    "No care-level labels invented.",
+    "Only supplied specialty aliases applied; no additional clinical merging.",
+    "Scenarios are exact single-symptom dictionary entries; no invented combinations.",
+    "No location, pressure index, patient outcomes or clinical triage training.",
+    "Facility identities may recur across splits; symptom IDs do not.",
+    "The subset is stratified for development, not nationally representative."
+  ],
+  "label_artifact": "../labeled/labels.jsonl",
+  "path_base": "facilities/specialty (component root)",
+  "source_csv_bundled": false
+}

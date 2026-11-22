@@ -1,0 +1,83 @@
+[
+  {
+    "scenario_id": "scenario_092",
+    "outcomes": "TBABTATTBTAT",
+    "note": "Compare cardiac or emergency assessment scope with broad generalist listings for the chest complaint. No diagnosis, live emergency capability or urgency decision is inferred."
+  },
+  {
+    "scenario_id": "scenario_093",
+    "outcomes": "BATTBATBATBA",
+    "note": "Psychiatry/neuropsychiatry is directly relevant to behavior changes in this category. Medical or neurological causes remain possible; behavior alone does not establish a diagnosis."
+  },
+  {
+    "scenario_id": "scenario_094",
+    "outcomes": "BABTABTATTBA",
+    "note": "Skin/allergy scope directly matches hives assessment. Do not infer a trigger, systemic reaction or treatment requirement."
+  },
+  {
+    "scenario_id": "scenario_095",
+    "outcomes": "TTTTTTTTTTTT",
+    "note": "Nonspecific night sweats support broad assessment; additional blood, endocrine or other listings do not establish a cause or justify breaking these ties."
+  },
+  {
+    "scenario_id": "scenario_096",
+    "outcomes": "BABATBTTABUU",
+    "note": "Musculoskeletal scope specifically covers shoulder complaints; no injury or procedure is inferred. Abstain on unresolved duplicate identity."
+  },
+  {
+    "scenario_id": "scenario_097",
+    "outcomes": "TBTTTABATBTA",
+    "note": "Neurological or emergency seizure-assessment scope is specifically relevant. The records do not establish a diagnosis, urgency or treatment availability."
+  },
+  {
+    "scenario_id": "scenario_098",
+    "outcomes": "BTABTTTTABAT",
+    "note": "Urological, gynecological and gastrointestinal scope can directly address lower-abdominal complaints; no sex, organ of origin or diagnosis is assumed."
+  },
+  {
+    "scenario_id": "scenario_099",
+    "outcomes": "ATBABTTABATB",
+    "note": "ENT and gastrointestinal scope specifically match swallowing complaints. Cause and location of dysfunction remain unspecified."
+  },
+  {
+    "scenario_id": "scenario_100",
+    "outcomes": "ATTTBTUUTTTT",
+    "note": "General pediatric/family assessment is relevant to the child/nappy context. Unrelated pediatric subspecialty listings alone do not establish general child assessment; duplicate identity requires abstention."
+  },
+  {
+    "scenario_id": "scenario_101",
+    "outcomes": "BTTABABTABBA",
+    "note": "Obstetric or maternal-fetal scope directly addresses the explicitly fetal-movement concern. Family assessment is broader; no urgency, pregnancy outcome or intervention is inferred."
+  },
+  {
+    "scenario_id": "scenario_102",
+    "outcomes": "TBTTATTBTABA",
+    "note": "Skin, plastic, general-surgical and emergency injury scope is relevant to burn assessment. Depth, site and actual burn-treatment services are unspecified."
+  },
+  {
+    "scenario_id": "scenario_103",
+    "outcomes": "BTTTTABATTBA",
+    "note": "Dental/oral scope specifically covers gum complaints. Broader generalist or head-and-neck scope does not establish periodontal assessment."
+  },
+  {
+    "scenario_id": "scenario_104",
+    "outcomes": "TBABABATTBTA",
+    "note": "Eye and neurological specialty scope is specifically relevant to double vision; cause and urgency are not established.",
+    "reversed_0_6": "TB"
+  },
+  {
+    "scenario_id": "scenario_105",
+    "outcomes": "TBABATBTTABA",
+    "note": "Gastrointestinal scope specifically matches heartburn assessment; the symptom name does not by itself justify a cardiac-specialty preference."
+  },
+  {
+    "scenario_id": "scenario_106",
+    "outcomes": "ATTTBABABATB",
+    "note": "Psychiatry is directly relevant to sleep difficulty in the mental-health category. No sleep disorder, psychiatric diagnosis or specialist treatment necessity is inferred."
+  },
+  {
+    "scenario_id": "scenario_107",
+    "outcomes": "TTTTBATBATBA",
+    "note": "Dermatology specifically matches the skin complaint; broader listings remain relevant without a presumed cause."
+  }
+]

@@ -1,0 +1,323 @@
+[
+  {
+    "patient": {
+      "symptoms": [
+        {
+          "symptom_id": "sym_140",
+          "name": "Unusual sleepiness",
+          "category": "Common child concerns"
+        }
+      ]
+    },
+    "A": {
+      "candidate_id": "candidate_02",
+      "specialty_claims": [
+        "Anesthesia",
+        "Cardiology",
+        "Dentistry",
+        "Dermatology",
+        "Emergency Medicine",
+        "Endocrinology and Diabetes and Metabolism",
+        "Family Medicine",
+        "Gynecology and Obstetrics",
+        "Internal Medicine",
+        "Neonatology Perinatal Medicine",
+        "Ophthalmology",
+        "Otolaryngology",
+        "Pathology",
+        "Pediatric Allergy and Immunology",
+        "Pediatric Cardiology",
+        "Pediatric Critical Care Medicine",
+        "Pediatric Dermatology",
+        "Pediatric Emergency Medicine",
+        "Pediatric Endocrinology",
+        "Pediatric Gastroenterology",
+        "Pediatric Hematology Oncology",
+        "Pediatric Hospice and Palliative Medicine",
+        "Pediatric Hospital Medicine",
+        "Pediatric Infectious Diseases",
+        "Pediatric Nephrology",
+        "Pediatric Neurosurgery",
+        "Pediatric Otolaryngology",
+        "Pediatric Pulmonology",
+        "Pediatric Rheumatology",
+        "Pediatric Sleep Medicine",
+        "Pediatric Surgery",
+        "Pediatric Urology",
+        "Pediatrics",
+        "Pediatrics Sports Medicine",
+        "Physical Medicine and Rehabilitation"
+      ],
+      "claim_status": "unverified",
+      "quality_flags": [],
+      "care_level": null
+    },
+    "B": {
+      "candidate_id": "candidate_03",
+      "specialty_claims": [
+        "Cardiology",
+        "Dentistry",
+        "Emergency Medicine",
+        "General Surgery",
+        "Gynecology and Obstetrics",
+        "Infectious Diseases",
+        "Internal Medicine",
+        "Ophthalmology",
+        "Orthopedic Surgery",
+        "Otolaryngology",
+        "Pathology",
+        "Pediatrics",
+        "Physical Medicine and Rehabilitation",
+        "Psychiatry",
+        "Pulmonology"
+      ],
+      "claim_status": "unverified",
+      "quality_flags": [],
+      "care_level": null
+    },
+    "decision": {
+      "pair_id": "scenario_002_pair_02",
+      "scenario_id": "scenario_002",
+      "slot": 2,
+      "candidate_a": "candidate_02",
+      "candidate_b": "candidate_03",
+      "facility_a": "661f0fef-ec69-4b5d-bf0a-3778f29a55f4",
+      "facility_b": "7b01154a-6580-40ba-8ea6-11071b81dfc8",
+      "outcome": "A",
+      "target_a": 1.0,
+      "split": "validation",
+      "label_source": "ai_direct_pairwise_provisional",
+      "teacher_id": "gpt-6.1-sol/interactive-Codex",
+      "claim_status": "unverified",
+      "scenario_note": "The child-concerns context matters. Pediatric Sleep Medicine is specifically relevant; general Pediatrics and Family Medicine support broad assessment. Adult-only and unrelated pediatric subspecialty listings are limited matches.",
+      "per_pair_rationale": null,
+      "adjudicated": false,
+      "adjudication_note": null
+    }
+  },
+  {
+    "patient": {
+      "symptoms": [
+        {
+          "symptom_id": "sym_004",
+          "name": "Excessive sleepiness",
+          "category": "General"
+        }
+      ]
+    },
+    "A": {
+      "candidate_id": "candidate_00",
+      "specialty_claims": [
+        "Anesthesia",
+        "Bariatric Surgery",
+        "Cardiology",
+        "Cardiothoracic Surgery",
+        "Critical Care Medicine",
+        "Dentistry",
+        "Dermatology",
+        "Emergency Medicine",
+        "Endocrinology and Diabetes and Metabolism",
+        "Gastroenterology",
+        "General Surgery",
+        "Gynecology and Obstetrics",
+        "Head and Neck Surgery Otolaryngology",
+        "Hematology",
+        "Internal Medicine",
+        "Medical Oncology",
+        "Nephrology",
+        "Neurology",
+        "Oral and Maxillofacial Surgery",
+        "Orthopedic Surgery",
+        "Otolaryngology",
+        "Pathology",
+        "Pediatrics",
+        "Physical Medicine and Rehabilitation",
+        "Plastic Surgery",
+        "Psychiatry",
+        "Pulmonology",
+        "Radiology",
+        "Rheumatology",
+        "Urology"
+      ],
+      "claim_status": "unverified",
+      "quality_flags": [],
+      "care_level": null
+    },
+    "B": {
+      "candidate_id": "candidate_01",
+      "specialty_claims": [
+        "Cardiac Surgery",
+        "Cardiology",
+        "Infectious Diseases",
+        "Internal Medicine",
+        "Pulmonology",
+        "Radiology",
+        "Sleep Medicine"
+      ],
+      "claim_status": "unverified",
+      "quality_flags": [
+        "repetitive_specialties_list"
+      ],
+      "care_level": null
+    },
+    "decision": {
+      "pair_id": "scenario_025_pair_00",
+      "scenario_id": "scenario_025",
+      "slot": 0,
+      "candidate_a": "candidate_00",
+      "candidate_b": "candidate_01",
+      "facility_a": "8047a7a4-85b5-43cb-ba06-4f0fd8b8d778",
+      "facility_b": "0078496c-7cf5-493d-9c82-4045b406d237",
+      "outcome": "B",
+      "target_a": 0.0,
+      "split": "train",
+      "label_source": "ai_direct_pairwise_provisional",
+      "teacher_id": "gpt-6.1-sol/interactive-Codex",
+      "claim_status": "unverified",
+      "scenario_note": "An explicit Sleep Medicine listing distinguishes one candidate; neurological, pulmonary or other subspecialties without sleep-specific claims do not establish a different cause or break other ties.",
+      "per_pair_rationale": null,
+      "adjudicated": false,
+      "adjudication_note": null
+    }
+  },
+  {
+    "patient": {
+      "symptoms": [
+        {
+          "symptom_id": "sym_001",
+          "name": "Chills",
+          "category": "General"
+        }
+      ]
+    },
+    "A": {
+      "candidate_id": "candidate_00",
+      "specialty_claims": [
+        "Gynecology and Obstetrics",
+        "Internal Medicine",
+        "Ophthalmology"
+      ],
+      "claim_status": "unverified",
+      "quality_flags": [],
+      "care_level": null
+    },
+    "B": {
+      "candidate_id": "candidate_01",
+      "specialty_claims": [
+        "Family Medicine",
+        "Gynecology and Obstetrics",
+        "Internal Medicine",
+        "Minimally Invasive Surgery and Endourology",
+        "Reproductive Endocrinology and Infertility"
+      ],
+      "claim_status": "unverified",
+      "quality_flags": [
+        "repetitive_specialties_list"
+      ],
+      "care_level": null
+    },
+    "decision": {
+      "pair_id": "scenario_011_pair_00",
+      "scenario_id": "scenario_011",
+      "slot": 0,
+      "candidate_a": "candidate_00",
+      "candidate_b": "candidate_01",
+      "facility_a": "0f6c18e4-ac11-4afd-9697-c0900d83e028",
+      "facility_b": "0b3d5090-2525-48f1-8969-6ef4947f9ca5",
+      "outcome": "T",
+      "target_a": 0.5,
+      "split": "train",
+      "label_source": "ai_direct_pairwise_provisional",
+      "teacher_id": "gpt-6.1-sol/interactive-Codex",
+      "claim_status": "unverified",
+      "scenario_note": "Every candidate lists generalist assessment. Nonspecific chills alone do not justify preferring an infectious, endocrine or other subspecialty.",
+      "per_pair_rationale": null,
+      "adjudicated": false,
+      "adjudication_note": null
+    }
+  },
+  {
+    "patient": {
+      "symptoms": [
+        {
+          "symptom_id": "sym_085",
+          "name": "Sore",
+          "category": "Skin and hair"
+        }
+      ]
+    },
+    "A": {
+      "candidate_id": "candidate_06",
+      "specialty_claims": [
+        "Bariatric Surgery",
+        "Cardiology",
+        "Colorectal Surgery",
+        "Dentistry",
+        "Endocrinology and Diabetes and Metabolism",
+        "Endodontics",
+        "Gastroenterology",
+        "General Surgery",
+        "Gynecology and Obstetrics",
+        "Hematology",
+        "Hepatology",
+        "Infectious Diseases",
+        "Internal Medicine",
+        "Nephrology",
+        "Neurology",
+        "Ophthalmology",
+        "Oral and Maxillofacial Surgery",
+        "Orthodontics",
+        "Orthopedic Surgery",
+        "Otolaryngology",
+        "Pediatric Cardiology",
+        "Pediatric Dentistry",
+        "Pediatrics",
+        "Preventive Medicine",
+        "Pulmonology",
+        "Rheumatology",
+        "Spine Neurosurgery",
+        "Transplant Surgery",
+        "Urology",
+        "Vascular Surgery"
+      ],
+      "claim_status": "unverified",
+      "quality_flags": [],
+      "care_level": null
+    },
+    "B": {
+      "candidate_id": "candidate_07",
+      "specialty_claims": [
+        "Gynecology and Obstetrics",
+        "Internal Medicine",
+        "Obstetrics and Maternity Care",
+        "Ophthalmology",
+        "Radiology",
+        "Reproductive Endocrinology and Infertility"
+      ],
+      "claim_status": "unverified",
+      "quality_flags": [
+        "repetitive_specialties_list"
+      ],
+      "care_level": null
+    },
+    "decision": {
+      "pair_id": "scenario_052_pair_06",
+      "scenario_id": "scenario_052",
+      "slot": 6,
+      "candidate_a": "candidate_06",
+      "candidate_b": "candidate_07",
+      "facility_a": "90ccdcdf-7b46-4811-b045-c46e4c58fc44",
+      "facility_b": "8a9e6c7b-c2f9-4f0e-85a7-d216b263f352",
+      "outcome": "T",
+      "target_a": 0.5,
+      "split": "train",
+      "label_source": "ai_direct_pairwise_provisional",
+      "teacher_id": "gpt-6.1-sol/interactive-Codex",
+      "claim_status": "unverified",
+      "scenario_note": "Dermatology is specifically relevant to a sore in the skin category; its exact nature, site and required treatment are unspecified.",
+      "per_pair_rationale": null,
+      "adjudicated": true,
+      "adjudication_note": "Reinspection of candidates 5,6,7 found that candidate 6 does not list Dermatology. General Surgery alone does not establish a more specific match for an unspecified skin sore. Corrected slots 5 and 6 to ties; retained initial outcomes."
+    }
+  }
+]

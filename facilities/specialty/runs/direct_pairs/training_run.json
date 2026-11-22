@@ -1,0 +1,48 @@
+{
+  "training_groups": 104,
+  "history": [
+    {
+      "epoch": 1,
+      "training_loss": 0.4943072897597001
+    },
+    {
+      "epoch": 2,
+      "training_loss": 0.31749068197006214
+    },
+    {
+      "epoch": 3,
+      "training_loss": 0.28590681231938875
+    },
+    {
+      "epoch": 4,
+      "training_loss": 0.26251859361162555
+    },
+    {
+      "epoch": 5,
+      "training_loss": 0.24732234185704818
+    },
+    {
+      "epoch": 6,
+      "training_loss": 0.2366098090648078
+    },
+    {
+      "epoch": 7,
+      "training_loss": 0.2230912049372609
+    },
+    {
+      "epoch": 8,
+      "training_loss": 0.21286687917577532
+    },
+    {
+      "epoch": 9,
+      "training_loss": 0.20449622971220657
+    },
+    {
+      "epoch": 10,
+      "training_loss": 0.20034105946811345
+    }
+  ],
+  "tie_weight": 0.25,
+  "model_evaluation": "not_run",
+  "clinical_validation": "not_run"
+}
