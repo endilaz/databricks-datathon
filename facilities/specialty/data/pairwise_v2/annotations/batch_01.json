@@ -1,0 +1,63 @@
+[
+  {
+    "scenario_id": "scenario_000",
+    "outcomes": "ABTTTTABATTB",
+    "note": "Compare listed Urology for urinary bleeding against broad generalist assessment; do not assume a cause or current service availability.",
+    "reversed_0_6": "BB"
+  },
+  {
+    "scenario_id": "scenario_001",
+    "outcomes": "BATTBABABATT",
+    "note": "Compare respiratory specialties, including Pulmonology or a broad respiratory-disease service, with generalist assessment. Other causes of cough remain possible."
+  },
+  {
+    "scenario_id": "scenario_002",
+    "outcomes": "TBAABABTABAB",
+    "note": "The child-concerns context matters. Pediatric Sleep Medicine is specifically relevant; general Pediatrics and Family Medicine support broad assessment. Adult-only and unrelated pediatric subspecialty listings are limited matches."
+  },
+  {
+    "scenario_id": "scenario_003",
+    "outcomes": "ABTTATBTTTAB",
+    "note": "Gynecology and Obstetrics directly covers the symptom domain; unspecified pregnancy status or additional unrelated subspecialties do not justify a preference."
+  },
+  {
+    "scenario_id": "scenario_004",
+    "outcomes": "ABABABTABABT",
+    "note": "Emergency Medicine and Neurosurgery have specifically relevant head-injury scope. Other general or musculoskeletal listings are broader matches. No urgency, operating department or surgical need is inferred."
+  },
+  {
+    "scenario_id": "scenario_005",
+    "outcomes": "TTTABATBATBT",
+    "note": "Dentistry provides specifically relevant oral/jaw assessment scope; broad head-and-neck or generalist listings are less specific. No dental, joint or cardiac cause is diagnosed."
+  },
+  {
+    "scenario_id": "scenario_006",
+    "outcomes": "ABTUUTTBABTT",
+    "note": "Ophthalmology is specifically relevant; otherwise general assessment may be available. Abstain when duplicate identity flags prevent reliable facility attribution."
+  },
+  {
+    "scenario_id": "scenario_007",
+    "outcomes": "TBTTATTBATBA",
+    "note": "Gastroenterology directly covers intestinal symptoms; generalist assessment is broader. Do not infer infection or disease from the single symptom."
+  },
+  {
+    "scenario_id": "scenario_008",
+    "outcomes": "TTTBTTTTTTTA",
+    "note": "Cardiology specifically covers rhythm complaints. Other generalist listings remain relevant and no arrhythmia is diagnosed."
+  },
+  {
+    "scenario_id": "scenario_009",
+    "outcomes": "TTTTTBABABAT",
+    "note": "Psychiatry is directly relevant to hallucinations in this category. Neurology and Internal Medicine can assess possible other causes but do not establish psychiatric assessment capability."
+  },
+  {
+    "scenario_id": "scenario_010",
+    "outcomes": "TATBATTTTBAB",
+    "note": "Dermatology directly covers itching in the skin category; broad generalist assessment remains relevant. No allergy or systemic cause is inferred."
+  },
+  {
+    "scenario_id": "scenario_011",
+    "outcomes": "TTTTTTTTTTTT",
+    "note": "Every candidate lists generalist assessment. Nonspecific chills alone do not justify preferring an infectious, endocrine or other subspecialty."
+  }
+]

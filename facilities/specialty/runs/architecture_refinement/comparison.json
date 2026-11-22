@@ -1,0 +1,321 @@
+{
+  "runs": [
+    {
+      "architecture": "original",
+      "seed": 42,
+      "parameters": 101921,
+      "best_epoch": 3,
+      "epochs_run": 10,
+      "selection": "minimum validation logistic loss",
+      "train": {
+        "loss": 0.26244019394597184,
+        "strict_agreement": 0.987220447284345,
+        "macro_agreement": 0.9767071759259259,
+        "tie_preference_deviation": 0.15066195951744182,
+        "strict_pairs": 626,
+        "groups": 104
+      },
+      "validation": {
+        "loss": 0.3283112882858231,
+        "strict_agreement": 0.9448818897637795,
+        "macro_agreement": 0.92125,
+        "tie_preference_deviation": 0.1786521245255943,
+        "strict_pairs": 127,
+        "groups": 21
+      },
+      "test_evaluated": false
+    },
+    {
+      "architecture": "original",
+      "seed": 43,
+      "parameters": 101921,
+      "best_epoch": 2,
+      "epochs_run": 10,
+      "selection": "minimum validation logistic loss",
+      "train": {
+        "loss": 0.28376175452453584,
+        "strict_agreement": 0.9856230031948882,
+        "macro_agreement": 0.9772280092592592,
+        "tie_preference_deviation": 0.1679365854175975,
+        "strict_pairs": 626,
+        "groups": 104
+      },
+      "validation": {
+        "loss": 0.32150036025614964,
+        "strict_agreement": 0.952755905511811,
+        "macro_agreement": 0.9241666666666667,
+        "tie_preference_deviation": 0.18463031685918815,
+        "strict_pairs": 127,
+        "groups": 21
+      },
+      "test_evaluated": false
+    },
+    {
+      "architecture": "original",
+      "seed": 44,
+      "parameters": 101921,
+      "best_epoch": 3,
+      "epochs_run": 10,
+      "selection": "minimum validation logistic loss",
+      "train": {
+        "loss": 0.2617508892972882,
+        "strict_agreement": 0.9920127795527156,
+        "macro_agreement": 0.9845196759259259,
+        "tie_preference_deviation": 0.17076233265707727,
+        "strict_pairs": 626,
+        "groups": 104
+      },
+      "validation": {
+        "loss": 0.3271715162055833,
+        "strict_agreement": 0.9448818897637795,
+        "macro_agreement": 0.9191666666666667,
+        "tie_preference_deviation": 0.20099307047126214,
+        "strict_pairs": 127,
+        "groups": 21
+      },
+      "test_evaluated": false
+    },
+    {
+      "architecture": "features_only",
+      "seed": 42,
+      "parameters": 113,
+      "best_epoch": 7,
+      "epochs_run": 11,
+      "selection": "minimum validation logistic loss",
+      "train": {
+        "loss": 0.3207443645223975,
+        "strict_agreement": 0.9464856230031949,
+        "macro_agreement": 0.9353174603174604,
+        "tie_preference_deviation": 0.13288424840258037,
+        "strict_pairs": 626,
+        "groups": 104
+      },
+      "validation": {
+        "loss": 0.3427163852112634,
+        "strict_agreement": 0.9330708661417323,
+        "macro_agreement": 0.9106249999999999,
+        "tie_preference_deviation": 0.15699081543124904,
+        "strict_pairs": 127,
+        "groups": 21
+      },
+      "test_evaluated": false
+    },
+    {
+      "architecture": "features_only",
+      "seed": 43,
+      "parameters": 113,
+      "best_epoch": 7,
+      "epochs_run": 11,
+      "selection": "minimum validation logistic loss",
+      "train": {
+        "loss": 0.32214181010539716,
+        "strict_agreement": 0.957667731629393,
+        "macro_agreement": 0.9439980158730159,
+        "tie_preference_deviation": 0.12708184753590432,
+        "strict_pairs": 626,
+        "groups": 104
+      },
+      "validation": {
+        "loss": 0.3369950070267632,
+        "strict_agreement": 0.9330708661417323,
+        "macro_agreement": 0.9106249999999999,
+        "tie_preference_deviation": 0.15207508217143126,
+        "strict_pairs": 127,
+        "groups": 21
+      },
+      "test_evaluated": false
+    },
+    {
+      "architecture": "features_only",
+      "seed": 44,
+      "parameters": 113,
+      "best_epoch": 7,
+      "epochs_run": 11,
+      "selection": "minimum validation logistic loss",
+      "train": {
+        "loss": 0.3259953125738181,
+        "strict_agreement": 0.9480830670926518,
+        "macro_agreement": 0.9366195436507937,
+        "tie_preference_deviation": 0.1299129290017681,
+        "strict_pairs": 626,
+        "groups": 104
+      },
+      "validation": {
+        "loss": 0.3351265639066696,
+        "strict_agreement": 0.9330708661417323,
+        "macro_agreement": 0.9106249999999999,
+        "tie_preference_deviation": 0.1538931264365015,
+        "strict_pairs": 127,
+        "groups": 21
+      },
+      "test_evaluated": false
+    },
+    {
+      "architecture": "semantic_residual",
+      "seed": 42,
+      "parameters": 10290,
+      "best_epoch": 4,
+      "epochs_run": 10,
+      "selection": "minimum validation logistic loss",
+      "train": {
+        "loss": 0.24638496256934908,
+        "strict_agreement": 0.9920127795527156,
+        "macro_agreement": 0.9847800925925926,
+        "tie_preference_deviation": 0.15737539659536703,
+        "strict_pairs": 626,
+        "groups": 104
+      },
+      "validation": {
+        "loss": 0.28249879536174594,
+        "strict_agreement": 0.9921259842519685,
+        "macro_agreement": 0.9916666666666668,
+        "tie_preference_deviation": 0.18786062754321198,
+        "strict_pairs": 127,
+        "groups": 21
+      },
+      "test_evaluated": false
+    },
+    {
+      "architecture": "semantic_residual",
+      "seed": 43,
+      "parameters": 10290,
+      "best_epoch": 6,
+      "epochs_run": 10,
+      "selection": "minimum validation logistic loss",
+      "train": {
+        "loss": 0.23200633430566925,
+        "strict_agreement": 0.9936102236421726,
+        "macro_agreement": 0.9873842592592593,
+        "tie_preference_deviation": 0.1486280906727904,
+        "strict_pairs": 626,
+        "groups": 104
+      },
+      "validation": {
+        "loss": 0.28908420425085796,
+        "strict_agreement": 0.9921259842519685,
+        "macro_agreement": 0.99375,
+        "tie_preference_deviation": 0.19272490269850848,
+        "strict_pairs": 127,
+        "groups": 21
+      },
+      "test_evaluated": false
+    },
+    {
+      "architecture": "semantic_residual",
+      "seed": 44,
+      "parameters": 10290,
+      "best_epoch": 3,
+      "epochs_run": 10,
+      "selection": "minimum validation logistic loss",
+      "train": {
+        "loss": 0.25602264738140196,
+        "strict_agreement": 0.9936102236421726,
+        "macro_agreement": 0.9858217592592592,
+        "tie_preference_deviation": 0.15775794874815668,
+        "strict_pairs": 626,
+        "groups": 104
+      },
+      "validation": {
+        "loss": 0.2818326669789496,
+        "strict_agreement": 0.984251968503937,
+        "macro_agreement": 0.9866666666666667,
+        "tie_preference_deviation": 0.17888981131605866,
+        "strict_pairs": 127,
+        "groups": 21
+      },
+      "test_evaluated": false
+    }
+  ],
+  "original_checkpoint_sha256": "8c1699896d02453ede0b83db384cf237a03d960068ccb2adacf474bf30a5acab",
+  "frozen_input_diagnostics": {
+    "full": {
+      "loss": 0.3836838968452953,
+      "strict_agreement": 0.952755905511811,
+      "macro_agreement": 0.9650000000000001,
+      "tie_preference_deviation": 0.20286411092393408,
+      "strict_pairs": 127,
+      "groups": 21
+    },
+    "patient_id_zeroed": {
+      "loss": 0.3850434802117802,
+      "strict_agreement": 0.937007874015748,
+      "macro_agreement": 0.9487500000000001,
+      "tie_preference_deviation": 0.19779102768256399,
+      "strict_pairs": 127,
+      "groups": 21
+    },
+    "match_features_zeroed": {
+      "loss": 0.6165471289839063,
+      "strict_agreement": 0.8031496062992126,
+      "macro_agreement": 0.8141666666666667,
+      "tie_preference_deviation": 0.2583318232012189,
+      "strict_pairs": 127,
+      "groups": 21
+    },
+    "limit": "Frozen-input removal is out of distribution; diagnostic sensitivity, not causal attribution."
+  },
+  "test_evaluated": false,
+  "limits": [
+    "Validation is reused for model/epoch selection, not an independent final test.",
+    "Agreement is against provisional AI labels, not clinical accuracy.",
+    "Only single-symptom examples exist; multi-symptom interactions remain untested."
+  ],
+  "summary": {
+    "original": {
+      "trainable_parameters": 101921,
+      "validation_agreement_mean": 0.94750656167979,
+      "validation_agreement_range": [
+        0.9448818897637795,
+        0.952755905511811
+      ],
+      "validation_loss_mean": 0.325661054915852,
+      "best_epochs": [
+        3,
+        2,
+        3
+      ]
+    },
+    "features_only": {
+      "trainable_parameters": 113,
+      "validation_agreement_mean": 0.9330708661417323,
+      "validation_agreement_range": [
+        0.9330708661417323,
+        0.9330708661417323
+      ],
+      "validation_loss_mean": 0.33827931871489875,
+      "best_epochs": [
+        7,
+        7,
+        7
+      ]
+    },
+    "semantic_residual": {
+      "trainable_parameters": 10290,
+      "validation_agreement_mean": 0.9895013123359581,
+      "validation_agreement_range": [
+        0.984251968503937,
+        0.9921259842519685
+      ],
+      "validation_loss_mean": 0.28447188886385116,
+      "best_epochs": [
+        4,
+        6,
+        3
+      ]
+    }
+  },
+  "selected_checkpoint": "semantic_residual_seed_44/model.pt",
+  "selection_policy": "Lowest validation logistic loss across the prespecified three architectures and seeds 42,43,44; test not evaluated.",
+  "diagnosis": {
+    "training_symptom_ids": 104,
+    "validation_symptom_ids": 21,
+    "all_validation_symptom_ids_unseen": true,
+    "validation_need_profiles_already_seen_in_training": 11,
+    "hospital_specialty_columns_seen_in_training": 469,
+    "hospital_specialty_columns_total": 2487,
+    "symptoms_per_example": 1,
+    "original_seed42_epoch10_reproduces_user_loss": true
+  },
+  "label_sha256": "19c864df498ec4b569d48d97be077fd82c8c34d5f834d6ab4a599a91776076a6",
+  "vocabulary_sha256": "5506e15d52908ece1f4267bc9f60b48350f1abdef93daa103a6a6eaddad2137c"
+}

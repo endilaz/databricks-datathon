@@ -1,0 +1,84 @@
+[
+  {
+    "scenario_id": "scenario_012",
+    "outcomes": "TTABABTTTABT",
+    "note": "Use the musculoskeletal category; orthopedic/rehabilitation or relevant musculoskeletal specialty scope is more specific than generalist or unrelated head-and-neck services. No operation is implied."
+  },
+  {
+    "scenario_id": "scenario_013",
+    "outcomes": "BABABTTATBAT",
+    "note": "Neurology directly covers sensory complaints. Orthopedic or rehabilitation scope without neurological assessment remains broader/context-dependent when numbness location and cause are unspecified.",
+    "reversed_0_6": "AT"
+  },
+  {
+    "scenario_id": "scenario_014",
+    "outcomes": "BATTBABABTAT",
+    "note": "Compare explicitly listed Urology with general assessment of burning urination; do not diagnose infection or infer availability from absent listings."
+  },
+  {
+    "scenario_id": "scenario_015",
+    "outcomes": "BATTBTTTATTT",
+    "note": "Pulmonology has specific productive-cough relevance; generalist listings are broader. Do not infer infectious or obstructive disease."
+  },
+  {
+    "scenario_id": "scenario_016",
+    "outcomes": "TTTABTABAABA",
+    "note": "For this child-context ear complaint, combined ENT and pediatric scope is more specifically supported than general pediatrics/family medicine or adult-generalist listings. ENT alone does not establish pediatric coverage."
+  },
+  {
+    "scenario_id": "scenario_017",
+    "outcomes": "BTTTATBATBAT",
+    "note": "Gynecology directly covers menstrual complaints; a cancer-specific gynecological listing alone does not establish routine menstrual assessment or a cancer diagnosis."
+  },
+  {
+    "scenario_id": "scenario_018",
+    "outcomes": "BTABAATBTTTA",
+    "note": "Emergency, trauma and general-surgical scope is specifically wound-relevant. General family assessment is broader; internal or musculoskeletal-only care lacks confirmed wound capability. No procedure, prophylaxis or urgency is inferred."
+  },
+  {
+    "scenario_id": "scenario_019",
+    "outcomes": "TTBTTATTBABA",
+    "note": "ENT is specifically relevant to nasal obstruction; pulmonary or unrelated specialties do not establish nasal assessment beyond generalist care."
+  },
+  {
+    "scenario_id": "scenario_020",
+    "outcomes": "BABTABTATTBA",
+    "note": "Prefer specifically listed eye assessment over broader generalist assessment; extra eye subspecialties do not establish a particular cause of discharge."
+  },
+  {
+    "scenario_id": "scenario_021",
+    "outcomes": "BATTTBTABTTA",
+    "note": "Gastroenterology is specifically relevant in the digestive-symptom context, while other generalist matches remain broad. Nausea does not establish a gastrointestinal diagnosis."
+  },
+  {
+    "scenario_id": "scenario_022",
+    "outcomes": "TTTTTTTTTTTT",
+    "note": "No candidate explicitly lists a peripheral vascular service; broadly relevant generalist and cardiac assessment do not establish a defensible preference for this unspecified extremity complaint."
+  },
+  {
+    "scenario_id": "scenario_023",
+    "outcomes": "ABATTBTATTBT",
+    "note": "Psychiatry is directly relevant in the mental-health context; broad general assessment remains appropriate in scope without implying a psychiatric diagnosis."
+  },
+  {
+    "scenario_id": "scenario_024",
+    "outcomes": "ATTTBTATTTTB",
+    "note": "In the skin category, general Dermatology is more specifically supported than general assessment or a cosmetic-only listing. No malignancy or anatomical site is inferred."
+  },
+  {
+    "scenario_id": "scenario_025",
+    "outcomes": "BATTTTTTTTTT",
+    "note": "An explicit Sleep Medicine listing distinguishes one candidate; neurological, pulmonary or other subspecialties without sleep-specific claims do not establish a different cause or break other ties."
+  },
+  {
+    "scenario_id": "scenario_026",
+    "outcomes": "BTABTATTBTTA",
+    "note": "Compare specifically musculoskeletal orthopedic/rehabilitation scope against broader general assessment. Unspecified muscle pain does not establish a neurological disease or surgical need.",
+    "reversed_0_6": "AT"
+  },
+  {
+    "scenario_id": "scenario_027",
+    "outcomes": "TTBABTTTTATT",
+    "note": "Neurology and ENT are specifically relevant to neurological/vestibular balance assessment. Eye or generalist listings alone do not establish the cause of balance loss."
+  }
+]

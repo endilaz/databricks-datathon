@@ -1,0 +1,40 @@
+{
+  "pytorch_version": "2.2.2",
+  "feature_dimensions": {
+    "patient_dim": 148,
+    "hospital_dim": 2487,
+    "match_dim": 5
+  },
+  "trainable_parameters": 101921,
+  "unit_tests_passed": 9,
+  "teacher_judgments": 224,
+  "graded_rows": 222,
+  "abstentions": 2,
+  "strict_preference_pairs": 296,
+  "actual_model_training": "not run",
+  "usefulness_evaluation": "not run",
+  "expanded_pairwise": {
+    "pool_hospitals": 400,
+    "used_hospitals": 385,
+    "symptom_entries": 148,
+    "direct_pairs": 1776,
+    "strict_preferences": 894,
+    "ties": 866,
+    "abstentions": 16,
+    "unit_tests_passed": 13,
+    "identical_input_strict_conflicts": 0,
+    "actual_training": "not_run",
+    "usefulness_evaluation": "not_run"
+  },
+  "architecture_refinement": {
+    "unit_tests_passed": 16,
+    "controlled_runs": 9,
+    "selected_checkpoint": "runs/architecture_refinement/semantic_residual_seed_44/model.pt",
+    "refined_trainable_parameters": 10290,
+    "validation_agreement_mean": 0.9895013123359581,
+    "test_evaluated": false,
+    "original_checkpoint_unchanged": true,
+    "score_decomposition_verified": true,
+    "old_checkpoint_loading_verified": true
+  }
+}

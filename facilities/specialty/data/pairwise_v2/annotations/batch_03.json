@@ -1,0 +1,83 @@
+[
+  {
+    "scenario_id": "scenario_028",
+    "outcomes": "TBABABTTTATT",
+    "note": "In the urinary category, Urology is more specific than generalist listings for incontinence; do not assume sex, mechanism or a surgical indication."
+  },
+  {
+    "scenario_id": "scenario_029",
+    "outcomes": "TBATTBTTTABA",
+    "note": "ENT scope is specifically relevant to voice complaints; neurological and rehabilitation listings alone do not establish voice assessment or a cause."
+  },
+  {
+    "scenario_id": "scenario_030",
+    "outcomes": "ABABTTTATBTT",
+    "note": "Pediatrics or Family Medicine supports broad child assessment. Persistent crying alone does not justify preferring an unrelated pediatric subspecialty, psychiatry or adult-only scope."
+  },
+  {
+    "scenario_id": "scenario_031",
+    "outcomes": "TTTTABABATBT",
+    "note": "Gynecological specialty scope is directly relevant to heavy/irregular periods; other listings remain broader and no underlying condition is diagnosed."
+  },
+  {
+    "scenario_id": "scenario_032",
+    "outcomes": "TBATBABTABAT",
+    "note": "Emergency Medicine has explicitly injury-assessment scope; other generalist, rehabilitation and orthopedic listings without a specified injury remain broader. No urgency or injury is inferred from the fall alone."
+  },
+  {
+    "scenario_id": "scenario_033",
+    "outcomes": "ATTBATTBTABT",
+    "note": "ENT is specifically ear-relevant. Pulmonary, dental or generalist listings alone do not establish the cause of unspecified ear pain."
+  },
+  {
+    "scenario_id": "scenario_034",
+    "outcomes": "BTTTABTATTTT",
+    "note": "Ophthalmology provides specifically relevant eye-assessment scope; extra subspecialties do not establish a cause or break otherwise comparable matches."
+  },
+  {
+    "scenario_id": "scenario_035",
+    "outcomes": "BTTATBATBATT",
+    "note": "Colorectal or gastrointestinal scope is more specifically relevant to rectal pain than unspecified general assessment. No anatomical diagnosis or procedural need is inferred."
+  },
+  {
+    "scenario_id": "scenario_036",
+    "outcomes": "ABATTBABTTTT",
+    "note": "In this circulation category, Cardiology has specifically relevant fainting/syncope assessment scope; generalist care remains broad. Do not infer a cardiac cause or urgency."
+  },
+  {
+    "scenario_id": "scenario_037",
+    "outcomes": "TTBATTTBATTT",
+    "note": "Psychiatry or Psychology is specifically relevant to low mood in this category, without establishing a disorder or specialist necessity."
+  },
+  {
+    "scenario_id": "scenario_038",
+    "outcomes": "ABABABTABTTT",
+    "note": "General Dermatology is specifically relevant to a changing mole. A dermatologic oncology listing does not establish cancer or merit automatic preference over another direct skin match."
+  },
+  {
+    "scenario_id": "scenario_039",
+    "outcomes": "TTTTTTTTTTTT",
+    "note": "All candidates offer broad medical assessment. With no further context, additional emergency or organ-specific specialties do not establish a preference or actual fluid-treatment capability.",
+    "reversed_0_6": "TT"
+  },
+  {
+    "scenario_id": "scenario_040",
+    "outcomes": "TTABABTTABAB",
+    "note": "Orthopedic and emergency injury assessment are specifically relevant to suspected fracture; no fracture, imaging availability or need for surgery is confirmed."
+  },
+  {
+    "scenario_id": "scenario_041",
+    "outcomes": "ABTABATBATBT",
+    "note": "Neurology is specifically relevant to memory symptoms. Age is unspecified, so a geriatrics listing alone is not assumed to be the correct patient population."
+  },
+  {
+    "scenario_id": "scenario_042",
+    "outcomes": "TBABTTABABTA",
+    "note": "Urological or gynecological scope is directly relevant to this unspecified genital complaint. Do not infer sex, pregnancy, infection or anatomical cause."
+  },
+  {
+    "scenario_id": "scenario_043",
+    "outcomes": "ABTABATBABTT",
+    "note": "ENT and pulmonary assessment have relevant airway scope; the type, cause and urgency of noisy breathing are unspecified."
+  }
+]

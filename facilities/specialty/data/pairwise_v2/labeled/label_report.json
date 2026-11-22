@@ -1,0 +1,29 @@
+{
+  "scenarios_labeled": 148,
+  "scenarios_pending": 0,
+  "direct_judgments": 1776,
+  "outcome_counts": {
+    "A": 447,
+    "B": 447,
+    "T": 866,
+    "U": 16
+  },
+  "strict_preferences": 894,
+  "strict_pairs_by_split": {
+    "train": 626,
+    "validation": 127,
+    "test": 141
+  },
+  "order_checks": 24,
+  "order_inconsistencies": 1,
+  "adjudicated_pairs": 2,
+  "label_method": "explicit interactive AI pairwise judgments; not grade-derived",
+  "order_check_limit": "Same interactive annotator, not independent or blinded to prior decisions.",
+  "independently_clinically_reviewed": false,
+  "facility_claims_verified": false,
+  "model_training": "not_run",
+  "usefulness_evaluation": "not_run",
+  "scenarios_with_strict_preferences": 136,
+  "training_scenarios_with_strict_preferences": 96,
+  "candidate_hospitals_used": 385
+}

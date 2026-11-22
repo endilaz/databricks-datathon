@@ -1,0 +1,37 @@
+[
+  {"scenario_id":"scenario_000","notes":{
+    "u":"Urology is specifically relevant to blood in urine. This is a listed-specialty match, not confirmation of the cause or live service availability.",
+    "g":"Internal Medicine supports general assessment of urinary bleeding; a urinary specialist is not listed."},
+   "decisions":[[3,["Urology"],"u"],[3,["Urology"],"u"],[3,["Urology"],"u"],[3,["Urology"],"u"],[3,["Urology"],"u"],[3,["Urology"],"u"],[3,["Urology"],"u"],[2,["Internal Medicine"],"g"]]},
+  {"scenario_id":"scenario_001","notes":{
+    "p":"Pulmonology specifically covers respiratory complaints such as cough; no particular cause is inferred.",
+    "g":"Internal Medicine is a relevant generalist assessment specialty for an unspecified cough.",
+    "f":"Family Medicine is a relevant generalist assessment specialty for an unspecified cough."},
+   "decisions":[[2,["Internal Medicine"],"g"],[2,["Family Medicine"],"f"],[3,["Pulmonology"],"p"],[3,["Pulmonology"],"p"],[3,["Pulmonology"],"p"],[3,["Pulmonology"],"p"],[3,["Pulmonology"],"p"],[2,["Internal Medicine"],"g"]]},
+  {"scenario_id":"scenario_002","notes":{
+    "p":"The child-concerns category supports Pediatrics for broad assessment. Sleepiness alone does not establish a neurological cause or justify ranking an unrelated subspecialty higher.",
+    "g":"Internal Medicine provides only an indirect generalist match in a child-concerns scenario; pediatric assessment is not listed."},
+   "decisions":[[2,["Pediatrics"],"p"],[2,["Pediatrics"],"p"],[1,["Internal Medicine"],"g"],[2,["Pediatrics"],"p"],[2,["Pediatrics"],"p"],[2,["Pediatrics"],"p"],[2,["Pediatrics"],"p"],[2,["Pediatrics"],"p"]]},
+  {"scenario_id":"scenario_003","notes":{
+    "gyn":"Gynecology and Obstetrics is specifically relevant to bleeding between periods. Pregnancy or a particular diagnosis is not assumed.",
+    "g":"Internal Medicine supports initial general assessment, but a gynecological specialty is not listed."},
+   "decisions":[[3,["Gynecology and Obstetrics"],"gyn"],[3,["Gynecology and Obstetrics"],"gyn"],[3,["Gynecology and Obstetrics"],"gyn"],[3,["Gynecology and Obstetrics"],"gyn"],[2,["Internal Medicine"],"g"],[3,["Gynecology and Obstetrics"],"gyn"],[3,["Gynecology and Obstetrics"],"gyn"],[3,["Gynecology and Obstetrics"],"gyn"]]},
+  {"scenario_id":"scenario_004","notes":{
+    "e":"Emergency Medicine has specifically relevant injury-assessment scope. Its listing does not establish an operating emergency department, imaging availability, urgency or surgical need.",
+    "g":"Internal Medicine is an indirect general assessment match; a dedicated injury-assessment specialty is not listed.",
+    "s":"General Surgery provides broad injury-related specialty scope, but no dedicated head-injury assessment pathway is established by the record."},
+   "decisions":[[3,["Emergency Medicine"],"e"],[3,["Emergency Medicine"],"e"],[3,["Emergency Medicine"],"e"],[3,["Emergency Medicine"],"e"],[3,["Emergency Medicine"],"e"],[1,["Internal Medicine"],"g"],[3,["Emergency Medicine"],"e"],[2,["General Surgery"],"s"]]},
+  {"scenario_id":"scenario_005","notes":{
+    "o":"Oral and Maxillofacial Surgery specifically covers the jaw region. A dental, joint or other particular cause of pain is not diagnosed.",
+    "d":"Dentistry is a specifically relevant listed specialty for oral/jaw complaints; non-dental causes remain possible.",
+    "ent":"Otolaryngology is a relevant broader head-and-neck specialty, but dental/maxillofacial services are not listed and the source of jaw pain is unspecified."},
+   "decisions":[[2,["Otolaryngology"],"ent"],[3,["Oral and Maxillofacial Surgery"],"o"],[3,["Dentistry"],"d"],[3,["Oral and Maxillofacial Surgery"],"o"],[3,["Dentistry"],"d"],[3,["Dentistry"],"d"],[3,["Oral and Maxillofacial Surgery"],"o"],[2,["Otolaryngology"],"ent"]]},
+  {"scenario_id":"scenario_006","notes":{
+    "o":"Ophthalmology specifically covers the eye complaint. Other listed subspecialties do not establish a different cause or justify breaking this specialty-fit tie.",
+    "x":"The record is flagged duplicate_id. Facility identity attribution needs review before using its Ophthalmology claim as a hospital-specific training judgment."},
+   "decisions":[[3,["Ophthalmology"],"o"],[3,["Ophthalmology"],"o"],[null,[],"x"],[3,["Ophthalmology"],"o"],[3,["Ophthalmology"],"o"],[3,["Ophthalmology"],"o"],[3,["Ophthalmology"],"o"],[3,["Ophthalmology"],"o"]]},
+  {"scenario_id":"scenario_007","notes":{
+    "gastro":"Gastroenterology specifically covers intestinal symptoms such as diarrhea. An infectious or chronic cause is not assumed.",
+    "g":"Internal Medicine is a relevant generalist assessment specialty for diarrhea; gastrointestinal specialty care is not listed."},
+   "decisions":[[3,["Gastroenterology"],"gastro"],[3,["Gastroenterology"],"gastro"],[3,["Gastroenterology"],"gastro"],[2,["Internal Medicine"],"g"],[3,["Gastroenterology"],"gastro"],[3,["Gastroenterology"],"gastro"],[2,["Internal Medicine"],"g"],[2,["Internal Medicine"],"g"]]}
+]

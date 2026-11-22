@@ -1,0 +1,71 @@
+{
+  "checkpoint_sha256": "8b5d9fc4dcdb4ac8b9da4414755b3b34c50b4a6a7ecf297f6687165a0127b0e5",
+  "dataset_label_sha256": "19c864df498ec4b569d48d97be077fd82c8c34d5f834d6ab4a599a91776076a6",
+  "splits_evaluated": [
+    "train",
+    "validation"
+  ],
+  "test_split_evaluated": false,
+  "tie_weight_for_loss": 0.25,
+  "metric_definition": "Strict-pair ordering agreement; exact predicted ties receive half credit. Targets that are ties are reported separately.",
+  "meaning": "Agreement with provisional AI labels, not clinical accuracy or verified service availability.",
+  "model_modified": false,
+  "metrics": {
+    "train": {
+      "judged_pairs": 1236,
+      "strict_pairs": 626,
+      "tied_pairs": 610,
+      "strict_scenarios": 96,
+      "mean_query_weighted_logistic_loss": 0.25602264738140196,
+      "tie_mean_abs_preference_deviation_from_half": 0.15775794874815668,
+      "mlp": {
+        "pair_agreement": 0.9936102236421726,
+        "macro_scenario_agreement": 0.9858217592592592,
+        "predicted_ties_on_strict_pairs": 0
+      },
+      "cosine": {
+        "pair_agreement": 0.8761980830670927,
+        "macro_scenario_agreement": 0.8684999173280422,
+        "predicted_ties_on_strict_pairs": 31
+      },
+      "coverage": {
+        "pair_agreement": 0.9496805111821086,
+        "macro_scenario_agreement": 0.9383349867724867,
+        "predicted_ties_on_strict_pairs": 55
+      },
+      "idf_coverage": {
+        "pair_agreement": 0.9480830670926518,
+        "macro_scenario_agreement": 0.93729332010582,
+        "predicted_ties_on_strict_pairs": 47
+      }
+    },
+    "validation": {
+      "judged_pairs": 248,
+      "strict_pairs": 127,
+      "tied_pairs": 121,
+      "strict_scenarios": 20,
+      "mean_query_weighted_logistic_loss": 0.2818326669789496,
+      "tie_mean_abs_preference_deviation_from_half": 0.17888981131605866,
+      "mlp": {
+        "pair_agreement": 0.984251968503937,
+        "macro_scenario_agreement": 0.9866666666666667,
+        "predicted_ties_on_strict_pairs": 0
+      },
+      "cosine": {
+        "pair_agreement": 0.7992125984251969,
+        "macro_scenario_agreement": 0.8010416666666667,
+        "predicted_ties_on_strict_pairs": 7
+      },
+      "coverage": {
+        "pair_agreement": 0.937007874015748,
+        "macro_scenario_agreement": 0.9220833333333334,
+        "predicted_ties_on_strict_pairs": 12
+      },
+      "idf_coverage": {
+        "pair_agreement": 0.9488188976377953,
+        "macro_scenario_agreement": 0.929375,
+        "predicted_ties_on_strict_pairs": 7
+      }
+    }
+  }
+}

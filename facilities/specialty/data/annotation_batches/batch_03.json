@@ -1,0 +1,30 @@
+[
+  {"scenario_id":"scenario_016","notes":{
+    "ent":"Otolaryngology specifically covers ear complaints and Pediatrics is also listed for the child-concerns context. Pediatric ENT expertise or a diagnosis is not independently verified.",
+    "p":"Pediatrics provides broad assessment in the child-concerns context; an ear-specific specialty is not listed.",
+    "f":"Family Medicine supports general assessment of ear pain, including the child-concerns context; an ear-specific specialty is not listed."},
+   "decisions":[[3,["Otolaryngology","Pediatrics"],"ent"],[3,["Otolaryngology","Pediatrics"],"ent"],[3,["Otolaryngology","Pediatrics"],"ent"],[2,["Pediatrics"],"p"],[3,["Otolaryngology","Pediatrics"],"ent"],[2,["Family Medicine"],"f"],[3,["Otolaryngology","Pediatrics"],"ent"],[2,["Pediatrics"],"p"]]},
+  {"scenario_id":"scenario_017","notes":{
+    "gyn":"Gynecology and Obstetrics is specifically relevant to painful periods. No underlying reproductive diagnosis or treatment indication is inferred.",
+    "f":"Family Medicine supports initial general assessment of painful periods; a gynecological specialty is not listed."},
+   "decisions":[[2,["Family Medicine"],"f"],[3,["Gynecology and Obstetrics"],"gyn"],[3,["Gynecology and Obstetrics"],"gyn"],[3,["Gynecology and Obstetrics"],"gyn"],[3,["Gynecology and Obstetrics"],"gyn"],[3,["Gynecology and Obstetrics"],"gyn"],[3,["Gynecology and Obstetrics"],"gyn"],[3,["Gynecology and Obstetrics"],"gyn"]]},
+  {"scenario_id":"scenario_018","notes":{
+    "e":"Emergency Medicine specifically includes injury and wound assessment. Its listing does not verify wound procedures, prophylaxis, staffing or a live emergency department.",
+    "g":"Internal Medicine provides only indirect general assessment fit; no injury/wound specialty or procedural capability is listed.",
+    "o":"Orthopedic Surgery may be relevant if the puncture involves a limb or deeper musculoskeletal structures, but the wound site is unspecified; the match is indirect.",
+    "s":"General Surgery is specifically relevant to wound assessment and management in scope. Actual puncture-wound services are not independently verified."},
+   "decisions":[[3,["Emergency Medicine"],"e"],[1,["Internal Medicine"],"g"],[3,["Emergency Medicine"],"e"],[1,["Orthopedic Surgery"],"o"],[3,["General Surgery"],"s"],[3,["Emergency Medicine"],"e"],[3,["Emergency Medicine"],"e"],[3,["Emergency Medicine"],"e"]]},
+  {"scenario_id":"scenario_019","notes":{
+    "ent":"Otolaryngology specifically covers nasal obstruction. An allergic, infectious or structural cause is not assumed.",
+    "head":"Head and Neck Surgery Otolaryngology is an explicitly listed ENT specialty relevant to nasal obstruction; no indication for surgery is inferred.",
+    "f":"Family Medicine supports broad assessment of a blocked nose; an ENT specialty is not listed.",
+    "g":"Internal Medicine supports broad assessment of a blocked nose; an ENT specialty is not listed."},
+   "decisions":[[3,["Otolaryngology"],"ent"],[3,["Otolaryngology"],"ent"],[3,["Otolaryngology"],"ent"],[3,["Head and Neck Surgery Otolaryngology"],"head"],[2,["Family Medicine"],"f"],[3,["Otolaryngology"],"ent"],[2,["Internal Medicine"],"g"],[2,["Internal Medicine"],"g"]]},
+  {"scenario_id":"scenario_020","notes":{
+    "o":"Ophthalmology specifically covers eye discharge. The record does not establish a cause or justify a different grade for additional eye subspecialties."},
+   "decisions":[[3,["Ophthalmology"],"o"],[3,["Ophthalmology"],"o"],[3,["Ophthalmology"],"o"],[3,["Ophthalmology"],"o"],[3,["Ophthalmology"],"o"],[3,["Ophthalmology"],"o"],[3,["Ophthalmology"],"o"],[3,["Ophthalmology"],"o"]]},
+  {"scenario_id":"scenario_021","notes":{
+    "gi":"Gastroenterology is specifically relevant to nausea in the stomach-and-digestion category. Nausea has non-gastrointestinal causes too; a diagnosis or specialist necessity is not inferred.",
+    "g":"Internal Medicine supports broad assessment of nausea. A gastrointestinal specialty is not listed and no particular cause is assumed."},
+   "decisions":[[2,["Internal Medicine"],"g"],[2,["Internal Medicine"],"g"],[3,["Gastroenterology"],"gi"],[3,["Gastroenterology"],"gi"],[2,["Internal Medicine"],"g"],[3,["Gastroenterology"],"gi"],[3,["Gastroenterology"],"gi"],[2,["Internal Medicine"],"g"]]}
+]

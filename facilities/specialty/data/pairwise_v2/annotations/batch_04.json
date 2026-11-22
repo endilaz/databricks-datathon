@@ -1,0 +1,85 @@
+[
+  {
+    "scenario_id": "scenario_044",
+    "outcomes": "TTBTATBTTATT",
+    "note": "For poor feeding in the child category, general Pediatrics or Family Medicine offers broader age-appropriate assessment than adult or unrelated subspecialty scope. Neonatal-only scope does not establish the child's age."
+  },
+  {
+    "scenario_id": "scenario_045",
+    "outcomes": "ATBTABTABTAB",
+    "note": "Gynecological or general-surgical scope can cover breast complaints more specifically than general medicine alone; no breast diagnosis, lactation status or surgical need is inferred."
+  },
+  {
+    "scenario_id": "scenario_046",
+    "outcomes": "TABTTTTTATTB",
+    "note": "Emergency and general-surgical scope is specifically injury/bleeding relevant. Site, mechanism, treatment availability and urgency remain unspecified."
+  },
+  {
+    "scenario_id": "scenario_047",
+    "outcomes": "BABTABABABAT",
+    "note": "ENT is specifically relevant to tinnitus. Other listed specialties do not establish an auditory cause or dedicated hearing assessment."
+  },
+  {
+    "scenario_id": "scenario_048",
+    "outcomes": "BTATTTBABUUT",
+    "note": "Compare eye-specialty scope for vision change, without inferring cause or triage. Abstain on the unresolved duplicate-identity record."
+  },
+  {
+    "scenario_id": "scenario_049",
+    "outcomes": "TABTTTATTTTB",
+    "note": "Gastroenterology has specifically relevant digestive scope for black stool; bleeding, medication effects and other causes are not diagnosed."
+  },
+  {
+    "scenario_id": "scenario_050",
+    "outcomes": "BABTABABTABA",
+    "note": "Cardiac, renal or peripheral-circulatory assessment scope is relevant to leg/ankle swelling; those domains are compared with broader general assessment without assigning a cause."
+  },
+  {
+    "scenario_id": "scenario_051",
+    "outcomes": "TBABATTBATTT",
+    "note": "Psychiatry is specifically relevant to the stated mental-health concern. Labels describe documented specialty scope only and do not establish a live crisis service or care instruction."
+  },
+  {
+    "scenario_id": "scenario_052",
+    "outcomes": "TTBTATTBATTT",
+    "initial_outcomes": "TTBTABABATTT",
+    "adjudication_note": "Reinspection of candidates 5,6,7 found that candidate 6 does not list Dermatology. General Surgery alone does not establish a more specific match for an unspecified skin sore. Corrected slots 5 and 6 to ties; retained initial outcomes.",
+    "note": "Dermatology is specifically relevant to a sore in the skin category; its exact nature, site and required treatment are unspecified.",
+    "reversed_0_6": "TT"
+  },
+  {
+    "scenario_id": "scenario_053",
+    "outcomes": "UUTTTTTTTTTT",
+    "note": "Feeling generally unwell supports broad generalist assessment, which all interpretable records list. Duplicate identity requires abstention rather than a forced comparison."
+  },
+  {
+    "scenario_id": "scenario_054",
+    "outcomes": "BABTATBATBTA",
+    "note": "Orthopedic or rheumatological assessment has specifically relevant joint scope; the source does not establish inflammatory disease or an injury."
+  },
+  {
+    "scenario_id": "scenario_055",
+    "outcomes": "TTTTBTABTTAT",
+    "note": "Neurology is specifically relevant to tremor; no neurological diagnosis, age or medication cause is inferred."
+  },
+  {
+    "scenario_id": "scenario_056",
+    "outcomes": "ATTBABTTABAB",
+    "note": "In the urinary category, urological/renal scope is more specific than generalist assessment for flank pain, without diagnosing stones or infection."
+  },
+  {
+    "scenario_id": "scenario_057",
+    "outcomes": "BATTTBABTTTA",
+    "note": "ENT provides directly relevant throat scope; otherwise comparable generalist matches remain tied without assigning a cause."
+  },
+  {
+    "scenario_id": "scenario_058",
+    "outcomes": "TABTABABTTTT",
+    "note": "Use broad pediatric/family assessment in the child context. Organ-specific adult listings without pediatric scope do not establish a stronger match to unspecified vomiting."
+  },
+  {
+    "scenario_id": "scenario_059",
+    "outcomes": "ABTABABTTTAB",
+    "note": "Gynecology has specifically relevant pelvic-symptom scope in this category. Pregnancy, infection, an organ-specific cause and treatment requirements are not assumed."
+  }
+]

@@ -1,0 +1,83 @@
+[
+  {
+    "scenario_id": "scenario_108",
+    "outcomes": "TTTTTTTTTTTT",
+    "note": "General weakness has no focal location or established cause; all candidates offer broad medical assessment and extra subspecialties do not justify a forced preference."
+  },
+  {
+    "scenario_id": "scenario_109",
+    "outcomes": "TABABTTTATBT",
+    "note": "Musculoskeletal orthopedic/rehabilitation scope is directly relevant to stiffness in this category; no inflammatory or neurological diagnosis is inferred."
+  },
+  {
+    "scenario_id": "scenario_110",
+    "outcomes": "TTTTTABATTTB",
+    "note": "ENT and Neurology have specifically relevant vestibular/balance scope for spinning sensation; no inner-ear or neurological cause is established."
+  },
+  {
+    "scenario_id": "scenario_111",
+    "outcomes": "ATTBATTTBABT",
+    "note": "Urology specifically covers testicular assessment. No diagnosis, surgical requirement or urgency is inferred."
+  },
+  {
+    "scenario_id": "scenario_112",
+    "outcomes": "TTTBATBTTTTA",
+    "note": "Pulmonary, cardiac and emergency assessment scope is relevant to the breathlessness complaint; cause, acuity and actual service availability are not established."
+  },
+  {
+    "scenario_id": "scenario_113",
+    "outcomes": "TABAABABATTB",
+    "note": "Combined pediatric/respiratory scope or explicit Pediatric Critical Care is more specifically supported than broad Pediatrics/Family Medicine, and those are more age-appropriate than adult-only listings. No critical illness is inferred."
+  },
+  {
+    "scenario_id": "scenario_114",
+    "outcomes": "BABTABTTTATT",
+    "note": "Gynecological scope specifically covers vaginal discharge; no infection, pregnancy status or cause is inferred."
+  },
+  {
+    "scenario_id": "scenario_115",
+    "outcomes": "BTTTABATBTAT",
+    "note": "Emergency/general-surgical scope specifically matches bite-wound assessment. Vaccination, prophylaxis, procedures and urgency are not established by specialty listings."
+  },
+  {
+    "scenario_id": "scenario_116",
+    "outcomes": "TBTABABTABAT",
+    "note": "ENT is specifically relevant to nasal complaints; do not infer an allergic or infectious cause to break otherwise comparable matches."
+  },
+  {
+    "scenario_id": "scenario_117",
+    "outcomes": "TTBABTATBTAT",
+    "note": "Ophthalmology is specifically relevant to flashes/floaters; do not infer a retinal diagnosis or treatment requirement from the symptom alone.",
+    "reversed_0_6": "TB"
+  },
+  {
+    "scenario_id": "scenario_118",
+    "outcomes": "ABAUUATTTTTB",
+    "note": "Gastrointestinal scope specifically matches the digestive complaint; duplicate identity requires abstention and no cause or procedure is inferred."
+  },
+  {
+    "scenario_id": "scenario_119",
+    "outcomes": "BTATTTTTTBAT",
+    "note": "Dermatology is more specific in this skin-category swelling scenario. Site and cause are unspecified; no organ-specific condition is assumed."
+  },
+  {
+    "scenario_id": "scenario_120",
+    "outcomes": "TTTTTTTTTTTT",
+    "note": "Every candidate provides broad medical assessment. Fatigue alone does not establish a cause or justify preference for additional unrelated specialties."
+  },
+  {
+    "scenario_id": "scenario_121",
+    "outcomes": "BTTTTABTATTB",
+    "note": "Musculoskeletal, neurological and rehabilitation scope is relevant to walking/function symptoms. No mechanism, diagnosis or procedural need is inferred."
+  },
+  {
+    "scenario_id": "scenario_122",
+    "outcomes": "ABABABTTABAB",
+    "note": "Neurology specifically covers headache assessment; generalist matches remain relevant and no headache subtype is diagnosed."
+  },
+  {
+    "scenario_id": "scenario_123",
+    "outcomes": "TATBTTTATBTT",
+    "note": "Pulmonary or emergency assessment has specifically relevant respiratory/bleeding scope. No cause, diagnosis, acuity or actual department availability is inferred."
+  }
+]

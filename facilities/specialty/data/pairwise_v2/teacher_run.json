@@ -1,0 +1,34 @@
+{
+  "teacher_id": "gpt-6.1-sol/interactive-Codex",
+  "generation_method": "explicit_pairwise_annotation_in_chat",
+  "external_api_calls": 0,
+  "date": "2026-11-22",
+  "label_scope": "conditional listed-specialty fit",
+  "pointwise_grade_conversion": false,
+  "direct_pair_judgments": 1776,
+  "order_spotchecks": 24,
+  "independent_order_checks": false,
+  "adjudicated_pairs": 2,
+  "human_clinical_review": false,
+  "facility_claim_verification": false,
+  "source_csv_sha256": "9491d4d3c388b3148936d2ed76c3d470c8aab4884e26013ae62d79d5db9db638",
+  "dictionary_sha256": "6281dad9e3561d2c833b719f179e939cc6033a07c454c64d2de21563690f902d",
+  "pair_prompt_sha256": "a7912f2a49385a00666c6b7b153de3fe4500e2e9fe6f562d6ef76033f31b46a8",
+  "annotation_files": {
+    "batch_04.json": "bb726534e9d2978745092c51fbf48c9234c7dda81da36627315619f935bb98a2",
+    "batch_08.json": "76282026c7ea3d2b9c6186558217634f0543c91abf1e40b03b3d1efc3f581c19",
+    "batch_09.json": "95ce518bdb4d15ade83cbde30e222c05d2fd3323cb1c42cff1631a5014d1ad75",
+    "batch_05.json": "34855ebfda4da9c6a0f830a2cab353345ae190f3da27e8fac6a29b6672a472bf",
+    "batch_02.json": "5eea398835b2ec79f86e6d9c7e6aeb127d475dba7c898e7e545d3733965cb5c9",
+    "batch_03.json": "7635d17fda6cb6920e7bbf72bbe8ec87d627aca78ed4b454348357ae766d6a0c",
+    "batch_01.json": "f28e7d787326e4f2890fd895bf4f876a9f8ecc49f4c6c6c649f132d5bdcadf5e",
+    "batch_06.json": "0b42f5f8cbfa626288c67d6457049019a963f0b7c6d90c5d1f8f8b1f2c04972b",
+    "batch_07.json": "8b7df30179988deefb5ebbf89906ac9c5215bc5bd82547879f278a7207099ca8"
+  },
+  "limits": [
+    "Each pair has an explicit outcome; rationale is captured per scenario, not separately per pair.",
+    "Compact full-specialty displays used a lossless character codebook, retaining all other specialty names verbatim.",
+    "Labels are weak supervision, not independent ground truth.",
+    "No model training or usefulness evaluation performed."
+  ]
+}
