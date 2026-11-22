@@ -1,0 +1,610 @@
+{
+  "General": {
+    "Fever": [
+      "familyMedicine",
+      "internalMedicine",
+      "infectiousDiseases"
+    ],
+    "Chills": [
+      "familyMedicine",
+      "internalMedicine"
+    ],
+    "Fatigue": [
+      "familyMedicine",
+      "internalMedicine"
+    ],
+    "Weakness": [
+      "familyMedicine",
+      "internalMedicine"
+    ],
+    "Excessive sleepiness": [
+      "internalMedicine",
+      "neurology"
+    ],
+    "Night sweats": [
+      "familyMedicine",
+      "internalMedicine"
+    ],
+    "Unexplained weight loss or gain": [
+      "internalMedicine",
+      "endocrinologyAndDiabetesAndMetabolism"
+    ],
+    "Poor appetite": [
+      "familyMedicine",
+      "internalMedicine"
+    ],
+    "Excessive thirst": [
+      "internalMedicine",
+      "endocrinologyAndDiabetesAndMetabolism"
+    ],
+    "Dehydration": [
+      "familyMedicine",
+      "internalMedicine",
+      "emergencyMedicine"
+    ],
+    "Swollen glands": [
+      "internalMedicine",
+      "otolaryngology"
+    ],
+    "Feeling generally unwell": [
+      "familyMedicine",
+      "internalMedicine"
+    ]
+  },
+  "Breathing and throat": {
+    "Cough": [
+      "pulmonology",
+      "internalMedicine"
+    ],
+    "Coughing up mucus": [
+      "pulmonology",
+      "internalMedicine"
+    ],
+    "Coughing up blood": [
+      "pulmonology",
+      "emergencyMedicine"
+    ],
+    "Shortness of breath": [
+      "pulmonology",
+      "emergencyMedicine",
+      "cardiology"
+    ],
+    "Wheezing": [
+      "pulmonology",
+      "allergyAndImmunology"
+    ],
+    "Noisy breathing": [
+      "otolaryngology",
+      "emergencyMedicine"
+    ],
+    "Chest congestion": [
+      "pulmonology",
+      "internalMedicine"
+    ],
+    "Sore throat": [
+      "otolaryngology",
+      "familyMedicine"
+    ],
+    "Difficulty swallowing": [
+      "otolaryngology",
+      "gastroenterology"
+    ],
+    "Hoarse voice": [
+      "otolaryngology"
+    ]
+  },
+  "Heart and circulation": {
+    "Chest pain or pressure": [
+      "emergencyMedicine",
+      "cardiology"
+    ],
+    "Palpitations": [
+      "cardiology",
+      "internalMedicine"
+    ],
+    "Racing heartbeat": [
+      "cardiology",
+      "emergencyMedicine"
+    ],
+    "Fainting": [
+      "emergencyMedicine",
+      "cardiology",
+      "neurology"
+    ],
+    "Lightheadedness": [
+      "internalMedicine",
+      "cardiology"
+    ],
+    "Swollen legs or ankles": [
+      "internalMedicine",
+      "cardiology",
+      "nephrology"
+    ],
+    "Unusually cold or pale hands or feet": [
+      "internalMedicine",
+      "vascularSurgery"
+    ]
+  },
+  "Stomach and digestion": {
+    "Abdominal pain": [
+      "gastroenterology",
+      "generalSurgery",
+      "internalMedicine"
+    ],
+    "Nausea": [
+      "internalMedicine",
+      "gastroenterology"
+    ],
+    "Vomiting": [
+      "internalMedicine",
+      "gastroenterology"
+    ],
+    "Diarrhea": [
+      "internalMedicine",
+      "gastroenterology"
+    ],
+    "Constipation": [
+      "gastroenterology",
+      "familyMedicine"
+    ],
+    "Bloating": [
+      "gastroenterology",
+      "internalMedicine"
+    ],
+    "Heartburn": [
+      "gastroenterology",
+      "internalMedicine"
+    ],
+    "Indigestion": [
+      "gastroenterology",
+      "internalMedicine"
+    ],
+    "Difficulty swallowing": [
+      "gastroenterology",
+      "otolaryngology"
+    ],
+    "Blood in vomit": [
+      "emergencyMedicine",
+      "gastroenterology"
+    ],
+    "Blood in stool": [
+      "gastroenterology",
+      "colorectalSurgery"
+    ],
+    "Black stool": [
+      "emergencyMedicine",
+      "gastroenterology"
+    ],
+    "Rectal pain": [
+      "colorectalSurgery",
+      "gastroenterology"
+    ],
+    "Jaundice": [
+      "gastroenterology",
+      "internalMedicine"
+    ]
+  },
+  "Head and nerves": {
+    "Headache": [
+      "internalMedicine",
+      "neurology",
+      "headacheMedicine"
+    ],
+    "Dizziness": [
+      "neurology",
+      "internalMedicine"
+    ],
+    "Spinning sensation": [
+      "neurology",
+      "internalMedicine"
+    ],
+    "Confusion": [
+      "emergencyMedicine",
+      "neurology",
+      "internalMedicine"
+    ],
+    "Memory problems": [
+      "neurology",
+      "internalMedicine"
+    ],
+    "Seizure": [
+      "emergencyMedicine",
+      "neurology"
+    ],
+    "Tremor": [
+      "neurology",
+      "internalMedicine"
+    ],
+    "Numbness": [
+      "neurology",
+      "internalMedicine"
+    ],
+    "Tingling": [
+      "neurology",
+      "internalMedicine"
+    ],
+    "One-sided weakness": [
+      "emergencyMedicine",
+      "neurology"
+    ],
+    "Speech difficulty": [
+      "emergencyMedicine",
+      "neurology"
+    ],
+    "Trouble walking": [
+      "neurology",
+      "physicalMedicineAndRehabilitation"
+    ],
+    "Loss of balance": [
+      "neurology",
+      "otolaryngology"
+    ]
+  },
+  "Muscles, bones, and joints": {
+    "Back pain": [
+      "orthopedicSurgery",
+      "physicalMedicineAndRehabilitation"
+    ],
+    "Neck pain": [
+      "orthopedicSurgery",
+      "physicalMedicineAndRehabilitation"
+    ],
+    "Shoulder pain": [
+      "orthopedicSurgery",
+      "physicalMedicineAndRehabilitation"
+    ],
+    "Arm or leg pain": [
+      "orthopedicSurgery",
+      "physicalMedicineAndRehabilitation"
+    ],
+    "Muscle pain": [
+      "orthopedicSurgery",
+      "physicalMedicineAndRehabilitation"
+    ],
+    "Joint pain": [
+      "rheumatology",
+      "orthopedicSurgery"
+    ],
+    "Joint swelling": [
+      "rheumatology",
+      "orthopedicSurgery"
+    ],
+    "Stiffness": [
+      "rheumatology",
+      "physicalMedicineAndRehabilitation"
+    ],
+    "Difficulty moving a limb": [
+      "orthopedicSurgery",
+      "physicalMedicineAndRehabilitation"
+    ],
+    "Difficulty walking": [
+      "orthopedicSurgery",
+      "physicalMedicineAndRehabilitation"
+    ],
+    "Suspected fracture": [
+      "emergencyMedicine",
+      "orthopedicSurgery"
+    ]
+  },
+  "Injuries and wounds": {
+    "Cut": [
+      "emergencyMedicine",
+      "generalSurgery"
+    ],
+    "Puncture wound": [
+      "emergencyMedicine",
+      "generalSurgery"
+    ],
+    "Burn": [
+      "emergencyMedicine",
+      "plasticSurgery"
+    ],
+    "Fall": [
+      "emergencyMedicine",
+      "orthopedicSurgery"
+    ],
+    "Head injury": [
+      "emergencyMedicine",
+      "neurosurgery"
+    ],
+    "Animal bite": [
+      "emergencyMedicine",
+      "infectiousDiseases"
+    ],
+    "Insect sting": [
+      "emergencyMedicine",
+      "allergyAndImmunology"
+    ],
+    "Bleeding": [
+      "emergencyMedicine",
+      "generalSurgery"
+    ],
+    "Bruising": [
+      "internalMedicine",
+      "hematology"
+    ],
+    "Wound redness or swelling": [
+      "generalSurgery",
+      "infectiousDiseases"
+    ]
+  },
+  "Skin and hair": {
+    "Rash": [
+      "dermatology",
+      "familyMedicine"
+    ],
+    "Itching": [
+      "dermatology",
+      "familyMedicine"
+    ],
+    "Hives": [
+      "dermatology",
+      "allergyAndImmunology"
+    ],
+    "Skin redness": [
+      "dermatology",
+      "familyMedicine"
+    ],
+    "Swelling": [
+      "familyMedicine",
+      "internalMedicine"
+    ],
+    "Lump": [
+      "familyMedicine",
+      "generalSurgery"
+    ],
+    "Boil": [
+      "dermatology",
+      "generalSurgery"
+    ],
+    "Blister": [
+      "dermatology",
+      "familyMedicine"
+    ],
+    "Sore": [
+      "dermatology",
+      "familyMedicine"
+    ],
+    "Changing mole": [
+      "dermatology"
+    ],
+    "Skin discoloration": [
+      "dermatology",
+      "familyMedicine"
+    ],
+    "Hair loss": [
+      "dermatology",
+      "endocrinologyAndDiabetesAndMetabolism"
+    ],
+    "Nail changes": [
+      "dermatology"
+    ]
+  },
+  "Eyes": {
+    "Eye pain": [
+      "ophthalmology"
+    ],
+    "Red eye": [
+      "ophthalmology"
+    ],
+    "Itchy eye": [
+      "ophthalmology"
+    ],
+    "Eye discharge": [
+      "ophthalmology"
+    ],
+    "Swollen eyelid": [
+      "ophthalmology"
+    ],
+    "Blurred vision": [
+      "ophthalmology"
+    ],
+    "Double vision": [
+      "ophthalmology",
+      "neurology"
+    ],
+    "Sudden vision change": [
+      "emergencyMedicine",
+      "ophthalmology"
+    ],
+    "Light sensitivity": [
+      "ophthalmology"
+    ],
+    "Flashes or floaters": [
+      "ophthalmology",
+      "retinaAndVitreoretinalOphthalmology"
+    ]
+  },
+  "Ears, nose, and mouth": {
+    "Ear pain": [
+      "otolaryngology",
+      "familyMedicine"
+    ],
+    "Ear discharge": [
+      "otolaryngology",
+      "familyMedicine"
+    ],
+    "Hearing loss": [
+      "otolaryngology",
+      "familyMedicine"
+    ],
+    "Ringing in the ears": [
+      "otolaryngology",
+      "familyMedicine"
+    ],
+    "Blocked nose": [
+      "otolaryngology",
+      "familyMedicine"
+    ],
+    "Runny nose": [
+      "otolaryngology",
+      "familyMedicine"
+    ],
+    "Nosebleed": [
+      "otolaryngology",
+      "emergencyMedicine"
+    ],
+    "Sinus pain": [
+      "otolaryngology",
+      "familyMedicine"
+    ],
+    "Mouth ulcer": [
+      "dentistry",
+      "otolaryngology"
+    ],
+    "Toothache": [
+      "dentistry",
+      "endodontics"
+    ],
+    "Gum pain or swelling": [
+      "dentistry",
+      "periodontics"
+    ],
+    "Jaw pain": [
+      "dentistry",
+      "oralAndMaxillofacialSurgery"
+    ]
+  },
+  "Urinary and genital": {
+    "Burning urination": [
+      "urology",
+      "internalMedicine"
+    ],
+    "Frequent or urgent urination": [
+      "urology",
+      "internalMedicine"
+    ],
+    "Blood in urine": [
+      "urology",
+      "nephrology"
+    ],
+    "Difficulty passing urine": [
+      "urology",
+      "emergencyMedicine"
+    ],
+    "Incontinence": [
+      "urology"
+    ],
+    "Lower abdominal pain": [
+      "urology",
+      "gynecologyAndObstetrics",
+      "generalSurgery"
+    ],
+    "Flank pain": [
+      "urology",
+      "nephrology"
+    ],
+    "Genital pain or swelling": [
+      "urology",
+      "gynecologyAndObstetrics"
+    ],
+    "Testicular pain": [
+      "urology",
+      "emergencyMedicine"
+    ]
+  },
+  "Menstrual, pregnancy, and breast": {
+    "Pelvic pain": [
+      "gynecologyAndObstetrics"
+    ],
+    "Painful periods": [
+      "gynecologyAndObstetrics"
+    ],
+    "Heavy or irregular periods": [
+      "gynecologyAndObstetrics"
+    ],
+    "Bleeding between periods": [
+      "gynecologyAndObstetrics"
+    ],
+    "Vaginal discharge": [
+      "gynecologyAndObstetrics"
+    ],
+    "Pregnancy-related pain or bleeding": [
+      "emergencyMedicine",
+      "gynecologyAndObstetrics"
+    ],
+    "Reduced fetal movement": [
+      "gynecologyAndObstetrics",
+      "maternalFetalMedicineOrPerinatology"
+    ],
+    "Breast pain or lump": [
+      "gynecologyAndObstetrics",
+      "generalSurgery"
+    ],
+    "Nipple discharge": [
+      "gynecologyAndObstetrics",
+      "generalSurgery"
+    ]
+  },
+  "Mental health and sleep": {
+    "Anxiety": [
+      "psychiatry",
+      "familyMedicine"
+    ],
+    "Panic": [
+      "psychiatry",
+      "familyMedicine"
+    ],
+    "Low mood": [
+      "psychiatry",
+      "familyMedicine"
+    ],
+    "Persistent stress": [
+      "psychiatry",
+      "familyMedicine"
+    ],
+    "Sleep difficulty": [
+      "familyMedicine",
+      "psychiatry",
+      "sleepMedicine"
+    ],
+    "Unusual behavior": [
+      "psychiatry",
+      "familyMedicine"
+    ],
+    "Hallucinations": [
+      "psychiatry",
+      "emergencyMedicine"
+    ],
+    "Thoughts of self-harm": [
+      "emergencyMedicine",
+      "psychiatry"
+    ]
+  },
+  "Common child concerns": {
+    "Fever": [
+      "pediatrics"
+    ],
+    "Poor feeding": [
+      "pediatrics",
+      "neonatologyPerinatalMedicine"
+    ],
+    "Unusual sleepiness": [
+      "pediatrics",
+      "emergencyMedicine"
+    ],
+    "Persistent crying": [
+      "pediatrics"
+    ],
+    "Vomiting": [
+      "pediatrics"
+    ],
+    "Diarrhea": [
+      "pediatrics"
+    ],
+    "Rash": [
+      "pediatrics"
+    ],
+    "Ear pain": [
+      "pediatrics"
+    ],
+    "Breathing difficulty": [
+      "pediatrics",
+      "emergencyMedicine"
+    ],
+    "Fewer wet nappies or signs of dehydration": [
+      "pediatrics",
+      "emergencyMedicine"
+    ]
+  }
+}

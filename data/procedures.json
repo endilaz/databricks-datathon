@@ -1,0 +1,220 @@
+{
+  "metadata": {
+    "source": "facilities_cleaned_full.csv procedure arrays",
+    "method": "Conservative curated wording patterns; excludes obvious negations, research, and training text. An extracted claim is not proof of current availability or facility identity.",
+    "facility_records": 7882,
+    "matched_facility_records": 4904,
+    "matched_source_rows": 4911,
+    "matched_entries": 29400
+  },
+  "procedures": [
+    {
+      "name": "Appendectomy",
+      "facility_count": 177
+    },
+    {
+      "name": "Arthroscopy",
+      "facility_count": 500
+    },
+    {
+      "name": "Biopsy",
+      "facility_count": 343
+    },
+    {
+      "name": "Blood transfusion",
+      "facility_count": 47
+    },
+    {
+      "name": "Cataract surgery",
+      "facility_count": 532
+    },
+    {
+      "name": "Cesarean section",
+      "facility_count": 344
+    },
+    {
+      "name": "Chemotherapy",
+      "facility_count": 198
+    },
+    {
+      "name": "Circumcision",
+      "facility_count": 94
+    },
+    {
+      "name": "Colonoscopy",
+      "facility_count": 216
+    },
+    {
+      "name": "Coronary angiography",
+      "facility_count": 116
+    },
+    {
+      "name": "Coronary angioplasty",
+      "facility_count": 112
+    },
+    {
+      "name": "Coronary bypass surgery",
+      "facility_count": 114
+    },
+    {
+      "name": "CT scan",
+      "facility_count": 391
+    },
+    {
+      "name": "Dental bridge",
+      "facility_count": 136
+    },
+    {
+      "name": "Dental crown",
+      "facility_count": 273
+    },
+    {
+      "name": "Dental filling",
+      "facility_count": 333
+    },
+    {
+      "name": "Dental implant",
+      "facility_count": 1179
+    },
+    {
+      "name": "Dentures",
+      "facility_count": 676
+    },
+    {
+      "name": "Dialysis",
+      "facility_count": 583
+    },
+    {
+      "name": "Endoscopy",
+      "facility_count": 554
+    },
+    {
+      "name": "Gallbladder removal",
+      "facility_count": 190
+    },
+    {
+      "name": "Hemorrhoid surgery",
+      "facility_count": 81
+    },
+    {
+      "name": "Hernia repair",
+      "facility_count": 355
+    },
+    {
+      "name": "Hip replacement",
+      "facility_count": 358
+    },
+    {
+      "name": "Hysterectomy",
+      "facility_count": 328
+    },
+    {
+      "name": "Hysteroscopy",
+      "facility_count": 310
+    },
+    {
+      "name": "Immunotherapy",
+      "facility_count": 76
+    },
+    {
+      "name": "In vitro fertilization (IVF)",
+      "facility_count": 563
+    },
+    {
+      "name": "Intracytoplasmic sperm injection (ICSI)",
+      "facility_count": 268
+    },
+    {
+      "name": "Intrauterine insemination (IUI)",
+      "facility_count": 336
+    },
+    {
+      "name": "Joint replacement",
+      "facility_count": 584
+    },
+    {
+      "name": "Kidney transplant",
+      "facility_count": 310
+    },
+    {
+      "name": "Knee replacement",
+      "facility_count": 567
+    },
+    {
+      "name": "LASIK eye surgery",
+      "facility_count": 398
+    },
+    {
+      "name": "Lithotripsy",
+      "facility_count": 112
+    },
+    {
+      "name": "Liver transplant",
+      "facility_count": 101
+    },
+    {
+      "name": "MRI scan",
+      "facility_count": 297
+    },
+    {
+      "name": "Pacemaker implantation",
+      "facility_count": 6
+    },
+    {
+      "name": "Prostate removal",
+      "facility_count": 51
+    },
+    {
+      "name": "Radiation therapy",
+      "facility_count": 143
+    },
+    {
+      "name": "Retinal detachment surgery",
+      "facility_count": 35
+    },
+    {
+      "name": "Root canal treatment",
+      "facility_count": 1207
+    },
+    {
+      "name": "Spinal fusion",
+      "facility_count": 37
+    },
+    {
+      "name": "Teeth cleaning",
+      "facility_count": 408
+    },
+    {
+      "name": "Teeth whitening",
+      "facility_count": 696
+    },
+    {
+      "name": "Tonsillectomy",
+      "facility_count": 89
+    },
+    {
+      "name": "Tooth extraction",
+      "facility_count": 530
+    },
+    {
+      "name": "Ultrasound scan",
+      "facility_count": 835
+    },
+    {
+      "name": "Ureteroscopy",
+      "facility_count": 61
+    },
+    {
+      "name": "Varicose vein treatment",
+      "facility_count": 19
+    },
+    {
+      "name": "Wisdom tooth extraction",
+      "facility_count": 303
+    },
+    {
+      "name": "X-ray imaging",
+      "facility_count": 628
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "code": "en-IN",
+    "label": "English · English"
+  },
+  {
+    "code": "as-IN",
+    "label": "অসমীয়া · Assamese"
+  },
+  {
+    "code": "bn-IN",
+    "label": "বাংলা · Bengali"
+  },
+  {
+    "code": "brx-IN",
+    "label": "बड़ो · Bodo"
+  },
+  {
+    "code": "doi-IN",
+    "label": "डोगरी · Dogri"
+  },
+  {
+    "code": "gu-IN",
+    "label": "ગુજરાતી · Gujarati"
+  },
+  {
+    "code": "hi-IN",
+    "label": "हिन्दी · Hindi"
+  }
+]
