@@ -27,7 +27,7 @@ Procedure matching deliberately skips obvious negations and research/training te
 Only facilities with internally consistent candidate coordinates and a provisional primary, secondary, or tertiary label are included. The 100-mile radius is strict.
 
 - Distance, 0–40: `40 × (1 − distance_miles/100)`.
-- Specialty, 0–40: interim exact-code rule. Each selected symptom has weight 1/2/3 for Low/Medium/High; a facility gets full credit for the first mapped specialty, 75% for another mapped specialty, and zero otherwise. The weighted mean is multiplied by 40. Replace `specialty_points()` in `ranking.py` with the teammate's model while preserving the 0–40 output.
+- Specialty, 0–40: interim exact-code rule. Each selected symptom has weight 1/2/3 for Low/Medium/High; a facility gets full credit for the first mapped specialty, 75% for another mapped specialty, and zero otherwise.
 - Level, 0–20: based on the maximum reported severity:
 
 | Maximum severity | Primary | Secondary | Tertiary |
